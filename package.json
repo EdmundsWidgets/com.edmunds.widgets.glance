@@ -1,0 +1,9 @@
+{
+  "name": "com.edmunds.widgets.glance",
+  "version": "0.0.1",
+  "description": "Edmunds at a Glance Widget",
+  "private": true,
+  "scripts": {
+    "install": "bower install"
+  }
+}
