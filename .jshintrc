@@ -12,7 +12,6 @@
   "unused": true,
   "maxparams": 3,
   "maxdepth": 2,
-
   "browser": true,
   "devel": false,
   "onevar": true
