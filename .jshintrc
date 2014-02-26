@@ -1,0 +1,19 @@
+{
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 4,
+  "latedef": true,
+  "newcap": true,
+  "nonew": true,
+  "quotmark": "single",
+  "undef": true,
+  "unused": true,
+  "maxparams": 3,
+  "maxdepth": 2,
+
+  "browser": true,
+  "devel": false,
+  "onevar": true
+}
