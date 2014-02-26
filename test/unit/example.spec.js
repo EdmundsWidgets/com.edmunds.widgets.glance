@@ -1,5 +1,5 @@
 define([
-    'utils'
+    'example' // src/example.js
 ], function(utils) {
 
     describe('utils', function() {
