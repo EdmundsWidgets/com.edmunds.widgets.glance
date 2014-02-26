@@ -8,8 +8,6 @@
   "newcap": true,
   "nonew": true,
   "quotmark": "single",
-  "undef": true,
-  "unused": true,
   "maxparams": 3,
   "maxdepth": 2,
   "browser": true,
