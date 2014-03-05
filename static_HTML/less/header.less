@@ -1,0 +1,76 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.widget{
+  background: #fff;
+  margin: 0 auto;
+}
+.header{
+  .clearfix();
+  background: @header-background;
+  position: relative;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  .title{
+    color: @header-title-color;
+    font: @header-title-font;
+    text-transform: uppercase;
+    padding: 15px 20px 8px;
+  }
+  .tabs{
+    .clearfix();
+    float: left;
+    .active{
+      background: url(../img/tab_button_center_hover.png) repeat-x;
+      cursor: pointer;
+      color: #fff;
+      &:before{
+        background: url(../img/tab_button_left_hover.png) no-repeat;
+      }
+      &:after{
+        background: url(../img/tab_button_right_hover.png) no-repeat;
+      }
+    }
+    div{
+      height: 26px;
+      padding: 0 5px;
+      margin-left: 14px;
+      float: right;
+      position: relative;
+      background: url(../img/tab_button_center.png) repeat-x;
+      font: 11px/26px Arial, Helvetica, sans-serif;
+      color: #444;
+      &:hover{
+        background: url(../img/tab_button_center_hover.png) repeat-x;
+        cursor: pointer;
+        color: #fff;
+      }
+      &:before{
+        content: "";
+        position: absolute;
+        height: 26px;
+        width: 6px;
+        background: url(../img/tab_button_left.png) no-repeat;
+        top: 0;
+        left: -6px;
+      }
+      &:hover:before{
+        background: url(../img/tab_button_left_hover.png) no-repeat;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        height: 26px;
+        width: 17px;
+        background: url(../img/tab_button_right.png) no-repeat;
+        top: 0;
+        right: -17px;
+      }
+      &:hover:after{
+        background: url(../img/tab_button_right_hover.png) no-repeat;
+      }
+    }
+  }
+}
