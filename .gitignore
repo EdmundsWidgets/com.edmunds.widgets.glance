@@ -11,6 +11,7 @@ Thumbs.db
 .project
 .settings/
 .idea/
+atlassian-ide-plugin.xml
 
 ### Node
 node_modules/
