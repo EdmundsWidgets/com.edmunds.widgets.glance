@@ -14,11 +14,27 @@
   }
   &.small{
     .border-radius(3px);
+    color: @grade-active-color;
     font-size: 10px;
     height: @grade-small-size;
     line-height: @grade-small-size;
     margin: 4px 10px;
     width: @grade-small-size;
+    &.excellent{
+      background: @grade-excellent-background;
+    }
+    &.good{
+      background: @grade-good-background;
+    }
+    &.fair{
+      background: @grade-fair-background;
+    }
+    &.poor{
+      background: @grade-poor-background;
+    }
+    &.bad{
+      background: @grade-bad-background;
+    }
   }
   &.excellent.active{
     background: @grade-excellent-background;
