@@ -1,42 +1,42 @@
 .letter-grade{
-  height: @grade-big-size;
-  width: @grade-big-size;
-  .border-radius(4px);
-  font: bold 24px/@grade-big-size @base-font-family;
-  text-transform: uppercase;
-  text-align: center;
   background: @grade-primary-background;
+  .border-radius(3px);
   color: @grade-primary-color;
   float: left;
+  font: bold 24px/@grade-big-size @base-font-family;
+  height: @grade-big-size;
   margin-left: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  width: @grade-big-size;
   &:first-child{
     margin-left: 0;
   }
   &.small{
-    height: @grade-small-size;
-    width: @grade-small-size;
     .border-radius(3px);
     font-size: 10px;
+    height: @grade-small-size;
     line-height: @grade-small-size;
-    margin: 4px 10px 4px;
+    margin: 4px 10px;
+    width: @grade-small-size;
   }
-  &.excellent{
+  &.excellent.active{
     background: @grade-excellent-background;
     color: @grade-active-color;
   }
-  &.good{
+  &.good.active{
     background: @grade-good-background;
     color: @grade-active-color;
   }
-  &.fair{
+  &.fair.active{
     background: @grade-fair-background;
     color: @grade-active-color;
   }
-  &.poor{
+  &.poor.active{
     background: @grade-poor-background;
     color: @grade-active-color;
   }
-  &.bad{
+  &.bad.active{
     background: @grade-bad-background;
     color: @grade-active-color;
   }
