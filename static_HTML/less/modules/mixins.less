@@ -1,7 +1,12 @@
-.border-radius(@radius) {
+.border-radius(@radius: 5px) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
   border-radius: @radius;
+}
+
+.box-shadow(@shadow: 0 1px 3px rgba(0, 0, 0, .15)) {
+  -webkit-box-shadow: @shadow;
+  box-shadow: @shadow;
 }
 
 .clearfix() {
