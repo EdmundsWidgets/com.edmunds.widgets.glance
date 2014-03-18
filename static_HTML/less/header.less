@@ -17,69 +17,69 @@ header{
     font: @header-title-font;
     margin: 10px 0;
   }
-}
-.nav > li,
-.nav > li + li{
-  margin-left: 13px;
-}
-.nav > li > a{
-  height: 26px;
-  padding: 0 3px;
-  background: url(../img/tab_button_center.png) repeat-x;
-  font: 11px/26px Arial, Helvetica, sans-serif;
-  color: #444;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  &:hover{
+  .nav > li,
+  .nav > li + li{
+    margin-left: 13px;
+  }
+  .nav > li > a{
+    height: 26px;
+    padding: 0 3px;
+    background: url(../img/tab_button_center.png) repeat-x;
+    font: 11px/26px Arial, Helvetica, sans-serif;
+    color: #444;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    &:hover{
+      background: url(../img/tab_button_center_hover.png) repeat-x;
+      color: #fff;
+      z-index: 4;
+    }
+    &:focus{
+      background-color: transparent;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      height: 26px;
+      width: 6px;
+      background: url(../img/tab_button_left.png) no-repeat;
+      top: 0;
+      left: -6px;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      height: 26px;
+      width: 17px;
+      background: url(../img/tab_button_right.png) no-repeat;
+      top: 0;
+      right: -17px;
+    }
+    &:hover:before{
+      background: url(../img/tab_button_left_hover.png) no-repeat;
+    }
+    &:hover:after{
+      background: url(../img/tab_button_right_hover.png) no-repeat;
+    }
+  }
+  .nav .open > a,
+  .nav .open > a:hover,
+  .nav .open > a:focus,
+  .nav-pills > li.active > a,
+  .nav-pills > li.active > a:hover,
+  .nav-pills > li.active > a:focus{
     background: url(../img/tab_button_center_hover.png) repeat-x;
     color: #fff;
-    z-index: 4;
   }
-  &:focus{
-    background-color: transparent;
-  }
-  &:before{
-    content: "";
-    position: absolute;
-    height: 26px;
-    width: 6px;
-    background: url(../img/tab_button_left.png) no-repeat;
-    top: 0;
-    left: -6px;
-  }
-  &:after{
-    content: "";
-    position: absolute;
-    height: 26px;
-    width: 17px;
-    background: url(../img/tab_button_right.png) no-repeat;
-    top: 0;
-    right: -17px;
-  }
-  &:hover:before{
-    background: url(../img/tab_button_left_hover.png) no-repeat;
-  }
-  &:hover:after{
-    background: url(../img/tab_button_right_hover.png) no-repeat;
-  }
-}
-.nav .open > a,
-.nav .open > a:hover,
-.nav .open > a:focus,
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus{
-  background: url(../img/tab_button_center_hover.png) repeat-x;
-  color: #fff;
-}
-.nav .open > a,
-.nav-pills > li.active > a{
-  z-index: 2;
-  &:before{
-    background: url(../img/tab_button_left_hover.png) no-repeat;
-  }
-  &:after{
-    background: url(../img/tab_button_right_hover.png) no-repeat;
+  .nav .open > a,
+  .nav-pills > li.active > a{
+    z-index: 2;
+    &:before{
+      background: url(../img/tab_button_left_hover.png) no-repeat;
+    }
+    &:after{
+      background: url(../img/tab_button_right_hover.png) no-repeat;
+    }
   }
 }
