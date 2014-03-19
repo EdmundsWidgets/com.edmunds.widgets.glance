@@ -36,7 +36,8 @@
   .content{
     padding: 10px 0;
     .list-photos{
-      margin-right: -10px;
+      width: 228px;
+      margin: 0 auto;
       ul{
         list-style: none;
         padding: 0;
@@ -55,7 +56,18 @@
       }
     }
     .slider-wrapper{
+      width: 448px;
+      margin: 0 auto;
+      @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        width: 678px;
+        margin: 0 auto;
+        .clearfix;
+      }
       .slider-viewport{
+        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+          float: left;
+          width: 500px;
+        }
         img{
           width: 100%;
         }
@@ -65,6 +77,11 @@
         overflow: hidden;
         width: 100%;
         margin: 20px 0;
+        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+          float: left;
+          width: 152px;
+          margin: 0 5px 0 21px;
+        }
         .nav-left{
           background: url(../img/nav-left.png) no-repeat;
           width: 37px;
@@ -85,17 +102,45 @@
           margin-top: -16px;
           cursor: pointer;
         }
+        .nav-top{
+          background: url(../img/nav-top.png) no-repeat;
+          width: 33px;
+          height: 37px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -16px;
+          cursor: pointer;
+        }
+        .nav-bottom{
+          background: url(../img/nav-bottom.png) no-repeat;
+          width: 33px;
+          height: 37px;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          margin-left: -16px;
+          cursor: pointer;
+        }
         ul{
           list-style: none;
           padding: 0;
           width: 100%;
+          margin: 0;
           .clearfix;
           li{
             float: left;
             width: 32%;
             margin-left: 2%;
+            @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+              float: none;
+              margin-left: 0;
+              margin-top: 15px;
+              width: 100%;
+            }
             &:first-child{
               margin-left: 0;
+              margin-top: 0;
             }
             img{
               width: 100%;
