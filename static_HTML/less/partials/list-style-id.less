@@ -3,19 +3,27 @@
     .border-radius(4px);
     background: transparent;
     border: 1px solid transparent;
+    color: @base-font-color-dark;
+    padding: 2px 8px;
+    margin: 5px 5px 5px -5px;
     &:hover,
     &:focus,
     &:active{
       #gradient > .vertical-three-colors(#fff; #dbdbdb; 85%; #efefef);
+      .box-shadow;
       border-color: #999;
     }
     .arrow-down{
       display: inline-block;
-      margin-left: 2px;
+      margin-left: 10px;
       vertical-align: middle;
+      border-right-width: 4px;
+      border-left-width: 4px;
+      border-top-width: 7px;
     }
   }
 }
+
 
 /*.btn.list-of-cars{
   background: transparent;
