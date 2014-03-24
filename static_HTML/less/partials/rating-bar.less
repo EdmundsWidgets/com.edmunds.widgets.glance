@@ -1,0 +1,86 @@
+.rating-bar{
+  background: #e5e5e5;
+  color: #fff;
+  font-size: 11px;
+  line-height: 17px;
+  .rating-container{
+    background: @brand-primary;
+    .clearfix;
+    .test-drive-date{
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+      border-left: 1px solid #4dc1ff;
+    }
+    .rating{
+      padding-top: 10px;
+      margin-right: 75px;
+      .clearfix;
+      .edmunds-rating{
+        margin-left: 45px;
+        .text-grade{
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+      .edmunds-grade-separator{
+        margin: 0 140px 0 100px;
+        height: 35px;
+        line-height: 35px;
+        overflow: hidden;
+        text-align: center;
+        span{
+          display: inline-block;
+          position: relative;
+          &:before,
+          &:after{
+            content: " ";
+            border-bottom: 1px solid #fff;
+            height: 0;
+            position: absolute;
+            top: 50%;
+            width: 600px;
+          }
+          &:before{
+            right: 100%;
+            margin-right: 5px;
+          }
+          &:after{
+            left: 100%;
+            margin-left: 5px;
+          }
+        }
+      }
+      .right-side{
+        float: right;
+        .thumbs-down{
+          background: url(../../img/thumbs-down.png) no-repeat;
+          width: 13px;
+          height: 15px;
+          float: left;
+          margin: 12px 0 0 0;
+        }
+      }
+      .left-side{
+        float: left;
+        .thumbs-up{
+          background: url(../../img/thumbs-up.png) no-repeat;
+          width: 13px;
+          height: 15px;
+          float: left;
+          margin: 7px 0 0 5px;
+        }
+      }
+    }
+  }
+  .vehicle-info-container{
+    color: #555;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  p{
+    margin: 0;
+  }
+}
