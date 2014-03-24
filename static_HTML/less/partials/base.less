@@ -1,0 +1,27 @@
+.edm-widget{
+  background: @base-background-color;
+  border: 1px solid #aaa;
+  .border-radius(3px);
+  color: @base-font-color;
+  min-width: @screen-xs;
+  overflow: hidden; // It was made to crop the header background. If it causes any bugs in the future, it should be deleted.
+  p{
+    margin: 0;
+  }
+}
+
+.btn-primary-dark{
+  background: @brand-primary-dark;
+  border: none;
+  margin-top: 25px;
+  .border-radius(5px);
+  &:hover{
+    background: darken(@brand-primary-dark, 3%);
+  }
+}
+
+h4{
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 0;
+}

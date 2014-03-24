@@ -1,3 +1,19 @@
-.rating-bar{
-  background: #00a8fe;
+.content{
+  padding-bottom: 10px;
+  padding-top: 10px;
+  .rating-summary{
+    color: lighten(@base-font-color, 6%);
+    line-height: 1.6;
+    h4{
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.rating-tab{
+  .rating-summary{
+    height: 125px;
+    margin-right: -10px;
+    overflow-y: auto;
+  }
 }

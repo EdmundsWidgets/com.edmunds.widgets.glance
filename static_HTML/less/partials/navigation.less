@@ -1,0 +1,83 @@
+.edm-navigation{
+  & > li + li{
+    margin-left: 12px;
+  }
+  & > li{
+    margin-left: 12px;
+    & > a{
+      .border-radius(0);
+      background: url(../img/tab_button_center.png) repeat-x;
+      color: @base-font-color;
+      font-size: 11px;
+      height: 26px;
+      line-height: 26px;
+      outline: none;
+      padding: 0 3px;
+      &:focus{
+        background-color: transparent;
+      }
+      &:before,
+      &:after{
+        content: " ";
+        position: absolute;
+        height: 26px;
+        background: url(../img/tab_button_left.png) no-repeat;
+        top: 0;
+      }
+      &:before{
+        left: -6px;
+        width: 6px;
+      }
+      &:after{
+        background: url(../img/tab_button_right.png) no-repeat;
+        right: -17px;
+        width: 17px;
+        z-index: 2;
+      }
+      &:hover{
+        background: url(../img/tab_button_center_hover.png) repeat-x;
+        color: #fff;
+      }
+      &:hover:before{
+        background: url(../img/tab_button_left_hover.png) no-repeat;
+      }
+      &:hover:after{
+        background: url(../img/tab_button_right_hover.png) no-repeat;
+      }
+    }
+    &.open > a,
+    &.open > a:hover,
+    &.open > a:focus,
+    &.active > a,
+    &.active > a:hover,
+    &.active > a:focus{
+      background: url(../img/tab_button_center_hover.png) repeat-x;
+      color: #fff;
+    }
+    &.open > a,
+    &.active > a{
+      &:before{
+        background: url(../img/tab_button_left_hover.png) no-repeat;
+      }
+      &:after{
+        background: url(../img/tab_button_right_hover.png) no-repeat;
+      }
+    }
+  }
+  .arrow-down{
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+    border-top-color: lighten(@base-font-color, 6.5%);
+  }
+  .dropdown-menu{
+    font-size: 11px;
+    left: -70px;
+    width: 140px;
+    li{
+      a{
+        padding-left: 25px;
+      }
+    }
+  }
+}
