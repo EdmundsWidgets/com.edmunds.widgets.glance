@@ -10,6 +10,15 @@
   }
 }
 
+.btn-primary-dark{
+  background: @brand-primary-dark;
+  border: none;
+  margin-top: 25px;
+  &:hover{
+    background: darken(@brand-primary-dark, 3%);
+  }
+}
+
 
 
 
@@ -66,77 +75,4 @@ h4{
   font-weight: bold;
   font-size: 12px;
   margin-bottom: 0;
-}
-
-hr{
-  margin: 0 10px;
-}
-
-.rating-title{
-  .close-button{
-    background: url("../img/icon-close.png") no-repeat;
-    width: 16px;
-    height: 16px;
-    float: right;
-    cursor: pointer;
-    margin: 5px 10px 0 0;
-  }
-  .arrow-right{
-    display: inline-block;
-    width: 0;
-    height: 0;
-    vertical-align: middle;
-    border-left: 5px solid;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    color: #00a6e4;
-    float: right;
-    margin: 7px 10px 6px 10px;
-  }
-  .category{
-    float: left;
-    color: #333333;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 23px;
-  }
-  .text-grade{
-    color: #999999;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    float: left;
-    width: 60px;
-    text-align: right;
-    line-height: 23px;
-  }
-}
-
-.rating-tab{
-  .content{
-    .description{
-      color: #444;
-      font-size: 12px;
-      padding: 10px;
-    }
-  }
-}
-.edmunds-rating-strips{
-  padding: 10px;
-  p{
-    margin: 10px 0;
-    font-size: 11px;
-    color: #444;
-  }
-  .strip{
-    background: #000;
-    display: inline-block;
-    background: url(../img/strip_excellent.png) no-repeat;
-    width: 87px;
-    height: 7px;
-    margin: 0 7px;
-    &.good{
-      background: url(../img/strip_good.png) no-repeat;
-    }
-  }
 }

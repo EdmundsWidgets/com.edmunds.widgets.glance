@@ -1,0 +1,45 @@
+.rating-details{
+  .rating-title{
+    line-height: 20px;
+    .close-button{
+      background: url("../img/icon-close.png") no-repeat;
+      width: 16px;
+      height: 16px;
+      float: right;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .category{
+      color: @base-font-color-dark;
+      float: left;
+      font-weight: bold;
+    }
+    .text-grade{
+      color: @base-font-color-light;
+      float: left;
+      margin-left: 15px;
+    }
+  }
+  .description{
+    padding: 10px 18px;
+  }
+  hr{
+    margin: 0 10px;
+  }
+  .edmunds-rating-strips{
+    p{
+      margin: 5px 0;
+      font-size: 11px;
+    }
+    .strip{
+      display: inline-block;
+      background: url(../img/strip_excellent.png) no-repeat;
+      width: 87px;
+      height: 7px;
+      margin: 0 7px;
+      &.good{
+        background: url(../img/strip_good.png) no-repeat;
+      }
+    }
+  }
+}
