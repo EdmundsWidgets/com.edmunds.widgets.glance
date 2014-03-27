@@ -1,4 +1,4 @@
-var Style = Backbone.Model.extend({
+var StyleId = Backbone.Model.extend({
     defaults: {
         styleId: 'N/A'
     }

@@ -10,7 +10,7 @@ var WidgetView = Backbone.View.extend({
         '2.0L 4-cyl. FWD 5-speed Automatic <span class="arrow-down"></span>' +
         '</button>' +
         '<ul class="dropdown-menu list" role="menu">' +
-//        '<% _.each(this.styles, function(id) { %> <li><%= id %></li> <% }); %>' +
+        '<% _.each(this.styleIds, function(id) { %> <li><%= id %></li> <% }); %>' +
         '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
         '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
         '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
@@ -41,20 +41,30 @@ var WidgetView = Backbone.View.extend({
 
     initialize: function() {
 
-        this.list = $('.list');
+
+
+        this.styleIds = new StyleIds();
+
+        this.listenTo(this.styleIds, 'all', this.render);
+
+        this.styleIds.fetch();
+
+        /*this.list = $('.list');
 
         this.listenTo(this.model, 'reset', function(){
             console.log(123)
         })
 
-        this.listenTo(styles, 'all', this.render);
+        this.listenTo(styles, 'all', this.render);*/
 
     },
 
 
     render: function() {
 
-        this.$el.html(this.template);
+        var tpl = this.template;
+
+        this.$el.html(tpl(this.styleIds.toJSON()));
 
         return this;
     }
