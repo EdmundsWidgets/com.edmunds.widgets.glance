@@ -29,7 +29,7 @@ define([
 
         render: function() {
             this.$el.append(headerTemplate);
-//            this.$el.append(this.stylesView.el);
+            $('.list-style-id').append(this.stylesView.el);
 //            this.$el.append(this.gradeView.el);
             return this;
         },
