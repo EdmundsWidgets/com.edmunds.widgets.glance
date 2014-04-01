@@ -2,7 +2,7 @@ define([
     'view/vehicle/styles',
     'view/vehicle/grade',
     'template/vehicle/header',
-    'view/vehicle/rating'
+    'view/vehicle/rating-bar'
 ], function(StylesView, GradeView, headerTemplate, RatingBarView) {
 
     return Backbone.View.extend({
@@ -46,6 +46,7 @@ define([
         onVehicleStyleChange: function(/*style*/) {
             var styleId = 200434856; // style.get('id');
             this.gradeView.trigger('setStyleId', styleId);
+            this.ratingBarView.trigger('setStyleId', styleId);
         }
 
     });
