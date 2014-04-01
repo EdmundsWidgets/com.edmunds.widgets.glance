@@ -1,14 +1,8 @@
-define(['template/vehicle/grade-rating-title'], function(ratingTitleTemplate) {
+define(['template/vehicle/rating-selector'], function(ratingSelector) {
 
     return Backbone.View.extend({
 
-        className: 'emd-vehicle-ratings',
-
-        template: ratingTitleTemplate,
-
-        initialize: function() {
-
-        },
+        template: ratingSelector,
 
         render: function() {
             this.$el.empty();

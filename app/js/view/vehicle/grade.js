@@ -1,7 +1,7 @@
 define([
     'model/vehicle/grade',
-    'view/vehicle/ratings'
-], function(GradeModel, RatingsView) {
+    'view/vehicle/rating-selector'
+], function(GradeModel, RatingSelectorView) {
 
     var viewOptions = ['apiKey'];
 
@@ -10,9 +10,17 @@ define([
 
         className: 'content container-fluid',
 
-        template: _.template('<div class="row"></div>'),
-
-        itemTemplate: '',
+        template: _.template('' +
+            '<div class="row">' +
+            '<div class="rating-selectors-container"></div>' +
+            '<div class="col-xs-12">' +
+            '<div class="rating-summary">' +
+            '<h4>Rating summary</h4>' +
+            '<p></p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+        ''),
 
         model: new GradeModel(),
 
@@ -24,12 +32,12 @@ define([
 
         render: function() {
             this.$el.html(this.template);
-            this.$('.emd-vehicle-grade-summary').text(this.model.get('summary'));
-            this.ratingsView = new RatingsView({
-                el: this.$('.edm-vehicle-ratings'),
+            this.$('p').text(this.model.get('summary'));
+            this.ratingSelectorView = new RatingSelectorView({
+                el: this.$('.rating-selectors-container'),
                 collection: this.model.get('ratings')
             });
-            this.ratingsView.render();
+            this.ratingSelectorView.render();
             return this;
         },
 
