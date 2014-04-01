@@ -4,6 +4,14 @@ define(['template/vehicle/rating-selector'], function(ratingSelector) {
 
         template: ratingSelector,
 
+        events: {
+            'click .rating-selector': 'clicked'
+        },
+
+        clicked: function(e) {
+            console.log($(this).data('id'))
+        },
+
         render: function() {
             this.$el.empty();
             this.collection.each(this.add, this);

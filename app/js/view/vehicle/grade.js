@@ -1,7 +1,8 @@
 define([
     'model/vehicle/grade',
+    'collection/vehicle/ratings',
     'view/vehicle/rating-selector'
-], function(GradeModel, RatingSelectorView) {
+], function(GradeModel, RatingCollection, RatingSelectorView) {
 
     var viewOptions = ['apiKey'];
 
