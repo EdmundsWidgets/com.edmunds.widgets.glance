@@ -33,5 +33,6 @@ define(function() {
         '<p>Vehicle Tested: <%= make.name %> <%= model.name %> <%= year.year %> <%= style["submodel"].body %> <%= style.name %></p>' +
         '</div>' +
         '</div>' +
-    '</div>');
+        '</div>' +
+    '');
 });

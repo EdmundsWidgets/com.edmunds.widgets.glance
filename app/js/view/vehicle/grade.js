@@ -6,13 +6,13 @@ define([
     var viewOptions = ['apiKey'];
 
     return Backbone.View.extend({
+        tagName: 'section',
 
-        className: 'emd-vehicle-grade',
+        className: 'content container-fluid',
 
-        template: [
-            '<div class="edm-vehicle-ratings"></div>',
-            '<div class="emd-vehicle-grade-summary"></div>'
-        ].join(''),
+        template: _.template('<div class="row"></div>'),
+
+        itemTemplate: '',
 
         model: new GradeModel(),
 
