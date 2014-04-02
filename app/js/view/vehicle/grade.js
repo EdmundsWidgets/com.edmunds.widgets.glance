@@ -1,6 +1,6 @@
 define([
     'model/vehicle/grade',
-    'collection/vehicle/ratings',
+    '../../collection/vehicle/rating',
     'view/vehicle/rating-selector'
 ], function(GradeModel, RatingCollection, RatingSelectorView) {
 
