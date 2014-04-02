@@ -15,7 +15,7 @@ define(['model/vehicle/grade', 'template/vehicle/rating-bar'], function(GradeMod
                 data: {
                     api_key: 'axr2rtmnj63qsth3ume3tv5f'
                 }
-            })
+            });
         },
 
         render: function() {
