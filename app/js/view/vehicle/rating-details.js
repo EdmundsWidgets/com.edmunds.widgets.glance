@@ -1,7 +1,6 @@
 define([
-    'template/vehicle/rating-details',
-    'view/vehicle/rating-selector'
-], function(ratingDetailsTemplate, RatingSelectorView) {
+    'template/vehicle/rating-details'
+], function(ratingDetailsTemplate) {
 
     return Backbone.View.extend({
         template: ratingDetailsTemplate,
