@@ -4,7 +4,7 @@ define([
 
     return Backbone.Collection.extend({
 
-//        model: new RatingModel(),
+        model: RatingModel,
 
         comparator: function(model) {
             return model.get('title');

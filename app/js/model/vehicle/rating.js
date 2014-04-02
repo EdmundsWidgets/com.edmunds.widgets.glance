@@ -1,5 +1,10 @@
 define(function() {
     return Backbone.Model.extend({
-        idAttribute: 'title'
+        initialize: function(options) {
+            this.parse(options)
+        },
+        parse: function(response) {
+            this.attributes.id = response.title.toLowerCase().replace(/ /g,"-");
+        }
     });
 });
