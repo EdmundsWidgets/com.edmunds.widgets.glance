@@ -13,27 +13,32 @@ define(['collection/vehicle/ratings'], function(RatingsCollection) {
                 case 'a':
                     return {
                         grade: 'a',
-                        textGrade: 'excellent'
+                        textGrade: 'Excellent!',
+                        gradeClass: 'excellent'
                     };
                 case 'b':
                     return {
                         grade: 'b',
-                        textGrade: 'good'
+                        textGrade: 'Good',
+                        gradeClass: 'good'
                     };
                 case 'c':
                     return {
                         grade: 'c',
-                        textGrade: 'fair'
+                        textGrade: 'Fair',
+                        gradeClass: 'fair'
                     };
                 case 'd':
                     return {
                         grade: 'd',
-                        textGrade: 'poor :('
+                        textGrade: 'Poor',
+                        gradeClass: 'poor'
                     };
                 case 'e':
                     return {
                         grade: 'e',
-                        textGrade: 'bad :\'('
+                        textGrade: 'Bad',
+                        gradeClass: 'bad'
                     }
                 default:
                     return 'N/A';
