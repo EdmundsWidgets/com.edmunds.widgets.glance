@@ -4,7 +4,7 @@ define(function() {
             this.parse(options)
         },
         parse: function(response) {
-            this.attributes.id = response.title.toLowerCase().replace(/ /g,"-");
+            this.attributes.id = response.title.toLowerCase().replace(/\s+/g,"-");
         }
     });
 });
