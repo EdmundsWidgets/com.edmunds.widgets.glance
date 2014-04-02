@@ -14,7 +14,7 @@ define(function() {
         '<div class="letter-grade hidden-xs poor">d</div>' +
         '<div class="letter-grade hidden-xs bad">e</div>' +
         '</div> <div class="left-side clearfix">' +
-        '<div class="letter-grade active excellent visible-xs"><%= grade.grade %></div>' +
+        '<div class="letter-grade active <%= grade.gradeClass %> visible-xs"><%= grade.grade %></div>' +
         '<div class="letter-grade hidden-xs excellent">a</div>' +
         '<div class="letter-grade hidden-xs good">b</div>' +
         '<div class="thumbs-up hidden-xs"></div>' +
