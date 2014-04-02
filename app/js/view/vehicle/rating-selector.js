@@ -12,18 +12,21 @@ define([
         },
 
         initialize: function() {
-            this.contentContainer = $('.content');
+            this.contentContainer = $('.rating-details-container');
         },
 
         renderDetails: function(e) {
-            e.preventDefault();
             var id = $(e.currentTarget).data('id');
             this.ratingDetailsView = new RatingDetailsView({
                 el: this.contentContainer,
                 model: this.collection.get(id)
             });
-            this.ratingDetailsView.on('close', this.render);
+            this.ratingDetailsView.on('close', this.show, this);
             this.ratingDetailsView.render();
+        },
+
+        show: function() {
+            $('.rating-selectors-container').show();
         },
 
         render: function() {
