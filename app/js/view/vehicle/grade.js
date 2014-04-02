@@ -13,11 +13,14 @@ define([
 
         template: _.template('' +
             '<div class="row">' +
-            '<div class="rating-selectors-container"></div>' +
+            '<div class="rating-details-container"></div>' +
+            '<div class="rating-selectors-container">' +
+            '<div class="rating-selectors"></div>' +
             '<div class="col-xs-12">' +
             '<div class="rating-summary">' +
             '<h4>Rating summary</h4>' +
             '<p></p>' +
+            '</div>' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -35,7 +38,7 @@ define([
             this.$el.html(this.template);
             this.$('p').text(this.model.get('summary'));
             this.ratingSelectorView = new RatingSelectorView({
-                el: this.$('.rating-selectors-container'),
+                el: this.$('.rating-selectors'),
                 collection: this.model.get('ratings')
             });
             this.ratingSelectorView.render();
