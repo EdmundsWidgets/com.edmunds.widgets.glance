@@ -1,7 +1,8 @@
 define([
     'model/vehicle/grade',
+    'view/vehicle/grade',
     'template/vehicle/rating-bar'
-], function(GradeModel, ratingBarTemplate){
+], function(GradeModel, GradeView, ratingBarTemplate){
     var viewOptions = ['apiKey'];
     return Backbone.View.extend({
         className: 'rating-bar',
@@ -12,6 +13,13 @@ define([
             _.extend(this, _.pick(options, viewOptions));
             this.listenTo(this.model, 'change', this.render);
             this.on('setStyleId', this.load);
+            this.initializeGradeView();
+        },
+
+        initializeGradeView: function() {
+            this.gradeView = new GradeView({
+                model: this.model
+            });
         },
 
         load: function(styleId) {
@@ -25,6 +33,7 @@ define([
 
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
+            this.$el.after(this.gradeView.el);
         }
     });
 });
