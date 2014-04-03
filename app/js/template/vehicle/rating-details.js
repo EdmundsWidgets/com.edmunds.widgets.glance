@@ -2,14 +2,13 @@ define(function() {
     return _.template('' +
         '<div class="rating-details">' +
         '<div class="rating-title col-xs-12">' +
-        '<div class="letter-grade small excellent">a</div>' +
-        '<div class="category">Comfort</div>' +
-        '<div class="text-grade">Excellent</div>' +
+        '<div class="letter-grade small <%= grade.gradeClass %>"><%= grade.grade %></div>' +
+        '<div class="category"><%= title %></div>' +
+        '<div class="text-grade"><%= grade.textGrade %></div>' +
         '<div class="close-button"></div>' +
         '</div>' +
         '<hr class="col-sm-12"/>' +
-        '<!--note: Delete this porn later-->' +
-        '<p class="description">It\'s when you begin to look at what else is available for around 026K that the ILX really shines. Its generous standard equipment and competitive fuel economy (not to mention good looks) should give it some traction in the market.</p>' +
+        '<p class="description"><%= summary %></p>' +
         '<div class="edmunds-rating-strips">' +
         '<div class="col-xs-12 col-sm-6 col-md-4">' +
         '<p>A<span class="strip"></span>Build Quality (vs. $)</p>' +
