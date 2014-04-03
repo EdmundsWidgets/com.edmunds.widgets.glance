@@ -1,9 +1,9 @@
 define([
     'view/vehicle/styles',
     'view/vehicle/grade',
-    'template/vehicle/header',
-    'view/vehicle/rating-bar'
-], function(StylesView, GradeView, headerTemplate, RatingBarView) {
+    'view/vehicle/rating-bar',
+    'template/vehicle/header'
+], function(StylesView, GradeView, RatingBarView, headerTemplate) {
 
     return Backbone.View.extend({
 
@@ -38,7 +38,7 @@ define([
         render: function() {
             this.$el.append(headerTemplate);
             this.$el.append(this.ratingBarView.el);
-            $('.list-style-id').append(this.stylesView.el);
+            this.$('.list-style-id').append(this.stylesView.el);
             this.$el.append(this.gradeView.el);
             return this;
         },
