@@ -1,4 +1,20 @@
-define(['collection/vehicle/ratings'], function(RatingsCollection) {
+define([
+    'collections/vehicle/rating'
+], function(RatingCollection) {
+    return Backbone.Model.extend({
+        url: function(styleId) {
+            return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
+        },
+        parse: function(response) {
+            this.ratings = new RatingCollection(response.ratings, {
+                parse: true
+            });
+        }
+    });
+});
+
+
+/*define(['collection/vehicle/ratings'], function(RatingsCollection) {
     return Backbone.Model.extend({
         url: function(styleId) {
             return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
@@ -45,4 +61,4 @@ define(['collection/vehicle/ratings'], function(RatingsCollection) {
             }
         }
     });
-});
+});*/
