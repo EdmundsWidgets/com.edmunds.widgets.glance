@@ -11,7 +11,7 @@ define([
 
         initialize: function(options) {
             this.initializeStylesView(options);
-            this.initializeGradeView(options);
+//            this.initializeGradeView(options);
             this.initializeRatingBarView(options);
         },
 
@@ -23,11 +23,11 @@ define([
             this.listenTo(this.stylesView, 'change', this.onVehicleStyleChange);
         },
 
-        initializeGradeView: function(options) {
+        /*initializeGradeView: function(options) { note: Delete this later
             this.gradeView = new GradeView({
                 apiKey: options.apiKey
             });
-        },
+        },*/
 
         initializeRatingBarView: function(options) {
             this.ratingBarView = new RatingBarView({
@@ -39,13 +39,13 @@ define([
             this.$el.append(headerTemplate);
             this.$el.append(this.ratingBarView.el);
             this.$('.list-style-id').append(this.stylesView.el);
-            this.$el.append(this.gradeView.el);
+//            this.$el.append(this.gradeView.el);
             return this;
         },
 
         onVehicleStyleChange: function(/*style*/) {
             var styleId = 200434856; // style.get('id');
-            this.gradeView.trigger('setStyleId', styleId);
+//            this.gradeView.trigger('setStyleId', styleId);
             this.ratingBarView.trigger('setStyleId', styleId);
         }
 
