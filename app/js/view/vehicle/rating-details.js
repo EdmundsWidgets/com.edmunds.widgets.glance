@@ -12,7 +12,7 @@ define([
         },
         render: function() {
             this.$el.show();
-            this.$el.html(this.template(this.model));
+            this.$el.html(this.template(this.model.toJSON()));
         },
         close: function() {
             this.$el.hide();
