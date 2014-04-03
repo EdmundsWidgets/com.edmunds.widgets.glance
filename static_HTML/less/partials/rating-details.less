@@ -27,18 +27,38 @@
     margin: 0 10px;
   }
   .edmunds-rating-strips{
-    p{
+    font-size: 11px;
+    & > div{
       margin: 5px 0;
-      font-size: 11px;
     }
-    .strip{
-      display: inline-block;
-      background: url(../img/strip_excellent.png) no-repeat;
-      width: 87px;
+    .grade{
+      float: left;
+      margin-right: 10px;
+      text-transform: uppercase;
+    }
+    .strip-container{
+      background: #ddd;
+      float: left;
       height: 7px;
-      margin: 0 7px;
-      &.good{
-        background: url(../img/strip_good.png) no-repeat;
+      margin: 3px 10px 0 0;
+      width: 80px;
+      .strip{
+        height: 7px;
+      }
+      .excellent{
+        background: @grade-excellent-background;
+      }
+      .good{
+        background: @grade-good-background;
+      }
+      .fair{
+        background: @grade-fair-background;
+      }
+      .poor{
+        background: @grade-poor-background;
+      }
+      .bad{
+        background: @grade-bad-background;
       }
     }
   }
