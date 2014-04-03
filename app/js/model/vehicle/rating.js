@@ -1,10 +1,9 @@
 define(function() {
     return Backbone.Model.extend({
-        initialize: function(options) {
-            this.parse(options)
-        },
         parse: function(response) {
-            this.attributes.id = response.title.toLowerCase().replace(/\s+/g,"-");
+            var id = response.title.toLowerCase().replace(/\s+/g, '-');
+            this.set('id', id);
+            return response
         }
     });
 });
