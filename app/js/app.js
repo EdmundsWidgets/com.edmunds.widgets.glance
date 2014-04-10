@@ -2,13 +2,18 @@ define([
     'view/vehicle/styles',
     'view/vehicle/grade',
     'view/vehicle/rating-bar',
+    'view/vehicle/edmunds-says',
     'template/vehicle/header',
     'template/vehicle/footer'
-], function(StylesView, GradeView, RatingBarView, headerTemplate, footerTemplate) {
+], function(StylesView, GradeView, RatingBarView, EdmundsSaysView, headerTemplate, footerTemplate) {
 
     return Backbone.View.extend({
 
         className: 'edm-widget rating-tab',
+
+        events: {
+            'click .edm-navigation a[data-id="edmunds-says"]': 'edmundsSays'
+        },
 
         initialize: function(options) {
             this.initializeStylesView(options);
@@ -49,6 +54,15 @@ define([
             var styleId = 200434856; // style.get('id');
 //            this.gradeView.trigger('setStyleId', styleId);
             this.ratingBarView.trigger('setStyleId', styleId);
+        },
+
+        edmundsSays: function(e) {
+            e.preventDefault();
+            this.$('.edm-navigation li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.edmundsSaysView = new EdmundsSaysView({
+                el: '.content'
+            });
         }
 
     });
