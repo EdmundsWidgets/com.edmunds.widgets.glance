@@ -14,7 +14,7 @@ define(function(){
         '<div class="row">' +
         '<ul class="nav nav-pills edm-navigation">' +
         '<li class="active">' +
-        '<a href="#">Ratings</a>' +
+        '<a href="#" data-id="rating">Ratings</a>' +
         '</li>' +
         '<li>' +
         '<a href="#" data-id="edmunds-says">Edmunds says</a>' +

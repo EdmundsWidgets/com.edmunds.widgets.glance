@@ -5,14 +5,16 @@ define([
     return Backbone.View.extend({
         model: new EdmundsSaysModel(),
         initialize: function() {
-            this.listenTo(this.model, 'change', this.render);
             this.model.fetch();
         },
 
         template: edmundsSaysTemplate,
 
         render: function() {
-            this.$el.html(this.template)
+            this.$container = $('.content');
+            this.$container.removeClass('rating-tab');
+            this.$container.addClass('edmunds-says');
+            this.$container.html(this.template(this.model.toJSON()))
         }
     });
 });
