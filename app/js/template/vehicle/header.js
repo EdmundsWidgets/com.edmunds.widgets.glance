@@ -17,7 +17,7 @@ define(function(){
         '<a href="#">Ratings</a>' +
         '</li>' +
         '<li>' +
-        '<a href="#">Edmunds says</a>' +
+        '<a href="#" data-id="edmunds-says">Edmunds says</a>' +
         '</li>' +
         '<li class="dropdown visible-xs">' +
         '<a class="dropdown-toggle" data-toggle="dropdown" href="#">' +
