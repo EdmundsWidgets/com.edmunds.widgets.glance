@@ -6305,6 +6305,14 @@ button.close {
 .rating-details .edmunds-rating-strips .strip-container .bad {
   background: #96252b;
 }
+html,
+body {
+  height: 100%;
+}
+.footer-to-the-bottom {
+  height: 100%;
+  margin-bottom: -40px;
+}
 .edm-widget {
   background: #ffffff;
   border: 1px solid #aaa;
@@ -6313,6 +6321,7 @@ button.close {
   border-radius: 3px;
   color: #444444;
   min-width: 250px;
+  height: 600px;
   overflow: hidden;
 }
 .edm-widget p {
@@ -6365,6 +6374,7 @@ header h1 {
 }
 footer {
   border-top: 1px dotted #c1c1c1;
+  height: 40px;
 }
 footer .legacy {
   float: left;
