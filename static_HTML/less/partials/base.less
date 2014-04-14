@@ -1,9 +1,21 @@
+// FOOTER TO THE BOTTOM OF THE PAGE
+html,
+body{
+  height: 100%;
+}
+.footer-to-the-bottom{
+  height: 100%;
+  margin-bottom: -40px;
+}
+
+// MAIN STYLES
 .edm-widget{
   background: @base-background-color;
   border: 1px solid #aaa;
   .border-radius(3px);
   color: @base-font-color;
   min-width: @screen-xs;
+  height: 600px;
   overflow: hidden; // It was made to crop the header background. If it causes any bugs in the future, it should be deleted.
   p{
     margin: 0;
