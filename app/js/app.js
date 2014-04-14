@@ -13,8 +13,6 @@ define([
         },
         collection: new StylesCollection(),
         initialize: function(options) {
-            this.ratingTabView = new RatingTabView();
-            this.edmundsSaysTabView = new EdmundsSaysTabView();
             this.listenTo(this.collection, 'reset', this.render);
             this.collection.fetch({
                 data: {
@@ -28,6 +26,9 @@ define([
             this.$el.html(this.template({
                 collection: this.collection.toJSON()
             }));
+            this.ratingTabView = new RatingTabView({
+                el: this.$('.main-content')
+            });
         },
         ratingTab: function(e) {
             e.preventDefault();
