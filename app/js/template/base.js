@@ -5,19 +5,17 @@ define(function() {
         '<div class="container-fluid">' +
         '<h1 class="pull-left">2013 Acura ILX sedan</h1>' +
         '<div class="btn-group list-style-id pull-left">' +
-        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">2.0L 4-cyl. FWD 5-speed Automatic<span class="arrow-down"></span></button>' +
+        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Loading...<span class="arrow-down"></span></button>' +
         '<ul class="dropdown-menu" role="menu">' +
-        '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
-        '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
-        '<li><a href="#">2.0L 4-cyl. FWD 5-speed Automatic</a></li>' +
+        '<% _.each(collection, function(el) { %> <li data-id="<%= el.id %>"><a href="#"><%= el.name %></a></li> <% }); %>' +
         '</ul>' +
         '</div>' +
         '</div>' +
         '<div class="container-fluid">' +
         '<div class="row">' +
         '<ul class="nav nav-pills edm-navigation">' +
-        '<li class="active"><a href="#">Ratings</a></li>' +
-        '<li><a href="#">Edmunds says</a></li>' +
+        '<li class="active"><a data-id="rating-tab" href="#">Ratings</a></li>' +
+        '<li><a data-id="edmunds-says-tab" href="#">Edmunds says</a></li>' +
         '<li class="dropdown visible-xs">' +
         '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reviews<span class="arrow-down"></span></a>' +
         '<ul class="dropdown-menu">' +
