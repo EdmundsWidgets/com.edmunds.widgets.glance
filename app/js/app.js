@@ -1,4 +1,46 @@
 define([
+    'template/base',
+    'view/tabs/rating-tab',
+    'view/tabs/edmunds-says-tab',
+    'collection/vehicle/styles'
+], function(baseTemplate, RatingTabView, EdmundsSaysTabView, StylesCollection) {
+    return Backbone.View.extend({
+        className: 'edm-widget',
+        template: baseTemplate,
+        events: {
+            'click a[data-id="rating-tab"]': 'ratingTab',
+            'click a[data-id="edmunds-says-tab"]': 'edmundsSaysTab'
+        },
+        collection: new StylesCollection(),
+        initialize: function(options) {
+            this.ratingTabView = new RatingTabView();
+            this.edmundsSaysTabView = new EdmundsSaysTabView();
+            this.listenTo(this.collection, 'reset', this.render);
+            this.collection.fetch({
+                data: {
+                    api_key:    options.apiKey,
+                    submodel:   options.submodel
+                },
+                reset: true
+            });
+        },
+        render: function() {
+            this.$el.html(this.template({
+                collection: this.collection.toJSON()
+            }));
+        },
+        ratingTab: function(e) {
+            e.preventDefault();
+
+        },
+        edmundsSaysTab: function(e) {
+            e.preventDefault();
+        }
+    });
+});
+
+/*
+define([
     'view/vehicle/styles',
     'view/vehicle/grade',
     'view/vehicle/rating-bar',
@@ -29,11 +71,13 @@ define([
             this.listenTo(this.stylesView, 'change', this.onVehicleStyleChange);
         },
 
-        /*initializeGradeView: function(options) { note: Delete this later
+        */
+/*initializeGradeView: function(options) { note: Delete this later
             this.gradeView = new GradeView({
                 apiKey: options.apiKey
             });
-        },*/
+        },*//*
+
 
         initializeRatingBarView: function(options) {
             this.ratingBarView = new RatingBarView({
@@ -50,7 +94,9 @@ define([
             return this;
         },
 
-        onVehicleStyleChange: function(/*style*/) {
+        onVehicleStyleChange: function(*/
+/*style*//*
+) {
             var styleId = 200434856; // style.get('id');
 //            this.gradeView.trigger('setStyleId', styleId);
             this.ratingBarView.trigger('setStyleId', styleId);
@@ -67,4 +113,4 @@ define([
 
     });
 
-});
+});*/
