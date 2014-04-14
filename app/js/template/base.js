@@ -5,7 +5,7 @@ define(function() {
         '<div class="container-fluid">' +
         '<h1 class="pull-left">2013 Acura ILX sedan</h1>' +
         '<div class="btn-group list-style-id pull-left">' +
-        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">Loading...<span class="arrow-down"></span></button>' +
+        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><%- collection[0].name %><span class="arrow-down"></span></button>' +
         '<ul class="dropdown-menu" role="menu">' +
         '<% _.each(collection, function(el) { %> <li data-id="<%= el.id %>"><a href="#"><%= el.name %></a></li> <% }); %>' +
         '</ul>' +
