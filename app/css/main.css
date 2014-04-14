@@ -5842,7 +5842,6 @@ button.close {
   border-radius: 0;
   left: 0;
   padding: 0;
-  width: 230px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
 }
