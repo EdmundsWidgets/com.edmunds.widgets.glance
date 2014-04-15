@@ -1,9 +1,7 @@
 define([
     'template/base',
-    'view/tabs/rating-tab',
-    'view/tabs/edmunds-says-tab',
-    'collection/vehicle/styles'
-], function(baseTemplate, RatingTabView, EdmundsSaysTabView, StylesCollection) {
+    'view/vehicle/styles'
+], function(baseTemplate, StylesView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         template: baseTemplate,
@@ -11,24 +9,12 @@ define([
             'click a[data-id="rating-tab"]': 'ratingTab',
             'click a[data-id="edmunds-says-tab"]': 'edmundsSaysTab'
         },
-        collection: new StylesCollection(),
         initialize: function(options) {
-            this.listenTo(this.collection, 'reset', this.render);
-            this.collection.fetch({
-                data: {
-                    api_key:    options.apiKey,
-                    submodel:   options.submodel
-                },
-                reset: true
-            });
+            this.render();
+            this.stylesView = new StylesView();
         },
         render: function() {
-            this.$el.html(this.template({
-                collection: this.collection.toJSON()
-            }));
-            this.ratingTabView = new RatingTabView({
-                el: this.$('.main-content')
-            });
+            this.$el.html(this.template);
         },
         ratingTab: function(e) {
             e.preventDefault();

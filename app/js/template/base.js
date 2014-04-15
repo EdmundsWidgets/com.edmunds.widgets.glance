@@ -5,13 +5,13 @@ define(function() {
         '<div class="container-fluid">' +
         '<div class="row">' +
         '<div class="col-sm-6">' +
-        '<h1>2013 Acura ILX sedan</h1>' +
+        '<h1>2013 Honda Accord sedan</h1>' + //note: Make/Model/Year should be passed from Widget Configurator
         '</div>' +
         '<div class="col-sm-6">' +
         '<div class="btn-group list-style-id">' +
         '<button disabled type="button" class="btn dropdown-toggle" data-toggle="dropdown">Loading...</button>' +
         '<ul class="dropdown-menu" role="menu">' +
-        '<% _.each(collection, function(el) { %> <li data-id="<%= el.id %>"><a href="#"><%= el.name %></a></li> <% }); %>' +
+//        '<% _.each(collection, function(el) { %> <li data-id="<%= el.id %>"><a href="#"><%= el.name %></a></li> <% }); %>' +
         '</ul>' +
         '</div>' +
         '</div>' +

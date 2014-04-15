@@ -1,5 +1,5 @@
 define([
-    'template/rating-tab',
+    '../../template/tabs/rating-tab',
     'view/vehicle/grade'
 ], function(ratingTabTemplate, GradeView) {
     return Backbone.View.extend({

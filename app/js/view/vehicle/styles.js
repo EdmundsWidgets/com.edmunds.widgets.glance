@@ -1,3 +1,15 @@
+define([
+    ''
+], function() {
+    return Backbone.View.extend({
+        initialize: function() {
+
+        }
+    });
+});
+
+
+/*
 define(['collection/vehicle/styles', 'template/vehicle/styles'], function(StylesCollection, stylesTemplate) {
     var viewOptions = ['apiKey', 'submodel'];
     return Backbone.View.extend({
@@ -46,4 +58,4 @@ define(['collection/vehicle/styles', 'template/vehicle/styles'], function(Styles
             this.trigger('change', model);
         }
     });
-});
+});*/
