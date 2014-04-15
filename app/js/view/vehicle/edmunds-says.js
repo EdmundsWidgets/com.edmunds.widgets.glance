@@ -8,11 +8,10 @@ define([
             this.listenTo(this.model, 'change', this.render);
             this.model.fetch();
         },
-
         template: edmundsSaysTemplate,
-
         render: function() {
-            this.$el.html(this.template)
+            this.$el.html(this.template);
+            return this;
         }
     });
 });

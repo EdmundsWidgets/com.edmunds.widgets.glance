@@ -9,9 +9,7 @@ define([
             response.ratings = new RatingCollection(response.ratings, {
                 parse: true
             });
-
             response.grade = this.convertGrade(response.grade);
-
             return response;
         },
         convertGrade: function(grade) {

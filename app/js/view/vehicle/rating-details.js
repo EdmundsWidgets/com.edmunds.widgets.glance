@@ -19,6 +19,7 @@ define([
             this.$el.html(this.template(this.model.toJSON()));
             this.$('.rating-details').append(this.ratingStripView.el);
             this.ratingStripView.render();
+            return this;
         },
         close: function() {
             this.$el.hide();

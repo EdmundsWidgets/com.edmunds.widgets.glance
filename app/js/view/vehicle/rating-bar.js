@@ -34,6 +34,7 @@ define([
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.after(this.gradeView.el);
+            return this;
         }
     });
 });
