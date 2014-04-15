@@ -3,12 +3,18 @@ define(function() {
         '<div class="footer-to-the-bottom">' +
         '<header>' +
         '<div class="container-fluid">' +
-        '<h1 class="pull-left">2013 Acura ILX sedan</h1>' +
-        '<div class="btn-group list-style-id pull-left">' +
-        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><%- collection[0].name %><span class="arrow-down"></span></button>' +
+        '<div class="row">' +
+        '<div class="col-sm-6">' +
+        '<h1>2013 Acura ILX sedan</h1>' +
+        '</div>' +
+        '<div class="col-sm-6">' +
+        '<div class="btn-group list-style-id">' +
+        '<button disabled type="button" class="btn dropdown-toggle" data-toggle="dropdown">Loading...</button>' +
         '<ul class="dropdown-menu" role="menu">' +
         '<% _.each(collection, function(el) { %> <li data-id="<%= el.id %>"><a href="#"><%= el.name %></a></li> <% }); %>' +
         '</ul>' +
+        '</div>' +
+        '</div>' +
         '</div>' +
         '</div>' +
         '<div class="container-fluid">' +
