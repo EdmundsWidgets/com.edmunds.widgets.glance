@@ -6315,6 +6315,21 @@ button.close {
   min-width: 250px;
   overflow: hidden;
 }
+@media screen and (min-width: 250px) {
+  .edm-widget {
+    height: 600px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .edm-widget {
+    height: 630px;
+  }
+}
+@media screen and (min-width: 710px) {
+  .edm-widget {
+    height: 480px;
+  }
+}
 .edm-widget p {
   margin: 0;
 }
