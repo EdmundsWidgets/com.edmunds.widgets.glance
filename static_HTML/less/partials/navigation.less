@@ -36,7 +36,7 @@
       }
       &:hover{
         background: url(../img/tab_button_center_hover.png) repeat-x;
-        color: #fff;
+//        color: #fff;
       }
       &:hover:before{
         background: url(../img/tab_button_left_hover.png) no-repeat;
@@ -51,16 +51,17 @@
     &.active > a,
     &.active > a:hover,
     &.active > a:focus{
-      background: url(../img/tab_button_center_hover.png) repeat-x;
+      background: url(../img/tab_button_center_active.png) repeat-x;
       color: #fff;
     }
+
     &.open > a,
     &.active > a{
       &:before{
-        background: url(../img/tab_button_left_hover.png) no-repeat;
+        background: url(../img/tab_button_left_active.png) no-repeat;
       }
       &:after{
-        background: url(../img/tab_button_right_hover.png) no-repeat;
+        background: url(../img/tab_button_right_active.png) no-repeat;
       }
     }
   }
