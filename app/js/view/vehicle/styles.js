@@ -1,9 +1,36 @@
 define([
-    ''
-], function() {
+    'collection/vehicle/styles',
+    'template/vehicle/styles'
+], function(StylesCollection, stylesTemplate) {
     return Backbone.View.extend({
-        initialize: function() {
-
+        className: 'btn-group',
+        collection: new StylesCollection(),
+        template: stylesTemplate,
+        listTemplate: _.template('' +
+            '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
+            '<%= name %> <span class="arrow-down"></span>' +
+            '</button>' +
+            '<ul class="dropdown-menu" role="menu">' +
+            '</ul>' +
+        ''),
+        initialize: function(options) {
+            this.listenTo(this.collection, 'reset', this.render);
+            this.collection.fetch({
+                data: {
+                    api_key: options.apiKey,
+                    submodel: options.submodel
+                },
+                reset: true
+            });
+        },
+        render: function() {
+            var firstItem = this.collection.toJSON()[0];
+            this.$el.html(this.listTemplate(firstItem));
+            this.collection.each(this.add, this);
+            return this;
+        },
+        add: function(model) {
+            this.$('ul').append(this.template(model.toJSON()));
         }
     });
 });

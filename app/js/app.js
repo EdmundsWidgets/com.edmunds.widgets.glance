@@ -10,11 +10,15 @@ define([
             'click a[data-id="edmunds-says-tab"]': 'edmundsSaysTab'
         },
         initialize: function(options) {
+            this.stylesView = new StylesView({
+                apiKey: options.apiKey,
+                submodel: options.submodel
+            });
             this.render();
-            this.stylesView = new StylesView();
         },
         render: function() {
             this.$el.html(this.template);
+            this.$('.list-style-id').html(this.stylesView.render().el);
         },
         ratingTab: function(e) {
             e.preventDefault();
