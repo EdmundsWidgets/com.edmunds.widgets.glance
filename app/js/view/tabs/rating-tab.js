@@ -1,17 +1,14 @@
 define([
-    '../../template/tabs/rating-tab',
     'view/vehicle/grade'
-], function(ratingTabTemplate, GradeView) {
+], function(GradeView) {
     return Backbone.View.extend({
-        template: ratingTabTemplate,
-        initialize: function(options){
+        initialize: function(options) {
             this.gradeView = new GradeView({
-                styleId: options.styleId
+                apiKey: options.apiKey
             });
         },
         render: function() {
-            this.$el.html(this.template);
-            this.gradeView.setElement('.rating-bar');
+
             return this;
         }
     });

@@ -3,10 +3,14 @@ define([
 ], function(GradeModel) {
     return Backbone.View.extend({
         model: new GradeModel(),
-        initialize: function() {
+        initialize: function(options) {
+            this.model.fetch({
+                data: {
+                    api_key: options.apiKey
+                }
+            });
         },
         render: function() {
-
         }
     });
 });

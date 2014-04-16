@@ -15,22 +15,37 @@ define([
         ''),
         initialize: function(options) {
             this.listenTo(this.collection, 'reset', this.render);
-            this.collection.fetch({
-                data: {
-                    api_key: options.apiKey,
-                    submodel: options.submodel
-                },
-                reset: true
-            });
+//            this.collection.fetch({
+//                data: {
+//                    api_key: options.apiKey,
+//                    submodel: options.submodel
+//                },
+//                reset: true
+//            });
+            this.load(options);
         },
         render: function() {
             var firstItem = this.collection.toJSON()[0];
             this.$el.html(this.listTemplate(firstItem));
             this.collection.each(this.add, this);
+            this.trigger('onVehicleChange', firstItem['id']);
             return this;
         },
         add: function(model) {
             this.$('ul').append(this.template(model.toJSON()));
+        },
+        load: function(options) {
+            this.collection.fetch({
+                data: {
+                    api_key:    options.apiKey,
+                    submodel:   options.submodel
+                },
+                reset: true
+            });
+            return this;
+        },
+        onVehicleChange: function() {
+
         }
     });
 });
