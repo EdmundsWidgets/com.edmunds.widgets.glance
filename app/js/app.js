@@ -18,19 +18,22 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: options.apiKey
             });
+            this.listenTo(this.stylesView, 'initRender', this.initRender);
             this.render();
         },
         render: function() {
             this.$el.html(this.template);
-            this.stylesView.setElement('.list-style-id');
+            this.stylesView.setElement(this.$('.list-style-id'));
             this.$('header').after(this.ratingTabView.render().el);
         },
         ratingTab: function(e) {
             e.preventDefault();
-
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
+        },
+        initRender: function(styleId) {
+            this.ratingTabView.trigger('initRender', styleId);
         }
     });
 });

@@ -3,16 +3,11 @@ define([
     'template/vehicle/styles'
 ], function(StylesCollection, stylesTemplate) {
     return Backbone.View.extend({
-        className: 'btn-group',
         collection: new StylesCollection(),
         template: stylesTemplate,
-        listTemplate: _.template('' +
-            '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
-            '<%= name %> <span class="arrow-down"></span>' +
-            '</button>' +
-            '<ul class="dropdown-menu" role="menu">' +
-            '</ul>' +
-        ''),
+        events: {
+            'click a': 'getStyleId'
+        },
         initialize: function(options) {
             this.listenTo(this.collection, 'reset', this.render);
             this.collection.fetch({
@@ -24,17 +19,21 @@ define([
             });
         },
         render: function() {
-            var firstItem = this.collection.at(0).toJSON();
-            this.$el.html(this.listTemplate(firstItem));
-            this.collection.each(this.add, this);
-            this.trigger('onVehicleChange', firstItem['id']);
+            this.firstItem = this.collection.at(0).toJSON();
+            this.$el.html(this.template({
+                collection: this.collection.toJSON(),
+                currentItem: this.firstItem
+            }));
+            this.trigger('initRender', this.firstItem['id']);
             return this;
         },
         add: function(model) {
             this.$('ul').append(this.template(model.toJSON()));
         },
-        onVehicleChange: function() {
-
+        getStyleId: function(e) {
+            e.preventDefault();
+            var styleId = $(e.currentTarget).data('id');
+            this.$('button').html($(e.currentTarget).text() + '<span class="arrow-down"></span>');
         }
     });
 });

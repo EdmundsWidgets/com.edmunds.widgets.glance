@@ -4,13 +4,18 @@ define([
     return Backbone.View.extend({
         model: new GradeModel(),
         initialize: function(options) {
-            this.model.fetch({
-                data: {
-                    api_key: options.apiKey
-                }
-            });
+            this.options = options || {};
+            this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
+        },
+        load: function(styleId) {
+            this.model.fetch({
+                url: this.model.url(styleId),
+                data: {
+                    api_key: this.options.apiKey
+                }
+            })
         }
     });
 });

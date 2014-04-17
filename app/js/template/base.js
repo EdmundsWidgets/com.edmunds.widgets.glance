@@ -7,8 +7,8 @@ define(function() {
         '<div class="col-sm-6">' +
         '<h1>2013 Honda Accord sedan</h1>' + //note: Make/Model/Year should be passed from Widget Configurator
         '</div>' +
-        '<div class="col-sm-6 list-style-id">' +
-        '<div class="btn-group">' +
+        '<div class="col-sm-6">' +
+        '<div class="list-style-id btn-group">' +
         '<button disabled type="button" class="btn dropdown-toggle" data-toggle="dropdown">Loading...</button>' +
         '</div>' +
         '</div>' +

@@ -7,6 +7,7 @@ define([
             this.gradeView = new GradeView({
                 apiKey: options.apiKey
             });
+            this.on('initRender', this.gradeView.load, this.gradeView);
         },
         render: function() {
             return this;
