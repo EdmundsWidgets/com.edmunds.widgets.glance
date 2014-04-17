@@ -18,13 +18,12 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: options.apiKey
             });
-            this.stylesView.on('onVehicleChange', this.onVehicleChange);
             this.render();
         },
         render: function() {
             this.$el.html(this.template);
             this.stylesView.setElement('.list-style-id');
-            this.$('.main-content').html(this.ratingTabView.render().el);
+            this.$('header').after(this.ratingTabView.render().el);
         },
         ratingTab: function(e) {
             e.preventDefault();
@@ -32,9 +31,6 @@ define([
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
-        },
-        onVehicleChange: function(styleId) {
-            console.log(styleId);
         }
     });
 });

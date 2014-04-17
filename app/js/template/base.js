@@ -34,7 +34,6 @@ define(function() {
         '</div>' +
         '</div>' +
         '</header>' +
-        '<div class="main-content"></div>' +
         '</div>' +
         '<footer class="container-fluid">' +
         '<div class="row">' +
