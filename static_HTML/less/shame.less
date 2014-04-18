@@ -1,0 +1,89 @@
+.reviews-tab{
+  .rating-bar{
+    background: @brand-primary;
+    height: 55px;
+    .rating-stars{
+      div{
+        float: left;
+      }
+      .text-rating-star{
+        font-size: 18px;
+        line-height: 55px;
+        margin-left: 15px;
+        span{
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+      .star{
+        width: 18px;
+        height: 18px;
+        background: url(../img/star.png) no-repeat;
+        margin: 18px 2px;
+        .clearfix;
+        &.filled{
+          background: url(../img/star_filled.png) no-repeat;
+        }
+      }
+    }
+    .reviews-count{
+      font-size: 13px;
+      line-height: 55px;
+      text-align: right;
+    }
+  }
+  .customer-review{
+    border-top: 1px solid #e5e5e5;
+    padding: 20px 0;
+    &:first-child{
+      border: none;
+      padding-top: 10px;
+    }
+    p{
+      font-size: 11px;
+    }
+    h4{
+      font-size: 14px;
+      margin: 0;
+    }
+    .date{
+      text-align: right;
+    }
+    .rating-stars{
+      div{
+        float: left;
+      }
+      span{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .star{
+        width: 10px;
+        height: 10px;
+        background: url(../img/star_small.png) no-repeat;
+        margin: 0 2px;
+        .clearfix;
+        &.filled{
+          background: url(../img/star_small_filled.png) no-repeat;
+        }
+      }
+    }
+    .pros{
+      background: url(../img/icon-pros.png) no-repeat;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      float: right;
+      width: 34px;
+    }
+    .cons{
+      background: url(../img/icon-cons.png) no-repeat;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      float: right;
+      width: 34px;
+    }
+  }
+  .clearmine{
+    clear: both;
+  }
+}
