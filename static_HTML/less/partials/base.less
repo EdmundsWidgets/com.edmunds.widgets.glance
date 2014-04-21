@@ -5,6 +5,15 @@
   color: @base-font-color;
   min-width: @screen-xs;
   overflow: hidden; // It was made to crop the header background. If it causes any bugs in the future, it should be deleted.
+  @media screen and (min-width: @screen-xs){
+    height: 600px;
+  }
+  @media screen and (min-width: @screen-sm){
+    height: 630px;
+  }
+  @media screen and (min-width: @screen-md){
+    height: 480px;
+  }
   p{
     margin: 0;
   }

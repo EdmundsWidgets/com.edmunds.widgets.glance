@@ -12,13 +12,16 @@ define([
         className: 'edm-widget rating-tab',
 
         events: {
+            'click .edm-navigation a[data-id="rating"]': 'ratingTab',
             'click .edm-navigation a[data-id="edmunds-says"]': 'edmundsSays'
         },
 
         initialize: function(options) {
+            this.options = options;
             this.initializeStylesView(options);
 //            this.initializeGradeView(options);
             this.initializeRatingBarView(options);
+
         },
 
         initializeStylesView: function(options) {
@@ -47,6 +50,9 @@ define([
             this.$('.list-style-id').append(this.stylesView.el);
             this.$el.append(footerTemplate);
 //            this.$el.append(this.gradeView.el);
+            this.edmundsSaysView = new EdmundsSaysView({
+                el: '.content'
+            });
             return this;
         },
 
@@ -60,9 +66,18 @@ define([
             e.preventDefault();
             this.$('.edm-navigation li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
-            this.edmundsSaysView = new EdmundsSaysView({
-                el: '.content'
-            });
+            this.edmundsSaysView.render();
+        },
+
+        ratingTab: function(e) {
+            e.preventDefault();
+            this.$('.edm-navigation li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.$('.content').empty();
+            this.$el.removeClass('edmunds-says');
+            this.$el.addClass('rating-tab');
+            this.ratingBarView.render();
+            this.ratingBarView.gradeView.render();
         }
 
     });
