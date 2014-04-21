@@ -6720,8 +6720,16 @@ footer .logo a {
   border: none;
   padding-top: 10px;
 }
-.reviews-tab .customer-review p {
+.reviews-tab .customer-review p.vehicle {
   font-size: 11px;
+}
+.reviews-tab .customer-review p {
+  margin: 15px 0;
+}
+.reviews-tab .customer-review p.title {
+  color: #94ce00;
+  margin-bottom: -15px;
+  font-weight: bold;
 }
 .reviews-tab .customer-review h4 {
   font-size: 14px;
@@ -6794,4 +6802,109 @@ footer .logo a {
 }
 .reviews-tab .clearmine {
   clear: both;
+}
+.reviews-tab .list-reviews {
+  background: url(../img/list_reviews.png) no-repeat;
+  height: 37px;
+  width: 40px;
+  float: left;
+  margin-top: 9px;
+}
+.reviews-tab .list-reviews-nav {
+  float: right;
+}
+.reviews-tab .list-reviews-nav:before,
+.reviews-tab .list-reviews-nav:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .list-reviews-nav:after {
+  clear: both;
+}
+.reviews-tab .list-reviews-nav:before,
+.reviews-tab .list-reviews-nav:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .list-reviews-nav:after {
+  clear: both;
+}
+.reviews-tab .list-reviews-nav:before,
+.reviews-tab .list-reviews-nav:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .list-reviews-nav:after {
+  clear: both;
+}
+.reviews-tab .list-reviews-nav:before,
+.reviews-tab .list-reviews-nav:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .list-reviews-nav:after {
+  clear: both;
+}
+.reviews-tab .list-reviews-nav .next-review {
+  float: right;
+  background: url(../img/list_reviews_right.png) no-repeat;
+  width: 33px;
+  height: 34px;
+  margin: 10px 0 0 1px;
+}
+.reviews-tab .list-reviews-nav .prev-review {
+  float: right;
+  background: url(../img/list_reviews_left.png) no-repeat;
+  width: 33px;
+  height: 34px;
+  margin: 10px 0 0 15px;
+}
+.reviews-tab .list-reviews-nav .reviews-count {
+  float: right;
+}
+.reviews-tab .rated:before,
+.reviews-tab .rated:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .rated:after {
+  clear: both;
+}
+.reviews-tab .rated:before,
+.reviews-tab .rated:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .rated:after {
+  clear: both;
+}
+.reviews-tab .rated:before,
+.reviews-tab .rated:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .rated:after {
+  clear: both;
+}
+.reviews-tab .rated:before,
+.reviews-tab .rated:after {
+  content: " ";
+  display: table;
+}
+.reviews-tab .rated:after {
+  clear: both;
+}
+.reviews-tab .rated div {
+  float: left;
+}
+.reviews-tab .rated .cons {
+  float: left;
+  margin-left: 10px;
+  padding-left: 15px;
+  background-position: 0 center;
+}
+.reviews-tab .rated .pros {
+  float: left;
+  margin-left: 15px;
+  padding-left: 15px;
 }
