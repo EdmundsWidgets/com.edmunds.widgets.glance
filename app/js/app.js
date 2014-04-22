@@ -18,7 +18,7 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: options.apiKey
             });
-            this.listenTo(this.stylesView, 'initRender', this.initRender);
+            this.listenTo(this.stylesView, 'onVehicleChange', this.onVehicleStyleChange);
             this.render();
         },
         render: function() {
@@ -32,8 +32,9 @@ define([
         edmundsSaysTab: function(e) {
             e.preventDefault();
         },
-        initRender: function(styleId) {
-            this.ratingTabView.trigger('initRender', styleId);
+        onVehicleStyleChange: function(/*styleId*/) {
+            var styleId = 200434856; //Uncomment parameter and delete this row
+            this.ratingTabView.trigger('setStyleId', styleId);
         }
     });
 });

@@ -19,21 +19,20 @@ define([
             });
         },
         render: function() {
-            this.firstItem = this.collection.at(0).toJSON();
+            var firstItem = this.collection.at(0).toJSON();
             this.$el.html(this.template({
                 collection: this.collection.toJSON(),
-                currentItem: this.firstItem
+                currentItem: firstItem
             }));
-            this.trigger('initRender', this.firstItem['id']);
+            this.trigger('onVehicleChange', firstItem.id);
             return this;
-        },
-        add: function(model) {
-            this.$('ul').append(this.template(model.toJSON()));
         },
         getStyleId: function(e) {
             e.preventDefault();
-            var styleId = $(e.currentTarget).data('id');
-            this.$('button').html($(e.currentTarget).text() + '<span class="arrow-down"></span>');
+            var target = $(e.currentTarget),
+                styleId = target.data('id');
+            this.$('button').html(target.text() + '<span class="arrow-down"></span>');
+            this.trigger('onVehicleChange', styleId);
         }
     });
 });
