@@ -1,15 +1,15 @@
 define([
-    'view/vehicle/grade'
-], function(GradeView) {
+    'modules/rating-tab/view/rating-bar'
+], function(RatingBarView) {
     return Backbone.View.extend({
         className: 'main-content',
         initialize: function(options) {
-            this.gradeView = new GradeView({
+            this.ratingBarView = new RatingBarView({
                 apiKey: options.apiKey
             });
-            this.on('setStyleId', this.gradeView.load, this.gradeView);
         },
         render: function() {
+            this.$el.append(this.ratingBarView.el);
             return this;
         }
     });

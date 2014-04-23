@@ -1,7 +1,7 @@
 define([
-    'template/base',
-    'view/vehicle/styles',
-    'view/tabs/rating-tab'
+    'modules/base/template/base',
+    'modules/base/view/styles',
+    'modules/rating-tab/rating-tab'
 ], function(baseTemplate, StylesView, RatingTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
@@ -18,7 +18,6 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: options.apiKey
             });
-            this.listenTo(this.stylesView, 'onVehicleChange', this.onVehicleStyleChange);
             this.render();
         },
         render: function() {
@@ -31,10 +30,6 @@ define([
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
-        },
-        onVehicleStyleChange: function(/*styleId*/) {
-            var styleId = 200434856; //note: Uncomment parameter and delete this row
-            this.ratingTabView.trigger('setStyleId', styleId);
         }
     });
 });

@@ -1,7 +1,8 @@
 define([
-    'collection/vehicle/styles',
-    'template/vehicle/styles'
-], function(StylesCollection, stylesTemplate) {
+    'modules/base/dispatcher',
+    'modules/base/collection/styles',
+    'modules/base/template/styles'
+], function(dispatcher, StylesCollection, stylesTemplate) {
     return Backbone.View.extend({
         collection: new StylesCollection(),
         template: stylesTemplate,
@@ -24,7 +25,7 @@ define([
                 collection: this.collection.toJSON(),
                 currentItem: firstItem
             }));
-            this.trigger('onVehicleChange', firstItem.id);
+            dispatcher.trigger('onVehicleChange', firstItem.id);
             return this;
         },
         getStyleId: function(e) {
@@ -32,7 +33,7 @@ define([
             var target = $(e.currentTarget),
                 styleId = target.data('id');
             this.$('button').html(target.text() + '<span class="arrow-down"></span>');
-            this.trigger('onVehicleChange', styleId);
+            dispatcher.trigger('onVehicleChange', styleId);
         }
     });
 });

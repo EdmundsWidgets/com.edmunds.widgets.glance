@@ -1,13 +1,20 @@
 define([
+    '../../modules/base/dispatcher',
+    'template/vehicle/rating-bar',
     'model/vehicle/grade'
-], function(GradeModel) {
+], function(dispatcher, ratingBarTemplate, GradeModel) {
     return Backbone.View.extend({
+        className: 'rating-bar container-fluid',
+        template: ratingBarTemplate,
         model: new GradeModel(),
         initialize: function(options) {
             this.options = options || {};
             this.listenTo(this.model, 'change', this.render);
+            this.listenTo(dispatcher, 'onVehicleChange', this.load);
         },
         render: function() {
+            console.log(this.model)
+            this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
         load: function(styleId) {
