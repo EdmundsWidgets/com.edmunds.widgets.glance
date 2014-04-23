@@ -12,10 +12,8 @@ require(['jquery', 'underscore', 'backbone'], function() {
         'app',
         'bootstrap'
     ], function(App) {
-
         var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
             submodel = 'sedan';
-
         var app = new App({
             apiKey:     apiKey,
             submodel:   submodel

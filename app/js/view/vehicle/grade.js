@@ -8,6 +8,7 @@ define([
             this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
+            return this;
         },
         load: function(styleId) {
             this.model.fetch({

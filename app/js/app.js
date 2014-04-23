@@ -33,7 +33,7 @@ define([
             e.preventDefault();
         },
         onVehicleStyleChange: function(/*styleId*/) {
-            var styleId = 200434856; //Uncomment parameter and delete this row
+            var styleId = 200434856; //note: Uncomment parameter and delete this row
             this.ratingTabView.trigger('setStyleId', styleId);
         }
     });
