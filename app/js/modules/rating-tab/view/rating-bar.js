@@ -10,7 +10,7 @@ define([
         initialize: function (options) {
             this.options = options || {};
             this.listenTo(this.model, 'change', this.render);
-            this.listenTo(dispatcher, 'onVehicleChange', this.load);
+//            this.listenTo(dispatcher, 'onVehicleChange', this.load);
         },
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
