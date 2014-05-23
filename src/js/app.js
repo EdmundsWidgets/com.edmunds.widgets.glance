@@ -23,7 +23,7 @@ define([
         render: function() {
             this.$el.html(this.template);
             this.stylesView.setElement(this.$('.list-style-id'));
-            this.$('header').after(this.ratingTabView.render().el);
+            this.$('header').after(this.ratingTabView.el);
         },
         ratingTab: function(e) {
             e.preventDefault();

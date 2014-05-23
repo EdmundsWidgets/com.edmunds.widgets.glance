@@ -10,13 +10,16 @@ define([
         initialize: function(options) {
             this.options = options || {};
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
+            this.listenTo(this.model, 'change', this.init);
             this.ratingBarView = new RatingBarView({
-                apiKey: options.apiKey,
                 model: this.model
             });
+        },
+        init: function() {
             this.contentView = new ContentView({
-                collection: this.model.ratings
+                collection: this.model.get('ratings')
             });
+            this.render();
         },
         render: function() {
             this.$el.append(this.ratingBarView.el);
