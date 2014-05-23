@@ -28,7 +28,7 @@ define(function() {
         '</div>' +
         '<div class="vehicle-info-container col-md-4">' +
         '<div class="vehicle-info">' +
-        '<p>Vehicle Tested: <%= make.name %> <%= model.name %> <%= year.year %> <%= style["submodel"].body %> <%= style.name %></p>' +
+        '<p>Vehicle Tested: <%= make.name %> <%= model.name %> <%= year.year %> <%= style.submodel.body %> <%= style.name %></p>' +
         '</div>' +
         '</div>' +
         '</div>' +
