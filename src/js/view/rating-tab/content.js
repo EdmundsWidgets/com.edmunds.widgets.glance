@@ -2,6 +2,8 @@ define([
     'template/rating-tab/content'
 ], function(contentTemplate) {
     return Backbone.View.extend({
+        tagName: 'section',
+        className: 'content container-fluid',
         template: contentTemplate,
         initialize: function() {
             this.render();

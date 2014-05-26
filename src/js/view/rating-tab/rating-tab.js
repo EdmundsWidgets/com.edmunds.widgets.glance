@@ -6,6 +6,9 @@ define([
 ], function(dispatcher, RatingBarModel, RatingBarView, ContentView) {
     return Backbone.View.extend({
         className: 'main-content',
+        events: {
+            'click .rating-selector': 'renderDetails'
+        },
         model: new RatingBarModel(),
         initialize: function(options) {
             this.options = options || {};
@@ -34,6 +37,10 @@ define([
                     api_key: this.options.apiKey
                 }
             });
+        },
+        renderDetails: function(e) {
+            var id = $(e.currentTarget).data('id');
+
         }
     });
 });
