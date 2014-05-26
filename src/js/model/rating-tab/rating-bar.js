@@ -10,6 +10,7 @@ define([
             response.ratings = new RatingCollection(response.ratings, {
                 parse: true
             });
+            response.ratings.summary = response.summary;
             response.grade = this.convertGrade(response.grade);
             return response;
         },

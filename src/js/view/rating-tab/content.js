@@ -4,13 +4,12 @@ define([
     return Backbone.View.extend({
         template: contentTemplate,
         initialize: function() {
-//            this.listenTo(this.collection, 'reset', this.render);
-//            this.collection.on('reset', this.render);
+            this.render();
         },
         render: function() {
-            console.log(this.model.toJSON().ratings);
             this.$el.html(this.template({
-                collection: this.model.ratings
+                collection: this.collection.toJSON(),
+                summary: this.collection.summary
             }));
             return this;
         }

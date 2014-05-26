@@ -11,13 +11,14 @@ define([
             this.options = options || {};
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'change', this.init);
-            this.ratingBarView = new RatingBarView({
-                model: this.model
-            });
         },
         init: function() {
+            //note: Is it a good practice to create new instance every time when model is changed?
             this.contentView = new ContentView({
                 collection: this.model.get('ratings')
+            });
+            this.ratingBarView = new RatingBarView({
+                model: this.model
             });
             this.render();
         },
