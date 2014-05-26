@@ -14,7 +14,8 @@ define([
             this.$el.html(this.template({
                 model: this.model.toJSON(),
                 cons: this.model.get('con'),
-                pros: this.model.get('pro')
+                pros: this.model.get('pro'),
+                introduction: this.model.get('introduction')
             }));
             return this;
         },

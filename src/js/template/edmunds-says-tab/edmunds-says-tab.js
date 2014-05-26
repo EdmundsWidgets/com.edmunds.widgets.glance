@@ -31,7 +31,7 @@ define(function() {
         '<div class="hidden-xs col-sm-12">' +
         '<div class="rating-summary">' +
         '<h4>Introduction</h4>' +
-        '<p>IntroductionAfter a decade of moving upmarket and farther away from the entry-level buyer, Acura\'s back with a new-generation compact model, the 2013 ILX. Smaller and less expensive than the TSX, the ILX sedan is aimed at shoppers who want something a bit nicer and sportier than the typical mainstream sedan but aren\'t willing to step up to the higher expense of an established luxury car.</p>' +
+        '<p><%= introduction %></p>' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-12">' +
