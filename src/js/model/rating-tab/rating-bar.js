@@ -11,6 +11,10 @@ define([
                 parse: true
             });
             response.ratings.summary = response.summary;
+            response.ratings.make = response.make.name.toLowerCase();
+            response.ratings.model = response.model.name.toLowerCase();
+            response.ratings.subModel = response.style.submodel.niceName.toLowerCase();
+            response.ratings.year = response.year.year;
             response.grade = this.convertGrade(response.grade);
             return response;
         },
