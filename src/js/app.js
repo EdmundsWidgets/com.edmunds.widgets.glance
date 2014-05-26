@@ -40,7 +40,7 @@ define([
             e.preventDefault();
             this.$('.edm-navigation').children('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
-            this.edmundsSaysTabView.render();
+            this.edmundsSaysTabView.load();
         }
     });
 });
