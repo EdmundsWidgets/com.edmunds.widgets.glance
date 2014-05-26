@@ -23,6 +23,7 @@ define([
                 el: this.ratingTabView.el,
                 apiKey: options.apiKey
             });
+            this.edmundsSaysTabView.load();
             this.render();
         },
         render: function() {
@@ -40,7 +41,7 @@ define([
             e.preventDefault();
             this.$('.edm-navigation').children('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
-            this.edmundsSaysTabView.load();
+            this.edmundsSaysTabView.render();
         }
     });
 });

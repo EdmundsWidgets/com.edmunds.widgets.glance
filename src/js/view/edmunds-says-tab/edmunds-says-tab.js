@@ -7,11 +7,15 @@ define([
         template: edmundsSaysTabTemplate,
         model: new EdmundsSaysTabModel(),
         initialize: function() {
-            this.listenTo(this.model, 'change', this.render);
+//            this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
             this.$el.empty();
-            this.$el.html(this.template);
+            this.$el.html(this.template({
+                model: this.model.toJSON(),
+                cons: this.model.get('con'),
+                pros: this.model.get('pro')
+            }));
             return this;
         },
         load: function() {

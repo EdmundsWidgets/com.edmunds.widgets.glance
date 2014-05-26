@@ -2,7 +2,7 @@ define(function() {
     return _.template('' +
         '<div class="edmunds-says">' +
         '<div class="rating-bar container-fluid">' +
-        '<p>Excellent build quality, good fuel economy and palatable starting prices make the 2013 Acura ILX an intriguing option for a compact luxury sedan. Still, there are other worthy alternatives that savvy shoppers should consider.</p>' +
+        '<p><%= model.edmundsSays %></p>' +
         '</div>' +
         '<section class="content container-fluid">' +
         '<div class="row">' +
@@ -10,8 +10,7 @@ define(function() {
         '<div class="pros">' +
         '<h4>PROs</h4>' +
         '<ul>' +
-        '<li>- Generous number of standard features;</li>' +
-        '<li>- above-average fuel economy from Hybrid model.</li>' +
+        '<% _.each(pros, function(el) { %><li>- <%= el %></li><% }) %>' +
         '</ul>' +
         '</div>' +
         '</div>' +
@@ -19,16 +18,14 @@ define(function() {
         '<div class="cons">' +
         '<h4>CONs</h4>' +
         '<ul>' +
-        '<li>- Lackluster base engine;</li>' +
-        '<li>- smallish trunk;</li>' +
-        '<li>- no automatic transmission or top-end features for sport-oriented 2.4L model.</li>' +
+        '<% _.each(cons, function(el) { %><li>- <%= el %></li><% }) %>' +
         '</ul>' +
         '</div>' +
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="rating-summary">' +
         '<h4>What\'s new for 2013?</h4>' +
-        '<p>The 2013 Acura ILX is an all-new model.</p>' +
+        '<p><%= model.whatsNew %></p>' +
         '</div>' +
         '</div>' +
         '<div class="hidden-xs col-sm-12">' +
