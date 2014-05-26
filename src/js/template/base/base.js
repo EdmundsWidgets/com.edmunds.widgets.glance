@@ -27,7 +27,7 @@ define(function() {
         '<li><a href="#">Videos</a></li>' +
         '</ul>' +
         '</li>' +
-        '<li class="hidden-xs"><a href="#">Consumer Reviews</a></li>' +
+        '<li class="hidden-xs"><a data-id="consumer-reviews-tab" href="#">Consumer Reviews</a></li>' +
         '<li class="hidden-xs"><a href="#">Photos</a></li>' +
         '<li class="hidden-xs"><a href="#">Videos</a></li>' +
         '</ul>' +
