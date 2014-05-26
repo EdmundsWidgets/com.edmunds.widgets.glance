@@ -1,8 +1,9 @@
 define([
     'template/base/base',
     'view/base/styles',
-    'view/rating-tab/rating-tab'
-], function(baseTemplate, StylesView, RatingTabView) {
+    'view/rating-tab/rating-tab',
+    'view/edmunds-says-tab/edmunds-says-tab'
+], function(baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         template: baseTemplate,
@@ -18,6 +19,10 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: options.apiKey
             });
+            this.edmundsSaysTabView = new EdmundsSaysTabView({
+                el: this.ratingTabView.el,
+                apiKey: options.apiKey
+            });
             this.render();
         },
         render: function() {
@@ -27,11 +32,15 @@ define([
         },
         ratingTab: function(e) {
             e.preventDefault();
-            console.log('Rating tab');
+            this.$('.edm-navigation').children('li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.ratingTabView.render();
         },
         edmundsSaysTab: function(e) {
-            console.log('Edmunds says tab');
             e.preventDefault();
+            this.$('.edm-navigation').children('li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.edmundsSaysTabView.render();
         }
     });
 });

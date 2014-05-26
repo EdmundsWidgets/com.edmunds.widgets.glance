@@ -29,6 +29,7 @@ define([
             this.render();
         },
         render: function() {
+            this.$el.empty();
             this.$el.append(this.ratingBarView.el);
             this.$el.append(this.contentView.el);
             return this;
