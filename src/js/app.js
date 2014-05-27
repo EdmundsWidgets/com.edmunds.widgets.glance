@@ -25,7 +25,10 @@ define([
                 el: this.ratingTabView.el,
                 apiKey: options.apiKey
             });
-            this.consumerReviewsTabView = new ConsumerReviewsTabView();
+            this.consumerReviewsTabView = new ConsumerReviewsTabView({
+                el: this.ratingTabView.el,
+                apiKey: options.apiKey
+            });
             this.edmundsSaysTabView.load();
             this.render();
         },
