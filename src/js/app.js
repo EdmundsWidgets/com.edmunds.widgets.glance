@@ -54,7 +54,8 @@ define([
         consumerReviewsTab: function(e) {
             e.preventDefault();
             this.$('.edm-navigation').children('li').removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
+            this.$('.edm-navigation').find('[data-id=consumer-reviews-tab]').parent().addClass('active');
+            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
             this.consumerReviewsTabView.render();
         },
         resetTabs: function() {

@@ -5928,7 +5928,8 @@ button.close {
   margin-left: 15px;
   vertical-align: middle;
 }
-.edm-navigation .dropdown.open .arrow-down {
+.edm-navigation .dropdown.open .arrow-down,
+.edm-navigation .dropdown.active .arrow-down {
   border-top-color: #fff;
 }
 .edm-navigation .dropdown-menu {
