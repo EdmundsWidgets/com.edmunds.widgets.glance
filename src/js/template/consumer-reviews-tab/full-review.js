@@ -26,7 +26,7 @@ define(function() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<h4><%= title %></h4>' +
-        '<p class="vehicle">Vehicle: 2014 Mazda MAZDA3 i Touring 4dr Hatchback (2.0L 4cyl 6A)</p>' +
+        '<p class="vehicle">Vehicle: Honda Accord 2013 Sedan EX 4dr Sedan (2.4L 4cyl CVT)</p>' +
         '<p class="title">Favorite Features:</p>' +
         '<p><%= favoriteFeatures %></p>' +
         '<p class="title">Suggested Improvements:</p>' +
