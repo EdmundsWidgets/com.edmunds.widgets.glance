@@ -8,10 +8,10 @@ define(function() {
         '<div class="star filled"></div>' +
         '<div class="star filled"></div>' +
         '<div class="star"></div>' +
-        '<div class="text-rating-star hidden-xs"><span>4.0</span> out of 5.0</div>' +
+        '<div class="text-rating-star hidden-xs"><span><%= averageRating %></span> out of 5.0</div>' +
         '</div>' +
         '<div class="reviews-count col-xs-5 col-sm-4">' +
-        '<span class="hidden-xs">Based on</span><span>12</span> reviews</div>' +
+        '<span class="hidden-xs">Based on</span> <span><%= reviewsCount %></span> reviews</div>' +
         '</div>' +
         '</div>' +
         '<section class="content col-xs-12">' +
