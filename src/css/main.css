@@ -6652,6 +6652,21 @@ footer .logo a {
 .photos .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
 }
+.reviews-tab .content {
+  height: 423px;
+  overflow: auto;
+  padding: 0;
+}
+@media (min-width: 480px) {
+  .reviews-tab .content {
+    height: 469px;
+  }
+}
+@media (min-width: 710px) {
+  .reviews-tab .content {
+    height: 319px;
+  }
+}
 .reviews-tab .rating-bar {
   background: #00a8fe;
   height: 55px;
@@ -6716,11 +6731,10 @@ footer .logo a {
 }
 .reviews-tab .consumer-review {
   border-top: 1px solid #e5e5e5;
-  padding: 20px 0;
+  padding: 18px 0;
 }
 .reviews-tab .consumer-review:first-child {
-  border: none;
-  padding-top: 10px;
+  border-color: transparent;
 }
 .reviews-tab .consumer-review p {
   margin: 15px 0;
