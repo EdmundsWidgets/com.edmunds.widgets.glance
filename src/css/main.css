@@ -6830,6 +6830,7 @@ footer .logo a {
   width: 40px;
   float: left;
   margin-top: 9px;
+  cursor: pointer;
 }
 .reviews-tab .list-reviews-nav {
   float: right;
@@ -6873,12 +6874,18 @@ footer .logo a {
   height: 34px;
   margin: 10px 0 0 1px;
 }
+.reviews-tab .list-reviews-nav .next-review:hover {
+  cursor: pointer;
+}
 .reviews-tab .list-reviews-nav .prev-review {
   float: right;
   background: url(../img/list_reviews_left.png) no-repeat;
   width: 33px;
   height: 34px;
   margin: 10px 0 0 15px;
+}
+.reviews-tab .list-reviews-nav .prev-review:hover {
+  cursor: pointer;
 }
 .reviews-tab .list-reviews-nav .reviews-count {
   float: right;
