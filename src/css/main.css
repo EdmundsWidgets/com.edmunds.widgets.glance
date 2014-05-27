@@ -5911,6 +5911,10 @@ button.close {
   background: url(../img/tab_button_center_active.png) repeat-x;
   color: #fff;
 }
+.edm-navigation > li.open > a,
+.edm-navigation > li.active > a {
+  z-index: 2;
+}
 .edm-navigation > li.open > a:before,
 .edm-navigation > li.active > a:before {
   background: url(../img/tab_button_left_active.png) no-repeat;
