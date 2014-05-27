@@ -1,0 +1,143 @@
+.reviews-tab{
+  .rating-bar{
+    background: @brand-primary;
+    height: 55px;
+    .rating-stars{
+      div{
+        float: left;
+      }
+      .text-rating-star{
+        font-size: 18px;
+        line-height: 55px;
+        margin-left: 15px;
+        span{
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+      .star{
+        width: 18px;
+        height: 18px;
+        background: url(../img/star.png) no-repeat;
+        margin: 18px 2px;
+        .clearfix;
+        &.filled{
+          background: url(../img/star_filled.png) no-repeat;
+        }
+      }
+    }
+    .reviews-count{
+      font-size: 13px;
+      line-height: 55px;
+      text-align: right;
+    }
+  }
+  .consumer-review{
+    border-top: 1px solid #e5e5e5;
+    padding: 20px 0;
+    &:first-child{
+      border: none;
+      padding-top: 10px;
+    }
+    p{
+      margin: 15px 0;
+    }
+    p.vehicle{
+      font-size: 11px;
+      margin: 0;
+    }
+    p.title{
+      color: #94ce00;
+      margin-bottom: -15px;
+      font-weight: bold;
+    }
+    h4{
+      font-size: 14px;
+      margin: 0;
+    }
+    .date{
+      text-align: right;
+    }
+    .rating-stars{
+      div{
+        float: left;
+      }
+      span{
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .star{
+        width: 10px;
+        height: 10px;
+        background: url(../img/star_small.png) no-repeat;
+        margin: 0 2px;
+        .clearfix;
+        &.filled{
+          background: url(../img/star_small_filled.png) no-repeat;
+        }
+      }
+    }
+    .pros{
+      background: url(../img/icon-pros.png) no-repeat;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      float: right;
+      width: 34px;
+    }
+    .cons{
+      background: url(../img/icon-cons.png) no-repeat;
+      margin-bottom: 10px;
+      padding-left: 20px;
+      float: right;
+      width: 34px;
+    }
+  }
+  .clearmine{
+    clear: both;
+  }
+  .list-reviews{
+    background: url(../img/list_reviews.png) no-repeat;
+    height: 37px;
+    width: 40px;
+    float: left;
+    margin-top: 9px;
+  }
+  .list-reviews-nav{
+    float: right;
+    .clearfix;
+    .next-review{
+      float: right;
+      background: url(../img/list_reviews_right.png) no-repeat;
+      width: 33px;
+      height: 34px;
+      margin: 10px 0 0 1px;
+    }
+    .prev-review{
+      float: right;
+      background: url(../img/list_reviews_left.png) no-repeat;
+      width: 33px;
+      height: 34px;
+      margin: 10px 0 0 15px;
+    }
+    .reviews-count{
+      float: right;
+    }
+  }
+  .rated{
+    .clearfix;
+    div{
+      float: left;
+    }
+    .cons{
+      float: left;
+      margin-left: 10px;
+      padding-left: 15px;
+      background-position: 0 center;
+    }
+    .pros{
+      float: left;
+      margin-left: 15px;
+      padding-left: 15px;
+    }
+  }
+}
