@@ -1,10 +1,11 @@
 define([
+    'dispatcher',
     'template/base/base',
     'view/base/styles',
     'view/rating-tab/rating-tab',
     'view/edmunds-says-tab/edmunds-says-tab',
     'view/consumer-reviews-tab/consumer-reviews-tab'
-], function(baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView) {
+], function(dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         template: baseTemplate,
@@ -30,6 +31,7 @@ define([
                 apiKey: options.apiKey
             });
             this.edmundsSaysTabView.load();
+            this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs)
             this.render();
         },
         render: function() {
@@ -54,6 +56,10 @@ define([
             this.$('.edm-navigation').children('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
             this.consumerReviewsTabView.render();
+        },
+        resetTabs: function() {
+            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('[data-id=rating-tab]').parent().addClass('active');
         }
     });
 });
