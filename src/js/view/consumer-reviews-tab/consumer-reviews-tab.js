@@ -7,7 +7,8 @@ define([
     return Backbone.View.extend({
         events: {
             'click .consumer-review': 'renderFullReview',
-            'click .list-reviews': 'render'
+            'click .list-reviews': 'render',
+            'click .reviews-navigation': 'switchReview'
         },
         model: new ConsumerReviewsModel(),
         initialize: function(options) {
@@ -30,16 +31,42 @@ define([
             });
         },
         init: function() {
+            this.options.reviewsCount = this.model.get('reviewsCount');
             this.reviewsListView = new ReviewsListView({
                 collection: this.model.get('reviews'),
                 averageRating: this.model.get('averageRating'),
-                reviewsCount: this.model.get('reviewsCount')
+                reviewsCount: this.options.reviewsCount
             });
         },
         renderFullReview: function (e) {
             var id = $(e.currentTarget).data('id');
+            this.options.currentReview = this.model.get('reviews').indexOf(this.model.get('reviews').get(id));
             this.fullReviewView = new FullReviewView({
-                model: this.model.get('reviews').get(id)
+                model: this.model.get('reviews').at(this.options.currentReview),
+                reviewsCount: this.model.get('reviewsCount'),
+                currentReview: this.options.currentReview + 1
+            });
+            this.$('.content').html(this.fullReviewView.render());
+        },
+        switchReview: function(e) {
+            if ($(e.currentTarget).hasClass('next-review')) {
+                if (this.options.currentReview + 1 < this.options.reviewsCount) {
+                    this.options.currentReview += 1;
+                } else {
+                    this.options.currentReview = 0;
+                }
+            }
+            if ($(e.currentTarget).hasClass('prev-review')) {
+                if (this.options.currentReview - 1 > 0) {
+                    this.options.currentReview = this.options.currentReview - 1;
+                } else {
+                    this.options.currentReview = this.options.reviewsCount - 1;
+                }
+            }
+            this.fullReviewView = new FullReviewView({
+                model: this.model.get('reviews').at(this.options.currentReview),
+                reviewsCount: this.model.get('reviewsCount'),
+                currentReview: this.options.currentReview + 1
             });
             this.$('.content').html(this.fullReviewView.render());
         }
