@@ -6347,6 +6347,20 @@ body {
 .edm-widget p {
   margin: 0;
 }
+.edm-widget .content {
+  height: 423px;
+  overflow: auto;
+}
+@media screen and (min-width: 480px) {
+  .edm-widget .content {
+    height: 469px;
+  }
+}
+@media screen and (min-width: 710px) {
+  .edm-widget .content {
+    height: 319px;
+  }
+}
 .btn-primary-dark {
   background: #0070aa;
   border: none;
@@ -6657,19 +6671,7 @@ footer .logo a {
   width: 100%;
 }
 .reviews-tab .content {
-  height: 423px;
-  overflow: auto;
   padding: 0;
-}
-@media (min-width: 480px) {
-  .reviews-tab .content {
-    height: 469px;
-  }
-}
-@media (min-width: 710px) {
-  .reviews-tab .content {
-    height: 319px;
-  }
 }
 .reviews-tab .rating-bar {
   background: #00a8fe;
