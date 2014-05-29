@@ -15,7 +15,7 @@ define([
         initialize: function(options) {
             this.options = options || {};
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
-            this.listenTo(this.model, 'change', this.init);
+            this.listenTo(this.model, 'change', this.test);
         },
         init: function() {
             this.$el.empty();
@@ -39,8 +39,15 @@ define([
                 url: this.model.url(styleId),
                 data: {
                     api_key: this.options.apiKey
+                },
+                success: function(collection) {
+                    this.some = collection;
+                    console.log(this.some);
                 }
             });
+        },
+        test: function() {
+            console.log('something ' + this.some);
         },
         renderDetails: function(e) {
             var id = $(e.currentTarget).data('id');
