@@ -6670,6 +6670,11 @@ footer .logo a {
 .photos .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
 }
+.tco-tab .content {
+  height: 370px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .tco-tab .rating-container {
   padding-bottom: 10px;
   padding-top: 10px;
@@ -6678,15 +6683,43 @@ footer .logo a {
   width: 88px;
   line-height: 1;
   margin: 6px 0;
-  padding: 0 7px;
+  padding: 0 5px;
 }
 .tco-tab .rating-container .btn-primary {
   height: 25px;
   margin: 5px 0;
   display: block;
   line-height: 14px;
-  padding: 5px 17px;
+  padding: 5px 15px;
   background: #0070bf;
+}
+.tco-tab .table > tfoot > tr > td {
+  border: none;
+  font-weight: bold;
+}
+.tco-tab table tr td {
+  padding: 5px 0;
+  font-size: 14px;
+  text-align: right;
+}
+.tco-tab table tr td:first-child {
+  text-align: left;
+}
+.tco-tab table tbody {
+  border: none;
+}
+.tco-tab table tbody td {
+  border: none;
+}
+.tco-tab h4 {
+  font-size: 14px;
+  margin: 15px 0;
+}
+.tco-tab .rating-selector {
+  padding: 0 10px;
+}
+.tco-tab .rating-selector .arrow-right {
+  margin-right: 0;
 }
 .tco-tab .zip-code {
   margin: 5px 0;
