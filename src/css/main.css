@@ -5911,6 +5911,10 @@ button.close {
   background: url(../img/tab_button_center_active.png) repeat-x;
   color: #fff;
 }
+.edm-navigation > li.open > a,
+.edm-navigation > li.active > a {
+  z-index: 2;
+}
 .edm-navigation > li.open > a:before,
 .edm-navigation > li.active > a:before {
   background: url(../img/tab_button_left_active.png) no-repeat;
@@ -5923,6 +5927,10 @@ button.close {
   display: inline-block;
   margin-left: 15px;
   vertical-align: middle;
+}
+.edm-navigation .dropdown.open .arrow-down,
+.edm-navigation .dropdown.active .arrow-down {
+  border-top-color: #fff;
 }
 .edm-navigation .dropdown-menu {
   font-size: 11px;
@@ -6339,6 +6347,20 @@ body {
 .edm-widget p {
   margin: 0;
 }
+.edm-widget .content {
+  height: 423px;
+  overflow: auto;
+}
+@media screen and (min-width: 480px) {
+  .edm-widget .content {
+    height: 469px;
+  }
+}
+@media screen and (min-width: 710px) {
+  .edm-widget .content {
+    height: 319px;
+  }
+}
 .btn-primary-dark {
   background: #0070aa;
   border: none;
@@ -6648,6 +6670,69 @@ footer .logo a {
 .photos .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
 }
+.tco-tab .content {
+  height: 370px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.tco-tab .rating-container {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.tco-tab .rating-container p {
+  width: 88px;
+  line-height: 1;
+  margin: 6px 0;
+  padding: 0 5px;
+}
+.tco-tab .rating-container .btn-primary {
+  height: 25px;
+  margin: 5px 0;
+  display: block;
+  line-height: 14px;
+  padding: 5px 15px;
+  background: #0070bf;
+}
+.tco-tab .table > tfoot > tr > td {
+  border: none;
+  font-weight: bold;
+}
+.tco-tab table tr td {
+  padding: 5px 0;
+  font-size: 14px;
+  text-align: right;
+}
+.tco-tab table tr td:first-child {
+  text-align: left;
+}
+.tco-tab table tbody {
+  border: none;
+}
+.tco-tab table tbody td {
+  border: none;
+}
+.tco-tab h4 {
+  font-size: 14px;
+  margin: 15px 0;
+}
+.tco-tab .rating-selector {
+  padding: 0 10px;
+}
+.tco-tab .rating-selector .arrow-right {
+  margin-right: 0;
+}
+.tco-tab .zip-code {
+  margin: 5px 0;
+}
+.tco-tab .zip-code .form-control {
+  height: 25px;
+  padding: 5px;
+  width: 55px;
+  text-align: center;
+}
+.reviews-tab .content {
+  padding: 0;
+}
 .reviews-tab .rating-bar {
   background: #00a8fe;
   height: 55px;
@@ -6712,11 +6797,14 @@ footer .logo a {
 }
 .reviews-tab .consumer-review {
   border-top: 1px solid #e5e5e5;
-  padding: 20px 0;
+  padding: 18px 0;
+}
+.reviews-tab .consumer-review.reviews-list:hover {
+  background: rgba(38, 201, 255, 0.3);
+  cursor: pointer;
 }
 .reviews-tab .consumer-review:first-child {
-  border: none;
-  padding-top: 10px;
+  border-color: transparent;
 }
 .reviews-tab .consumer-review p {
   margin: 15px 0;
@@ -6808,6 +6896,7 @@ footer .logo a {
   width: 40px;
   float: left;
   margin-top: 9px;
+  cursor: pointer;
 }
 .reviews-tab .list-reviews-nav {
   float: right;
@@ -6851,12 +6940,18 @@ footer .logo a {
   height: 34px;
   margin: 10px 0 0 1px;
 }
+.reviews-tab .list-reviews-nav .next-review:hover {
+  cursor: pointer;
+}
 .reviews-tab .list-reviews-nav .prev-review {
   float: right;
   background: url(../img/list_reviews_left.png) no-repeat;
   width: 33px;
   height: 34px;
   margin: 10px 0 0 15px;
+}
+.reviews-tab .list-reviews-nav .prev-review:hover {
+  cursor: pointer;
 }
 .reviews-tab .list-reviews-nav .reviews-count {
   float: right;

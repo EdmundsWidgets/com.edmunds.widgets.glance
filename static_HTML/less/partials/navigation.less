@@ -57,6 +57,7 @@
 
     &.open > a,
     &.active > a{
+      z-index: 2;
       &:before{
         background: url(../img/tab_button_left_active.png) no-repeat;
       }
@@ -70,6 +71,12 @@
     margin-left: 15px;
     vertical-align: middle;
 //    border-top-color: lighten(@base-font-color, 6.5%);
+  }
+  .dropdown.open,
+  .dropdown.active{
+    .arrow-down{
+      border-top-color: #fff;
+    }
   }
   .dropdown-menu{
     font-size: 11px;

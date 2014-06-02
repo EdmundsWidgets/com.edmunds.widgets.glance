@@ -5,23 +5,16 @@ define([
     return Backbone.View.extend({
         className: 'reviews-tab',
         template: reviewsListTemplate,
-        events: {
-            'click .consumer-review': 'renderFullReview',
-            'click .list-reviews': 'render'
+        initialize: function(options) {
+            this.options = options || {};
         },
-        initialize: function() {},
         render: function() {
             this.$el.html(this.template({
-                collection: this.collection.toJSON()
+                collection: this.collection.toJSON(),
+                averageRating: this.options.averageRating,
+                reviewsCount: this.options.reviewsCount
             }));
             return this;
-        },
-        renderFullReview: function(e) {
-            var id = $(e.currentTarget).data('id');
-            this.fullReviewView = new FullReviewView({
-                model: this.collection.get(id)
-            });
-            this.$('.content').html(this.fullReviewView.render());
         }
     });
 });

@@ -29,6 +29,16 @@ body{
   p{
     margin: 0;
   }
+  .content {
+    height: 423px;
+    overflow: auto;
+    @media screen and (min-width: @screen-sm){
+      height: 469px;
+    }
+    @media screen and (min-width: @screen-md){
+      height: 319px;
+    }
+  }
 }
 
 .btn-primary-dark{
