@@ -6675,6 +6675,16 @@ footer .logo a {
   padding-top: 0;
   padding-bottom: 0;
 }
+@media screen and (min-width: 480px) {
+  .tco-tab .content {
+    height: 435px;
+  }
+}
+@media screen and (min-width: 710px) {
+  .tco-tab .content {
+    height: 285px;
+  }
+}
 .tco-tab .rating-container {
   padding-bottom: 10px;
   padding-top: 10px;
@@ -6696,6 +6706,13 @@ footer .logo a {
 .tco-tab .table > tfoot > tr > td {
   border: none;
   font-weight: bold;
+}
+.tco-tab .table > thead > tr > th {
+  border: none;
+  font-weight: bold;
+  text-align: right;
+  padding: 5px 0;
+  font-size: 14px;
 }
 .tco-tab table tr td {
   padding: 5px 0;

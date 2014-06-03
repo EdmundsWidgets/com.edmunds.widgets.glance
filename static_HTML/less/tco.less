@@ -3,6 +3,12 @@
     height: 370px;
     padding-top: 0;
     padding-bottom: 0;
+    @media screen and (min-width: @screen-sm) {
+      height: 435px;
+    }
+    @media screen and (min-width: @screen-md) {
+      height: 285px;
+    }
   }
   .rating-container{
     padding-bottom: 10px;
@@ -25,6 +31,13 @@
   .table > tfoot > tr > td{
     border: none;
     font-weight: bold;
+  }
+  .table > thead > tr > th{
+    border: none;
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 0;
+    font-size: 14px;
   }
   table tr td{
     padding: 5px 0;
