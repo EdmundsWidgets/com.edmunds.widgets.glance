@@ -8,7 +8,7 @@
     .rating-stars{
       .text-rating-star{
         font-size: 18px;
-        line-height: 55px;
+        line-height: 53px;
         margin-left: 15px;
         span{
           font-size: 24px;
@@ -28,6 +28,9 @@
     &.reviews-list:hover{
       background: rgba(38, 201, 255, .3);
       cursor: pointer;
+      .star{
+        background: url(../img/star_small_filled.png) no-repeat;
+      }
     }
     &:first-child{
       border-color: transparent;
@@ -51,25 +54,25 @@
     .date{
       text-align: right;
     }
-    .rating-stars{
-      div{
-        float: left;
-      }
-      span{
-        font-size: 24px;
-        font-weight: bold;
-      }
-      .star{
-        width: 10px;
-        height: 10px;
-        background: url(../img/star_small.png) no-repeat;
-        margin: 0 2px;
-        .clearfix;
-        &.filled{
-          background: url(../img/star_small_filled.png) no-repeat;
-        }
-      }
-    }
+//    .rating-stars{
+//      div{
+//        float: left;
+//      }
+//      span{
+//        font-size: 24px;
+//        font-weight: bold;
+//      }
+//      .star{
+//        width: 10px;
+//        height: 10px;
+//        background: url(../img/star_small.png) no-repeat;
+//        margin: 0 2px;
+//        .clearfix;
+//        &.filled{
+//          background: url(../img/star_small_filled.png) no-repeat;
+//        }
+//      }
+//    }
     .pros{
       background: url(../img/icon-pros.png) no-repeat;
       margin-bottom: 10px;

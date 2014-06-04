@@ -6312,8 +6312,8 @@ button.close {
 }
 .big-stars {
   background: #0075b8;
-  height: 18px;
-  margin: 18px 10px 18px 0;
+  height: 20px;
+  margin: 17px 10px 18px 0;
   width: 100px;
   float: left;
 }
@@ -6350,15 +6350,64 @@ button.close {
   clear: both;
 }
 .big-stars .star {
-  background: url(../img/star.png);
+  background: url(../img/star.png) no-repeat;
   float: left;
-  height: 18px;
+  height: 20px;
   width: 20px;
 }
 .big-stars .rating-strip {
   width: 100%;
   background: #92d000;
-  height: 18px;
+  height: 20px;
+}
+.small-stars {
+  background: #999;
+  height: 10px;
+  width: 50px;
+  float: left;
+}
+.small-stars:before,
+.small-stars:after {
+  content: " ";
+  display: table;
+}
+.small-stars:after {
+  clear: both;
+}
+.small-stars:before,
+.small-stars:after {
+  content: " ";
+  display: table;
+}
+.small-stars:after {
+  clear: both;
+}
+.small-stars:before,
+.small-stars:after {
+  content: " ";
+  display: table;
+}
+.small-stars:after {
+  clear: both;
+}
+.small-stars:before,
+.small-stars:after {
+  content: " ";
+  display: table;
+}
+.small-stars:after {
+  clear: both;
+}
+.small-stars .star {
+  background: url(../img/star_small.png) no-repeat;
+  float: left;
+  height: 10px;
+  width: 10px;
+}
+.small-stars .rating-strip {
+  width: 100%;
+  background: #92d000;
+  height: 10px;
 }
 html,
 body {
@@ -6806,7 +6855,7 @@ footer .logo a {
 }
 .reviews-tab .rating-bar .rating-stars .text-rating-star {
   font-size: 18px;
-  line-height: 55px;
+  line-height: 53px;
   margin-left: 15px;
 }
 .reviews-tab .rating-bar .rating-stars .text-rating-star span {
@@ -6825,6 +6874,9 @@ footer .logo a {
 .reviews-tab .consumer-review.reviews-list:hover {
   background: rgba(38, 201, 255, 0.3);
   cursor: pointer;
+}
+.reviews-tab .consumer-review.reviews-list:hover .star {
+  background: url(../img/star_small_filled.png) no-repeat;
 }
 .reviews-tab .consumer-review:first-child {
   border-color: transparent;
@@ -6847,54 +6899,6 @@ footer .logo a {
 }
 .reviews-tab .consumer-review .date {
   text-align: right;
-}
-.reviews-tab .consumer-review .rating-stars div {
-  float: left;
-}
-.reviews-tab .consumer-review .rating-stars span {
-  font-size: 24px;
-  font-weight: bold;
-}
-.reviews-tab .consumer-review .rating-stars .star {
-  width: 10px;
-  height: 10px;
-  background: url(../img/star_small.png) no-repeat;
-  margin: 0 2px;
-}
-.reviews-tab .consumer-review .rating-stars .star:before,
-.reviews-tab .consumer-review .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .consumer-review .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .consumer-review .rating-stars .star:before,
-.reviews-tab .consumer-review .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .consumer-review .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .consumer-review .rating-stars .star:before,
-.reviews-tab .consumer-review .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .consumer-review .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .consumer-review .rating-stars .star:before,
-.reviews-tab .consumer-review .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .consumer-review .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .consumer-review .rating-stars .star.filled {
-  background: url(../img/star_small_filled.png) no-repeat;
 }
 .reviews-tab .consumer-review .pros {
   background: url(../img/icon-pros.png) no-repeat;
