@@ -8,7 +8,7 @@ define(function() {
         '<input type="text" class="form-control" placeholder="zip">' +
         '</div>' +
         '<p class="pull-left">Santa Monica, CA</p>' +
-        '<a href="#" class="btn btn-primary pull-left">Update</a>' +
+        '<a href="#" class="btn btn-primary pull-left update-zip">Update</a>' +
         '</div>' +
         '<div class="vehicle-info-container col-xs-12">' +
         '<div class="vehicle-info">' +

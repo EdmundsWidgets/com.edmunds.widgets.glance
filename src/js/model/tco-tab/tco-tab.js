@@ -1,6 +1,9 @@
 define(function() {
     return Backbone.Model.extend({
-        url: 'https://api.edmunds.com/api/tco/v1/details/allnewtcobystyleidzipandstate/200434856/90404/ca?fmt=json&api_key=axr2rtmnj63qsth3ume3tv5f',
+        url: function(zipCode) {
+            var zipCode = zipCode || '90404'; //note: Default zipCode
+            return 'https://api.edmunds.com/api/tco/v1/details/allnewtcobystyleidzipandstate/200434856/' + zipCode + '/ca?fmt=json&api_key=axr2rtmnj63qsth3ume3tv5f'
+        },
         parse: function(response) {
             for (var key in response) {
                 if (response.hasOwnProperty(key) && response[key].hasOwnProperty('values')) {
