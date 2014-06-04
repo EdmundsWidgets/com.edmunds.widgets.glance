@@ -25,13 +25,11 @@ define(function() {
         '<li><a data-id="consumer-reviews-tab" href="#">Consumer reviews</a></li>' +
         '<li><a data-id="tco-tab" href="#">TCO</a></li>' +
         '<li><a href="#">Photos</a></li>' +
-        '<li><a href="#">Videos</a></li>' +
         '</ul>' +
         '</li>' +
         '<li class="hidden-xs"><a data-id="consumer-reviews-tab" href="#">Consumer Reviews</a></li>' +
         '<li class="hidden-xs"><a data-id="tco-tab" href="#">TCO</a></li>' +
         '<li class="hidden-xs"><a href="#">Photos</a></li>' +
-        '<li class="hidden-xs"><a href="#">Videos</a></li>' +
         '</ul>' +
         '</div>' +
         '</div>' +
