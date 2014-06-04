@@ -6310,6 +6310,56 @@ button.close {
 .rating-details .edmunds-rating-strips .strip-container .bad {
   background: #96252b;
 }
+.big-stars {
+  background: #0075b8;
+  height: 18px;
+  margin: 18px 10px 18px 0;
+  width: 100px;
+  float: left;
+}
+.big-stars:before,
+.big-stars:after {
+  content: " ";
+  display: table;
+}
+.big-stars:after {
+  clear: both;
+}
+.big-stars:before,
+.big-stars:after {
+  content: " ";
+  display: table;
+}
+.big-stars:after {
+  clear: both;
+}
+.big-stars:before,
+.big-stars:after {
+  content: " ";
+  display: table;
+}
+.big-stars:after {
+  clear: both;
+}
+.big-stars:before,
+.big-stars:after {
+  content: " ";
+  display: table;
+}
+.big-stars:after {
+  clear: both;
+}
+.big-stars .star {
+  background: url(../img/star.png);
+  float: left;
+  height: 18px;
+  width: 20px;
+}
+.big-stars .rating-strip {
+  width: 100%;
+  background: #92d000;
+  height: 18px;
+}
 html,
 body {
   height: 100%;
@@ -6754,9 +6804,6 @@ footer .logo a {
   background: #00a8fe;
   height: 55px;
 }
-.reviews-tab .rating-bar .rating-stars div {
-  float: left;
-}
 .reviews-tab .rating-bar .rating-stars .text-rating-star {
   font-size: 18px;
   line-height: 55px;
@@ -6765,47 +6812,6 @@ footer .logo a {
 .reviews-tab .rating-bar .rating-stars .text-rating-star span {
   font-size: 24px;
   font-weight: bold;
-}
-.reviews-tab .rating-bar .rating-stars .star {
-  width: 18px;
-  height: 18px;
-  background: url(../img/star.png) no-repeat;
-  margin: 18px 2px;
-}
-.reviews-tab .rating-bar .rating-stars .star:before,
-.reviews-tab .rating-bar .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .rating-bar .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .rating-bar .rating-stars .star:before,
-.reviews-tab .rating-bar .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .rating-bar .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .rating-bar .rating-stars .star:before,
-.reviews-tab .rating-bar .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .rating-bar .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .rating-bar .rating-stars .star:before,
-.reviews-tab .rating-bar .rating-stars .star:after {
-  content: " ";
-  display: table;
-}
-.reviews-tab .rating-bar .rating-stars .star:after {
-  clear: both;
-}
-.reviews-tab .rating-bar .rating-stars .star.filled {
-  background: url(../img/star_filled.png) no-repeat;
 }
 .reviews-tab .rating-bar .reviews-count {
   font-size: 13px;
