@@ -6769,6 +6769,13 @@ footer .logo a {
 .photos-tab .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
 }
+.tco-tab .btn-group {
+  display: block;
+}
+.tco-tab .btn-group .dropdown-menu {
+  top: 23px;
+  width: 100%;
+}
 .tco-tab .content {
   height: 370px;
   padding-top: 0;
@@ -6833,9 +6840,11 @@ footer .logo a {
 }
 .tco-tab .rating-selector {
   padding: 0 10px;
+  width: 100%;
 }
-.tco-tab .rating-selector .arrow-right {
-  margin-right: 0;
+.tco-tab .rating-selector .arrow-down {
+  float: right;
+  margin: 6px 0 6px 10px;
 }
 .tco-tab .zip-code {
   margin: 5px 0;

@@ -19,10 +19,21 @@ define(function() {
         '</div>' +
         '<section class="content container-fluid">' +
         '<h4>5 Year Details</h4>' +
-        '<div class="rating-selector visible-xs visible-sm">' +
+//        '<button type="button" class="btn dropdown-toggle rating-selector visible-xs visible-sm" data-toggle="dropdown">Somthing<span class="arrow-down"></span></button>' +
+//        '<ul class="dropdown-menu" role="menu">' +
+//        '</ul>' +
+//        '</div>' +
+        '<div class="btn-group">' +
+        '<button class="rating-selector visible-xs visible-sm btn dropdown-toggle" data-toggle="dropdown">' +
         '<div class="category">5 Yr Total</div>' +
-        '<div class="arrow-right"></div>' +
+        '<div class="arrow-down"></div>' +
         '<div class="text-grade">$11.440</div>' +
+        '</button>' +
+        '<ul class="dropdown-menu" role="menu">' +
+        '<li><a href="#">Some</a></li>' +
+        '<li><a href="#">thing</a></li>' +
+        '<li><a href="#">test</a></li>' +
+        '</ul>' +
         '</div>' +
         '<table class="table">' +
         '<thead class="hidden-xs">' +
