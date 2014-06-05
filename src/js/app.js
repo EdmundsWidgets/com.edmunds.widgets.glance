@@ -54,39 +54,39 @@ define([
         },
         ratingTab: function(e) {
             e.preventDefault();
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
             this.ratingTabView.render();
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
             this.edmundsSaysTabView.render();
         },
         consumerReviewsTab: function(e) {
             e.preventDefault();
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=consumer-reviews-tab]').parent().addClass('active');
             this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
             this.consumerReviewsTabView.render();
         },
         tcoTab: function(e) {
             e.preventDefault();
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=tco-tab]').parent().addClass('active');
             this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
             this.tcoTabView.render();
         },
         photosTab: function(e) {
             e.preventDefault();
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=photos-tab]').parent().addClass('active');
             this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
             this.photosTabView.render();
         },
         resetTabs: function() {
-            this.$('.edm-navigation').children('li').removeClass('active');
+            this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=rating-tab]').parent().addClass('active');
         }
     });
