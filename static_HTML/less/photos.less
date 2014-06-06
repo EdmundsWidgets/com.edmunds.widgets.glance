@@ -80,6 +80,7 @@
         overflow: hidden;
         width: 100%;
         margin: 20px 0;
+        height: 95px;
         @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
           float: left;
           width: 152px;
@@ -126,20 +127,26 @@
           cursor: pointer;
         }
         ul{
+          position: absolute;
           list-style: none;
           padding: 0;
-          width: 100%;
+          width: 9999px;
           margin: 0;
           .clearfix;
           li{
             float: left;
-            width: 32%;
-            margin-left: 2%;
+            width: 140px;
+            margin-left: 14px;
+            border: 3px solid transparent;
+            .border-radius(3px);
             @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
               float: none;
               margin-left: 0;
               margin-top: 15px;
               width: 100%;
+            }
+            &.active{
+              border-color: @brand-primary;
             }
             &:first-child{
               margin-left: 0;

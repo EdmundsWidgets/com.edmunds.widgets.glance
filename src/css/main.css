@@ -6663,6 +6663,7 @@ footer .logo a {
   overflow: hidden;
   width: 100%;
   margin: 20px 0;
+  height: 95px;
 }
 @media (min-width: 710px) and (max-width: 1199px) {
   .photos-tab .content .slider-wrapper .slider-controls {
@@ -6712,9 +6713,10 @@ footer .logo a {
   cursor: pointer;
 }
 .photos-tab .content .slider-wrapper .slider-controls ul {
+  position: absolute;
   list-style: none;
   padding: 0;
-  width: 100%;
+  width: 9999px;
   margin: 0;
 }
 .photos-tab .content .slider-wrapper .slider-controls ul:before,
@@ -6751,8 +6753,12 @@ footer .logo a {
 }
 .photos-tab .content .slider-wrapper .slider-controls ul li {
   float: left;
-  width: 32%;
-  margin-left: 2%;
+  width: 140px;
+  margin-left: 14px;
+  border: 3px solid transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 @media (min-width: 710px) and (max-width: 1199px) {
   .photos-tab .content .slider-wrapper .slider-controls ul li {
@@ -6761,6 +6767,9 @@ footer .logo a {
     margin-top: 15px;
     width: 100%;
   }
+}
+.photos-tab .content .slider-wrapper .slider-controls ul li.active {
+  border-color: #00a8fe;
 }
 .photos-tab .content .slider-wrapper .slider-controls ul li:first-child {
   margin-left: 0;
