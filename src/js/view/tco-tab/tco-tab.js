@@ -17,7 +17,8 @@ define([
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         },
-        onZipChange: function() {
+        onZipChange: function(e) {
+            e.preventDefault();
             var data = this.$('input').val(),
                 isValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(data);
             if (isValid) {

@@ -1,4 +1,34 @@
 .tco-tab{
+  .vehicle-info{
+    p{
+      color: @base-font-color-light;
+      font-size: 11px;
+      font-weight: normal;
+      margin: 5px 0;
+    }
+    .true-cost-to-own{
+      color: @base-font-color-dark;
+      span{
+        font-size: 22px;
+        font-weight: bold;
+        float: right;
+      }
+    }
+    .true-cash-price{
+      color: @base-font-color-dark;
+      span{
+        font-size: 16px;
+        color: @base-font-color-light;
+        float: right;
+      }
+    }
+    .true-cash-price-icon{
+      display: inline-block;
+      background: transparent url(../img/true_cash_price_icon.png) no-repeat;
+      width: 15px;
+      height: 17px;
+    }
+  }
   .btn-group{
     display: block;
     .dropdown-menu {
@@ -7,14 +37,14 @@
     }
   }
   .content{
-    height: 370px;
+    height: 275px;
     padding-top: 0;
     padding-bottom: 0;
     @media screen and (min-width: @screen-sm) {
-      height: 435px;
+      height: 340px;
     }
     @media screen and (min-width: @screen-md) {
-      height: 285px;
+      height: 190px;
     }
   }
   .rating-container{

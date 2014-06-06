@@ -6769,6 +6769,34 @@ footer .logo a {
 .photos-tab .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
 }
+.tco-tab .vehicle-info p {
+  color: #888888;
+  font-size: 11px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+.tco-tab .vehicle-info .true-cost-to-own {
+  color: #333333;
+}
+.tco-tab .vehicle-info .true-cost-to-own span {
+  font-size: 22px;
+  font-weight: bold;
+  float: right;
+}
+.tco-tab .vehicle-info .true-cash-price {
+  color: #333333;
+}
+.tco-tab .vehicle-info .true-cash-price span {
+  font-size: 16px;
+  color: #888888;
+  float: right;
+}
+.tco-tab .vehicle-info .true-cash-price-icon {
+  display: inline-block;
+  background: transparent url(../img/true_cash_price_icon.png) no-repeat;
+  width: 15px;
+  height: 17px;
+}
 .tco-tab .btn-group {
   display: block;
 }
@@ -6777,18 +6805,18 @@ footer .logo a {
   width: 100%;
 }
 .tco-tab .content {
-  height: 370px;
+  height: 275px;
   padding-top: 0;
   padding-bottom: 0;
 }
 @media screen and (min-width: 480px) {
   .tco-tab .content {
-    height: 435px;
+    height: 340px;
   }
 }
 @media screen and (min-width: 710px) {
   .tco-tab .content {
-    height: 285px;
+    height: 190px;
   }
 }
 .tco-tab .rating-container {
