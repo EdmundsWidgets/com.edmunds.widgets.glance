@@ -8,6 +8,7 @@ define([
         },
         parse: function(response) {
             response.averageRating = parseFloat(response.averageRating).toFixed(1);
+            response.starRating = Math.round(parseFloat(response.averageRating)*2)*10;
             response.reviews = new ReviewsListCollection(response.reviews, {
                 parse: true
             });

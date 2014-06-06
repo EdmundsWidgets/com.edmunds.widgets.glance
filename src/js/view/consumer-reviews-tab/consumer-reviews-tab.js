@@ -35,7 +35,8 @@ define([
             this.reviewsListView = new ReviewsListView({
                 collection: this.model.get('reviews'),
                 averageRating: this.model.get('averageRating'),
-                reviewsCount: this.options.reviewsCount
+                reviewsCount: this.options.reviewsCount,
+                starRating: this.model.get('starRating')
             });
         },
         renderFullReview: function (e) {
