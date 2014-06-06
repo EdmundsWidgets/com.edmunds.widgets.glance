@@ -40,7 +40,7 @@ define(function() {
         '</div>' +
         '<div class="slider-controls">' +
         '<ul>' +
-        '<li><img src="img/slider_1.png" alt="slider"/></li>' +
+        '<li class="active"><img src="img/slider_1.png" alt="slider"/></li>' +
         '<li><img src="img/slider_2.png" alt="slider"/></li>' +
         '<li><img src="img/slider_3.png" alt="slider"/></li>' +
         '<li><img src="img/slider_4.png" alt="slider"/></li>' +

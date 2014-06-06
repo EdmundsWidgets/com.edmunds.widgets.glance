@@ -30,7 +30,6 @@ define(function() {
             } else if (typeof listOfValues === 'number') {
                 listOfValues += '';
                 if (listOfValues.length > 3) {
-                    console.log(listOfValues.length);
                     a = listOfValues.substring(listOfValues.length - 3);
                     listOfValues = '$' + listOfValues.replace(a, ',' + a);
                 } else {
