@@ -36,109 +36,111 @@ define(function() {
         '<div class="text-grade"><%= tcoTotal %></div>' +
         '</button>' +
         '<ul class="dropdown-menu" role="menu">' +
-        '<li><a href="#">Year 1</a></li>' +
-        '<li><a href="#">Year 2</a></li>' +
-        '<li><a href="#">Year 3</a></li>' +
-        '<li><a href="#">Year 4</a></li>' +
-        '<li><a href="#">Year 5</a></li>' +
-        '<li><a href="#">5 Yr Total</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-1">Year 1</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-2">Year 2</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-3">Year 3</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-4">Year 4</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-5">Year 5</a></li>' +
+        '<li class="visible-xs"><a href="#" data-id="year-total">5 Yr Total</a></li>' +
+        '<li class="hidden-xs"><a href="#" data-id="year-1-3">1 - 3 years</a></li>' +
+        '<li class="hidden-xs"><a href="#" data-id="year-4-total">4 - 5 years and total 5 years</a></li>' +
         '</ul>' +
         '</div>' +
         '<table class="table">' +
         '<thead class="hidden-xs">' +
         '<tr>' +
-        '<th class="hidden-xs"></th>' +
-        '<th class="hidden-xs">Year 1</th>' +
-        '<th class="hidden-xs">Year 2</th>' +
-        '<th class="hidden-xs">Year 3</th>' +
-        '<th class="hidden-xs hidden-sm">Year 4</th>' +
-        '<th class="hidden-xs hidden-sm">Year 5</th>' +
-        '<th class="hidden-xs hidden-sm">5 Yr Total</th>' +
+        '<th class="hidden-xs years year-1-3 year-4-total"></th>' +
+        '<th class="hidden-xs years year-1-3">Year 1</th>' +
+        '<th class="hidden-xs years year-1-3">Year 2</th>' +
+        '<th class="hidden-xs years year-1-3">Year 3</th>' +
+        '<th class="hidden-xs years year-4-total hidden-sm">Year 4</th>' +
+        '<th class="hidden-xs years year-4-total hidden-sm">Year 5</th>' +
+        '<th class="hidden-xs years year-4-total hidden-sm">5 Yr Total</th>' +
         '</tr>' +
         '</thead>' +
         '<tfoot>' +
         '<tr>' +
         '<td>True Cost to Own &reg;</td>' +
-        '<td class="year-1 hidden-xs"><%= totalOneYear %></td>' +
-        '<td class="year-2 hidden-xs"><%= totalTwoYears %></td>' +
-        '<td class="year-3 hidden-xs"><%= totalThreeYears %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= totalFourYears %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= totalFiveYears %></td>' +
-        '<td class="year-total hidden-sm"><%= tcoTotal %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= totalOneYear %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= totalTwoYears %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= totalThreeYears %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= totalFourYears %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= totalFiveYears %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= tcoTotal %></td>' +
         '</tr>' +
         '</tfoot>' +
         '<tbody>' +
         '<tr>' +
         '<td>Depreciation</td>' +
-        '<td class="year-1 hidden-xs"><%= depreciation.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= depreciation.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= depreciation.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= depreciation.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= depreciation.values[4] %></td>' +
-        '<td class="year-total hidden-sm"><%= depreciation.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= depreciation.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= depreciation.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= depreciation.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= depreciation.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= depreciation.values[4] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= depreciation.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Taxes & Fees</td>' +
-        '<td class="year-1 hidden-xs"><%= taxandfees.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= taxandfees.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= taxandfees.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= taxandfees.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= taxandfees.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= taxandfees.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= taxandfees.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= taxandfees.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= taxandfees.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= taxandfees.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= taxandfees.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= taxandfees.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Financing</td>' +
-        '<td class="year-1 hidden-xs"><%= financing.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= financing.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= financing.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= financing.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= financing.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= financing.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= financing.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= financing.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= financing.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= financing.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= financing.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= financing.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Fuel</td>' +
-        '<td class="year-1 hidden-xs"><%= fuel.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= fuel.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= fuel.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= fuel.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= fuel.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= fuel.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= fuel.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= fuel.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= fuel.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= fuel.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= fuel.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= fuel.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Insurance</td>' +
-        '<td class="year-1 hidden-xs"><%= insurance.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= insurance.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= insurance.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= insurance.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= insurance.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= insurance.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= insurance.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= insurance.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= insurance.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= insurance.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= insurance.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= insurance.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Maintenance</td>' +
-        '<td class="year-1 hidden-xs"><%= maintenance.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= maintenance.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= maintenance.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= maintenance.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= maintenance.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= maintenance.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= maintenance.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= maintenance.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= maintenance.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= maintenance.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= maintenance.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= maintenance.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Repairs</td>' +
-        '<td class="year-1 hidden-xs"><%= repairs.values[0] %></td>' +
-        '<td class="year-2 hidden-xs"><%= repairs.values[1] %></td>' +
-        '<td class="year-3 hidden-xs"><%= repairs.values[2] %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= repairs.values[3] %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= repairs.values[3] %></td>' +
-        '<td class="year-total hidden-sm"><%= repairs.total %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= repairs.values[0] %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= repairs.values[1] %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= repairs.values[2] %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= repairs.values[3] %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= repairs.values[3] %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= repairs.total %></td>' +
         '</tr>' +
         '<tr>' +
         '<td>Tax Credit</td>' +
-        '<td class="year-1 hidden-xs"><%= taxcredit %></td>' +
-        '<td class="year-2 hidden-xs"><%= taxcredit %></td>' +
-        '<td class="year-3 hidden-xs"><%= taxcredit %></td>' +
-        '<td class="year-4 hidden-xs hidden-sm"><%= taxcredit %></td>' +
-        '<td class="year-5 hidden-xs hidden-sm"><%= taxcredit %></td>' +
-        '<td class="year-total hidden-sm"><%= taxcredit %></td>' +
+        '<td class="years year-1 year-1-3 hidden-xs"><%= taxcredit %></td>' +
+        '<td class="years year-2 year-1-3 hidden-xs"><%= taxcredit %></td>' +
+        '<td class="years year-3 year-1-3 hidden-xs"><%= taxcredit %></td>' +
+        '<td class="years year-4 year-4-total hidden-xs hidden-sm"><%= taxcredit %></td>' +
+        '<td class="years year-5 year-4-total hidden-xs hidden-sm"><%= taxcredit %></td>' +
+        '<td class="years year-total year-4-total hidden-sm"><%= taxcredit %></td>' +
         '</tr>' +
         '</tbody>' +
         '</table>' +
