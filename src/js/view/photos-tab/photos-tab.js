@@ -9,7 +9,9 @@ define([
         },
         template: photosTabTemplate,
         collection: new PhotosTabCollection(),
-        initialize: function() {},
+        initialize: function() {
+            this.collection.fetch();
+        },
         render: function() {
             this.$el.html(this.template);
             this.$slides = this.$('.slider-controls').find('li');

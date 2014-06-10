@@ -1,5 +1,5 @@
 define(function() {
     return Backbone.Collection.extend({
-        url: 'http://www.edmunds.com/mobilerest/mobile-rest-media/2.0/media/honda/accord/2013/sedan?version=2'
+        url: 'http://api.edmunds.com/api/media/v2/photos/honda/accord/2013/sedan?api_key=axr2rtmnj63qsth3ume3tv5f'
     });
 });
