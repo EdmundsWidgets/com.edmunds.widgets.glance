@@ -59,11 +59,11 @@ define(function() {
         '<tfoot>' +
         '<tr>' +
         '<td>True Cost to Own &reg;</td>' +
-        '<td class="year-1 hidden-xs">$11,440</td>' +
-        '<td class="year-2 hidden-xs">$7,899</td>' +
-        '<td class="year-3 hidden-xs">$7,416</td>' +
-        '<td class="year-4 hidden-xs hidden-sm">$8,164</td>' +
-        '<td class="year-5 hidden-xs hidden-sm">$7,980</td>' +
+        '<td class="year-1 hidden-xs"><%= totalOneYear %></td>' +
+        '<td class="year-2 hidden-xs"><%= totalTwoYears %></td>' +
+        '<td class="year-3 hidden-xs"><%= totalThreeYears %></td>' +
+        '<td class="year-4 hidden-xs hidden-sm"><%= totalFourYears %></td>' +
+        '<td class="year-5 hidden-xs hidden-sm"><%= totalFiveYears %></td>' +
         '<td class="year-total hidden-sm"><%= tcoTotal %></td>' +
         '</tr>' +
         '</tfoot>' +
