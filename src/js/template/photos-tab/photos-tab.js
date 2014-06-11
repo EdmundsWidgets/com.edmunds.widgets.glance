@@ -24,14 +24,7 @@ define(function() {
         '<div class="content photos-tab">' +
         '<div class="list-photos visible-xs">' +
         '<ul>' +
-        '<li><img src="img/slider_1.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_2.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_3.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_4.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_1.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_2.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_3.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_4.png" alt="slider"/></li>' +
+        '<% _.each(interior, function(el) { %><li><img src="<%= el %>" alt="slider"/></li><% }) %>' +
         '</ul>' +
         '</div>' +
         '<div class="slider-wrapper hidden-xs">' +
@@ -40,14 +33,7 @@ define(function() {
         '</div>' +
         '<div class="slider-controls">' +
         '<ul>' +
-        '<li class="active"><img src="img/slider_1.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_2.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_3.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_4.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_1.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_2.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_3.png" alt="slider"/></li>' +
-        '<li><img src="img/slider_4.png" alt="slider"/></li>' +
+        '<% _.each(interior, function(el) { %><li><img src="<%= el %>" alt="slider"/></li><% }) %>' +
         '</ul>' +
         '<div class="nav-left visible-sm"></div>' +
         '<div class="nav-right visible-sm"></div>' +

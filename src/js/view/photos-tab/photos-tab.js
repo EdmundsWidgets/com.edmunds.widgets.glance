@@ -1,25 +1,37 @@
 define([
+    'atGlanceSlider',
     'template/photos-tab/photos-tab',
     'collection/photos-tab/photos-tab'
-], function(photosTabTemplate, PhotosTabCollection) {
+], function(atGlanceSlider, photosTabTemplate, PhotosTabCollection) {
     return Backbone.View.extend({
         events: {
             'click .nav-left': 'moveLeft',
-            'click .nav-right': 'moveRight'
+            'click .nav-right': 'moveRight',
+            'click .nav-top': 'moveUp',
+            'click .nav-bottom': 'moveDown'
         },
         template: photosTabTemplate,
-        collection: new PhotosTabCollection(),
+        model: new PhotosTabCollection(),
         initialize: function() {
-            this.collection.fetch();
+//            this.slider = new atGlanceSlider();
+            this.model.fetch();
         },
         render: function() {
-            this.$el.html(this.template);
-            this.$slides = this.$('.slider-controls').find('li');
-            this.$sliderContainer = this.$('.slider-controls').find('ul');
-            this.$currentSlide = this.$('.active');
+            this.$el.html(this.template(this.model.toJSON()));
+            this.slider = new atGlanceSlider();
             return this;
         },
-        moveLeft: function() {},
-        moveRight: function() {}
+        moveLeft: function() {
+            this.slider.moveLeft();
+        },
+        moveRight: function() {
+            this.slider.moveRight();
+        },
+        moveUp: function() {
+            this.slider.moveUp();
+        },
+        moveDown: function() {
+            this.slider.moveDown();
+        }
     });
 });

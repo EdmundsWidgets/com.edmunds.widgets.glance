@@ -6440,7 +6440,7 @@ body {
 }
 @media screen and (min-width: 710px) {
   .edm-widget {
-    height: 480px;
+    height: 530px;
   }
 }
 .edm-widget p {
@@ -6457,7 +6457,7 @@ body {
 }
 @media screen and (min-width: 710px) {
   .edm-widget .content {
-    height: 319px;
+    height: 378px;
   }
 }
 .btn-primary-dark {
@@ -6608,7 +6608,7 @@ footer .logo a {
   width: 100%;
 }
 .photos-tab .content .slider-wrapper {
-  width: 448px;
+  width: 447px;
   margin: 0 auto;
 }
 @media (min-width: 710px) and (max-width: 1199px) {
@@ -6670,6 +6670,7 @@ footer .logo a {
     float: left;
     width: 152px;
     margin: 0 5px 0 21px;
+    height: 339px;
   }
 }
 .photos-tab .content .slider-wrapper .slider-controls .nav-left {
@@ -6718,6 +6719,13 @@ footer .logo a {
   padding: 0;
   width: 9999px;
   margin: 0;
+  height: 95px;
+}
+@media (min-width: 710px) and (max-width: 1199px) {
+  .photos-tab .content .slider-wrapper .slider-controls ul {
+    height: auto;
+    width: 152px;
+  }
 }
 .photos-tab .content .slider-wrapper .slider-controls ul:before,
 .photos-tab .content .slider-wrapper .slider-controls ul:after {
