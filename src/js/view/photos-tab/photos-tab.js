@@ -1,8 +1,8 @@
 define([
     'atGlanceSlider',
     'template/photos-tab/photos-tab',
-    'collection/photos-tab/photos-tab'
-], function(atGlanceSlider, photosTabTemplate, PhotosTabCollection) {
+    'model/photos-tab/photos-tab'
+], function(atGlanceSlider, photosTabTemplate, PhotosTabModel) {
     return Backbone.View.extend({
         events: {
             'click .nav-left': 'moveLeft',
@@ -11,7 +11,7 @@ define([
             'click .nav-bottom': 'moveDown'
         },
         template: photosTabTemplate,
-        model: new PhotosTabCollection(),
+        model: new PhotosTabModel(),
         initialize: function() {
             this.model.fetch();
         },
