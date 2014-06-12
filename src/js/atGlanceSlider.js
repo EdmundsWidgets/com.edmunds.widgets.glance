@@ -34,7 +34,6 @@ define(function() {
             firstSlider.classList.add('first-element');
             lastSlider.classList.add('last-element');
             showMainSlider();
-            console.log(stepHeight)
         }
 
         function switchActive() {
