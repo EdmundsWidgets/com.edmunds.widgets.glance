@@ -37,15 +37,20 @@
     }
   }
   .content{
+    height: 461px;
     padding: 10px 0;
     .list-photos{
       width: 228px;
       margin: 0 auto;
+      @media screen and (min-width: 350px) and (max-width: 480px) {
+        width: 342px;
+      }
       ul{
+        height: 441px;
         list-style: none;
-        padding: 0;
-        max-height: 291px;
+        margin: 0;
         overflow-y: auto;
+        padding: 0;
         li{
           margin-top: 15px;
           margin-right: 5px;

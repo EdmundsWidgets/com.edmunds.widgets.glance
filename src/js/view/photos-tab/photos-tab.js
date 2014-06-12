@@ -13,7 +13,6 @@ define([
         template: photosTabTemplate,
         model: new PhotosTabCollection(),
         initialize: function() {
-//            this.slider = new atGlanceSlider();
             this.model.fetch();
         },
         render: function() {

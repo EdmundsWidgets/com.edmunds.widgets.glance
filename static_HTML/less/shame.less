@@ -1,6 +1,13 @@
 .reviews-tab{
   .content{
     padding: 0;
+    height: 453px;
+    @media screen and (min-width: @screen-sm) and (max-width: @screen-md) {
+      height: 471px;
+    }
+    @media screen and (min-width: @screen-md) {
+      height: 371px;
+    }
   }
   .rating-bar{
     background: @brand-primary;
