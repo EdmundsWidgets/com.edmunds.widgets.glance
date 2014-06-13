@@ -36,6 +36,7 @@ define([
             this.$el.html(this.template({
                 items: this.model.toJSON().all
             }));
+            this.slider.resetSlider();
             return this;
         },
         renderInterior: function(e) {
@@ -47,6 +48,7 @@ define([
             this.$el.html(this.template({
                 items: this.model.toJSON().interior
             }));
+            this.slider.resetSlider();
             return this;
         },
         renderExterior: function(e) {
@@ -58,6 +60,7 @@ define([
             this.$el.html(this.template({
                 items: this.model.toJSON().exterior
             }));
+            this.slider.resetSlider();
             return this;
         },
         moveLeft: function() {
