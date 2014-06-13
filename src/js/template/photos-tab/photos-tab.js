@@ -40,8 +40,8 @@ define(function() {
         '</ul>' +
         '<div class="nav-left visible-sm"></div>' +
         '<div class="nav-right visible-sm"></div>' +
-        '<div class="nav-top visible-md"></div>' +
-        '<div class="nav-bottom visible-md"></div>' +
+        '<div class="nav-top visible-md visible-lg"></div>' +
+        '<div class="nav-bottom visible-md visible-lg"></div>' +
         '</div>' +
         '</div>' +
         '</div>' +

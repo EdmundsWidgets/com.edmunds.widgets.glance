@@ -6613,7 +6613,7 @@ footer .logo a {
   width: 447px;
   margin: 0 auto;
 }
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 710px) {
   .photos-tab .content .slider-wrapper {
     width: 678px;
     margin: 0 auto;
@@ -6651,7 +6651,7 @@ footer .logo a {
     clear: both;
   }
 }
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 710px) {
   .photos-tab .content .slider-wrapper .slider-viewport {
     float: left;
     width: 500px;
@@ -6667,7 +6667,7 @@ footer .logo a {
   margin: 20px 0;
   height: 95px;
 }
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 710px) {
   .photos-tab .content .slider-wrapper .slider-controls {
     float: left;
     width: 152px;
@@ -6723,7 +6723,7 @@ footer .logo a {
   margin: 0;
   height: 95px;
 }
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 710px) {
   .photos-tab .content .slider-wrapper .slider-controls ul {
     height: auto;
     width: 152px;
@@ -6770,7 +6770,7 @@ footer .logo a {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-@media (min-width: 710px) and (max-width: 1199px) {
+@media (min-width: 710px) {
   .photos-tab .content .slider-wrapper .slider-controls ul li {
     float: none;
     margin-left: 0;
