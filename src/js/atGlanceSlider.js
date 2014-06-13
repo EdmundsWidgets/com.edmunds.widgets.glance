@@ -107,7 +107,6 @@ define(function() {
                     sliderList[counter].classList.add('last-element');
                     sliderList[counter - 3].classList.remove('first-element');
                     sliderList[counter - 2].classList.add('first-element');
-
                     switchActive();
                 } else if (counter < sliderList.length - 4 && !currentActive.classList.contains('last-element')) {
                     counter++;
@@ -132,6 +131,7 @@ define(function() {
                 controlsContainer = document.querySelector('.slider-controls');
                 slider = controlsContainer.querySelector('ul');
                 sliderList = slider.querySelectorAll('li');
+                mainSlider = document.querySelector('.slider-viewport');
                 currentActive = sliderList[0];
                 firstSlider = sliderList[0];
                 lastSlider = sliderList[2];
