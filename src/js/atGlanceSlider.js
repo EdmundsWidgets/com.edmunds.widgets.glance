@@ -116,6 +116,20 @@ define(function() {
                     counter--;
                     switchActive();
                 }
+            },
+            onClickChange: function(e) {
+                var target = e.currentTarget;
+                if (currentActive.classList.contains('last-element') && target.classList.contains('first-element')) {
+                    counter -= 2;
+                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element')) {
+                    counter += 2;
+                } else if (target.classList.contains('last-element') && target.previousSibling.classList.contains('active') || currentActive.classList.contains('first-element') && !target.classList.contains('active')) {
+                    counter++;
+                } else if (target.classList.contains('first-element') && target.nextSibling.classList.contains('active') || currentActive.classList.contains('last-element') && !target.classList.contains('active')) {
+                    counter--;
+                }
+                console.log(counter);
+                switchActive();
             }
         };
         return new Slider();

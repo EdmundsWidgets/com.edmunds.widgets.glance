@@ -9,6 +9,7 @@ define([
             'click .nav-right': 'moveRight',
             'click .nav-top': 'moveUp',
             'click .nav-bottom': 'moveDown',
+            'click .slider-controls ul li': 'onClickChange',
             'click a[data-id="all"]': 'renderAll',
             'click a[data-id="interior"]': 'renderInterior',
             'click a[data-id="exterior"]': 'renderExterior'
@@ -16,11 +17,7 @@ define([
         template: photosTabTemplate,
         model: new PhotosTabModel(),
         initialize: function() {
-            this.listenTo(this.model, 'change', this.test);
             this.model.fetch();
-        },
-        test: function() {
-            console.log(123)
         },
         render: function() {
             this.$el.empty();
@@ -74,6 +71,9 @@ define([
         },
         moveDown: function() {
             this.slider.moveDown();
+        },
+        onClickChange: function(e) {
+            this.slider.onClickChange(e);
         }
     });
 });
