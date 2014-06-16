@@ -6787,6 +6787,7 @@ footer .logo a {
 }
 .photos-tab .content .slider-wrapper .slider-controls ul li img {
   width: 100%;
+  cursor: pointer;
 }
 .tco-tab .vehicle-info p {
   color: #888888;
