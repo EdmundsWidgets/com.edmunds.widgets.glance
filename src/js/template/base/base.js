@@ -23,14 +23,13 @@ define(function() {
         '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reviews<span class="arrow-down"></span></a>' +
         '<ul class="dropdown-menu">' +
         '<li><a data-id="consumer-reviews-tab" href="#">Consumer reviews</a></li>' +
-        '<li><a href="#">TCO</a></li>' +
-        '<li><a href="#">Photos</a></li>' +
-        '<li><a href="#">Videos</a></li>' +
+        '<li><a data-id="tco-tab" href="#">TCO</a></li>' +
+        '<li><a data-id="photos-tab" href="#">Photos</a></li>' +
         '</ul>' +
         '</li>' +
         '<li class="hidden-xs"><a data-id="consumer-reviews-tab" href="#">Consumer Reviews</a></li>' +
-        '<li class="hidden-xs"><a href="#">Photos</a></li>' +
-        '<li class="hidden-xs"><a href="#">Videos</a></li>' +
+        '<li class="hidden-xs"><a data-id="tco-tab" href="#">TCO</a></li>' +
+        '<li class="hidden-xs"><a data-id="photos-tab" href="#">Photos</a></li>' +
         '</ul>' +
         '</div>' +
         '</div>' +

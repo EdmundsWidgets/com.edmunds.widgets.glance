@@ -1,4 +1,4 @@
-.photos{
+.photos-tab{
   .rating-bar{
     .rating-container{
       padding-bottom: 15px;
@@ -37,15 +37,20 @@
     }
   }
   .content{
+    height: 461px;
     padding: 10px 0;
     .list-photos{
       width: 228px;
       margin: 0 auto;
+      @media screen and (min-width: 350px) and (max-width: 480px) {
+        width: 342px;
+      }
       ul{
+        height: 441px;
         list-style: none;
-        padding: 0;
-        max-height: 291px;
+        margin: 0;
         overflow-y: auto;
+        padding: 0;
         li{
           margin-top: 15px;
           margin-right: 5px;
@@ -59,15 +64,15 @@
       }
     }
     .slider-wrapper{
-      width: 448px;
+      width: 447px;
       margin: 0 auto;
-      @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+      @media (min-width: @screen-md-min) {
         width: 678px;
         margin: 0 auto;
         .clearfix;
       }
       .slider-viewport{
-        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        @media (min-width: @screen-md-min) {
           float: left;
           width: 500px;
         }
@@ -80,10 +85,12 @@
         overflow: hidden;
         width: 100%;
         margin: 20px 0;
-        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+        height: 95px;
+        @media (min-width: @screen-md-min) {
           float: left;
           width: 152px;
           margin: 0 5px 0 21px;
+          height: 339px;
         }
         .nav-left{
           background: url(../img/nav-left.png) no-repeat;
@@ -126,20 +133,31 @@
           cursor: pointer;
         }
         ul{
+          position: absolute;
           list-style: none;
           padding: 0;
-          width: 100%;
+          width: 9999px;
           margin: 0;
+          height: 95px;
+          @media (min-width: @screen-md-min) {
+            height: auto;
+            width: 152px;
+          }
           .clearfix;
           li{
             float: left;
-            width: 32%;
-            margin-left: 2%;
-            @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+            width: 140px;
+            margin-left: 14px;
+            border: 3px solid transparent;
+            .border-radius(3px);
+            @media (min-width: @screen-md-min) {
               float: none;
               margin-left: 0;
               margin-top: 15px;
               width: 100%;
+            }
+            &.active{
+              border-color: @brand-primary;
             }
             &:first-child{
               margin-left: 0;
@@ -147,6 +165,7 @@
             }
             img{
               width: 100%;
+              cursor: pointer;
             }
           }
         }

@@ -12,7 +12,8 @@ define([
             this.$el.html(this.template({
                 collection: this.collection.toJSON(),
                 averageRating: this.options.averageRating,
-                reviewsCount: this.options.reviewsCount
+                reviewsCount: this.options.reviewsCount,
+                starRating: this.options.starRating
             }));
             return this;
         }

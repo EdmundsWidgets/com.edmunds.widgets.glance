@@ -4,6 +4,5 @@ define(function(){
         '<ul class="dropdown-menu" role="menu">' +
         '<% _.each(collection, function(el){ %> <li><a data-id="<%= el.id %>" href="#"><%= el.name %></a></li><% }) %>' +
         '</ul>' +
-        '</div>' +
     '');
 });

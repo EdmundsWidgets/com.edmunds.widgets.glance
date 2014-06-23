@@ -1,8 +1,51 @@
 .tco-tab{
+  .vehicle-info{
+    p{
+      color: @base-font-color-light;
+      font-size: 11px;
+      font-weight: normal;
+      margin: 5px 0;
+    }
+    .true-cost-to-own{
+      color: @base-font-color-dark;
+      span{
+        font-size: 22px;
+        font-weight: bold;
+        float: right;
+      }
+    }
+    .true-cash-price{
+      color: @base-font-color-dark;
+      span{
+        font-size: 16px;
+        color: @base-font-color-light;
+        float: right;
+      }
+    }
+    .true-cash-price-icon{
+      display: inline-block;
+      background: transparent url(../img/true_cash_price_icon.png) no-repeat;
+      width: 15px;
+      height: 17px;
+    }
+  }
+  .btn-group{
+    display: block;
+    .dropdown-menu {
+      top: 23px;
+      width: 100%;
+    }
+  }
   .content{
-    height: 370px;
+    height: 330px;
     padding-top: 0;
     padding-bottom: 0;
+    @media screen and (min-width: @screen-sm) {
+      height: 365px;
+    }
+    @media screen and (min-width: @screen-md) {
+      height: 265px;
+    }
   }
   .rating-container{
     padding-bottom: 10px;
@@ -26,6 +69,13 @@
     border: none;
     font-weight: bold;
   }
+  .table > thead > tr > th{
+    border: none;
+    font-weight: bold;
+    text-align: right;
+    padding: 5px 0;
+    font-size: 14px;
+  }
   table tr td{
     padding: 5px 0;
     font-size: 14px;
@@ -46,8 +96,10 @@
   }
   .rating-selector{
     padding: 0 10px;
-    .arrow-right{
-      margin-right: 0;
+    width: 100%;
+    .arrow-down{
+      float: right;
+      margin: 6px 0 6px 10px;
     }
   }
   .zip-code{

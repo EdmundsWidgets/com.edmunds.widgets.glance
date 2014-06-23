@@ -8,7 +8,7 @@ define(function() {
         '<div class="text-grade"><%= rating.grade.textGrade %></div>' +
         '<div class="close-button"></div>' +
         '</div>' +
-        '<hr class="col-sm-12"/>' + //note: Delete this porn later
+        '<div class="clearfix" style="border-bottom: 1px solid #eee; margin: 0 15px;"></div>' + //note: Delete this porn later
         '<p class="description"><%= rating.summary %></p>' +
         '<div class="edmunds-rating-strips">' +
         '<% _.each(subrating, function(el) { %><div class="col-xs-12 col-sm-6 col-md-4"><div class="grade"><%= el.grade.grade %></div><div class="strip-container"><div class="strip <%= el.grade.gradeClass %>" style="width: <%= el.score * 10 %>%"></div></div><div class="title"><%= el.title %></div></div><% }) %>' +
