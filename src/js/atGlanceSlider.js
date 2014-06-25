@@ -78,9 +78,6 @@ define(function() {
             },
             moveRight: function () {
                 if (counter < sliderList.length - 1 && currentActive.classList.contains('last-element')) {
-                    console.log('first');
-                    console.log(counter);
-                    console.log(sliderList.length);
                     counterSlider++;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('last-element');
@@ -89,15 +86,9 @@ define(function() {
                     sliderList[counter - 1].classList.add('first-element');
                     switchActive();
                 } else if (counter < sliderList.length - 1 && currentActive.classList.contains('first-element') || counter < sliderList.length - 1 && counter > sliderList.length - 3) {
-                    console.log('second');
-                    console.log(counter);
-                    console.log(sliderList.length);
                     counter++;
                     switchActive();
                 } else if (counter < sliderList.length - 1 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
-                    console.log('third');
-                    console.log(counter);
-                    console.log(sliderList.length);
                     counter++;
                     counterSlider++;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
