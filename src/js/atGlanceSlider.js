@@ -147,10 +147,30 @@ define(function() {
             },
             onClickChange: function(e) {
                 var target = e.currentTarget;
-                if (currentActive.classList.contains('last-element') && target.classList.contains('first-element')) {
+                if (currentActive.classList.contains('last-element') && target.classList.contains('first-element') && counter < 3) {
                     counter -= 2;
-                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element')) {
+                } else if (currentActive.classList.contains('last-element') && target.classList.contains('first-element')) {
+                    counter -= 2;
+                    counterSlider--;
+                    slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element') && counter > sliderList.length - 3) {
+                    console.log('first');
+                    console.log(counter);
                     counter += 2;
+                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element')) {
+                    console.log('second');
+                    console.log(counter);
+                    counter += 2;
+                    counterSlider++;
+                    slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                 } else if (target.classList.contains('last-element') && target.previousSibling.classList.contains('active') || currentActive.classList.contains('first-element') && !target.classList.contains('active')) {
                     counter++;
                 } else if (target.classList.contains('first-element') && target.nextSibling.classList.contains('active') || currentActive.classList.contains('last-element') && !target.classList.contains('active')) {
