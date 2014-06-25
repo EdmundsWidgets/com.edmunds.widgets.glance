@@ -18,7 +18,6 @@ define([
             this.listenTo(this.model, 'change', this.init);
         },
         init: function() {
-            this.$el.empty();
             //note: Is it a good practice to create new instance every time when model is changed?
             this.contentView = new ContentView({
                 collection: this.model.get('ratings')

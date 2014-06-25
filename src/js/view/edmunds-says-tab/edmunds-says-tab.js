@@ -6,9 +6,7 @@ define([
         el: '.main-content',
         template: edmundsSaysTabTemplate,
         model: new EdmundsSaysTabModel(),
-        initialize: function() {
-//            this.listenTo(this.model, 'change', this.render);
-        },
+        initialize: function() {},
         render: function() {
             this.$el.empty();
             this.$el.html(this.template({

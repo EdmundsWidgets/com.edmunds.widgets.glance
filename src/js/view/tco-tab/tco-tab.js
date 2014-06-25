@@ -12,7 +12,6 @@ define([
         model: new TcoTabModel(),
         initialize: function() {
             this.model.fetch();
-            this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
