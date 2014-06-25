@@ -55,21 +55,17 @@ define(function() {
             constructor: Slider,
             moveLeft: function () {
                 if (counter > 0 && currentActive.classList.contains('first-element')) {
-                    console.log(1);
-                    counter--;
                     counterSlider--;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('first-element');
-                    sliderList[counter].classList.add('first-element');
-                    sliderList[counter + 3].classList.remove('last-element');
-                    sliderList[counter + 2].classList.add('last-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
-                } else if (counter > 0 && currentActive.classList.contains('last-element')) {
-                    console.log(2);
+                } else if (counter > 0 && currentActive.classList.contains('last-element') || counter > 0 && counter < 2) {
                     counter--;
                     switchActive();
-                } else {
-                    console.log(3);
+                } else if (counter > 0 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
                     counter--;
                     counterSlider--;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
@@ -77,10 +73,14 @@ define(function() {
                     sliderList[counter - 1].classList.add('first-element');
                     sliderList[counter + 2].classList.remove('last-element');
                     sliderList[counter + 1].classList.add('last-element');
+                    switchActive();
                 }
             },
             moveRight: function () {
-                if (counter < sliderList.length - 4 && currentActive.classList.contains('last-element')) {
+                if (counter < sliderList.length - 1 && currentActive.classList.contains('last-element')) {
+                    console.log('first');
+                    console.log(counter);
+                    console.log(sliderList.length);
                     counterSlider++;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('last-element');
@@ -88,10 +88,16 @@ define(function() {
                     sliderList[counter - 2].classList.remove('first-element');
                     sliderList[counter - 1].classList.add('first-element');
                     switchActive();
-                } else if (counter < sliderList.length - 4 && currentActive.classList.contains('first-element')) {
+                } else if (counter < sliderList.length - 1 && currentActive.classList.contains('first-element') || counter < sliderList.length - 1 && counter > sliderList.length - 3) {
+                    console.log('second');
+                    console.log(counter);
+                    console.log(sliderList.length);
                     counter++;
                     switchActive();
-                } else if (counter < sliderList.length - 4 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                } else if (counter < sliderList.length - 1 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    console.log('third');
+                    console.log(counter);
+                    console.log(sliderList.length);
                     counter++;
                     counterSlider++;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
@@ -104,31 +110,47 @@ define(function() {
             },
             moveUp: function() {
                 if (counter > 0 && currentActive.classList.contains('first-element')) {
-                    counter--;
                     counterSlider--;
                     slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('first-element');
-                    sliderList[counter].classList.add('first-element');
-                    sliderList[counter + 3].classList.remove('last-element');
-                    sliderList[counter + 2].classList.add('last-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
-                } else if (counter > 0 && !currentActive.classList.contains('first-element')) {
+                } else if (counter > 0 && currentActive.classList.contains('last-element') || counter > 0 && counter < 2) {
                     counter--;
+                    switchActive();
+                } else if (counter > 0 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter--;
+                    counterSlider--;
+                    slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
                 }
             },
             moveDown: function() {
-                if (counter < sliderList.length - 4 && currentActive.classList.contains('last-element')) {
-                    counter++;
+                if (counter < sliderList.length - 1 && currentActive.classList.contains('last-element')) {
                     counterSlider++;
                     slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('last-element');
-                    sliderList[counter].classList.add('last-element');
-                    sliderList[counter - 3].classList.remove('first-element');
-                    sliderList[counter - 2].classList.add('first-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
-                } else if (counter < sliderList.length - 4 && !currentActive.classList.contains('last-element')) {
+                } else if (counter < sliderList.length - 1 && currentActive.classList.contains('first-element') || counter < sliderList.length - 1 && counter > sliderList.length - 3) {
                     counter++;
+                    switchActive();
+                } else if (counter < sliderList.length - 1 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter++;
+                    counterSlider++;
+                    slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
                 }
             },
@@ -143,7 +165,6 @@ define(function() {
                 } else if (target.classList.contains('first-element') && target.nextSibling.classList.contains('active') || currentActive.classList.contains('last-element') && !target.classList.contains('active')) {
                     counter--;
                 }
-                console.log(counter);
                 switchActive();
             },
             resetSlider: function() {
