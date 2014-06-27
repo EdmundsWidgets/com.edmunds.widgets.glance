@@ -30,10 +30,14 @@ define(function() {
         '<section class="content container-fluid">' +
         '<h4>5 Year Details</h4>' +
         '<div class="btn-group">' +
-        '<button class="rating-selector visible-xs visible-sm btn dropdown-toggle" data-toggle="dropdown">' +
+        '<button class="rating-selector visible-xs btn dropdown-toggle" data-toggle="dropdown">' +
         '<div class="category">5 Yr Total</div>' +
         '<div class="arrow-down"></div>' +
         '<div class="text-grade"><%= tcoTotal %></div>' +
+        '</button>' +
+        '<button class="rating-selector visible-sm btn dropdown-toggle" data-toggle="dropdown">' +
+        '<div class="category">1 - 3 years</div>' +
+        '<div class="arrow-down"></div>' +
         '</button>' +
         '<ul class="dropdown-menu" role="menu">' +
         '<li class="visible-xs"><a href="#" data-id="year-1">Year 1</a></li>' +

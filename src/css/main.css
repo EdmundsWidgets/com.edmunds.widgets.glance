@@ -6019,6 +6019,11 @@ button.close {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
+.rating-selector.btn.dropdown-toggle {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
 .rating-selector:before,
 .rating-selector:after {
   content: " ";
