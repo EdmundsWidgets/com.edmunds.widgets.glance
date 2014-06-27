@@ -6074,7 +6074,11 @@ button.close {
   background: transparent;
   border: 1px solid transparent;
   color: #333333;
-  padding: 2px 8px;
+  overflow: hidden;
+  padding: 2px 20px 2px 8px;
+  text-align: left;
+  text-overflow: ellipsis;
+  width: 225px;
 }
 .list-style-id .btn:first-child {
   margin-left: -9px;
@@ -6091,13 +6095,21 @@ button.close {
   border-color: #999;
 }
 .list-style-id .btn .arrow-down {
+  border-top-color: #555555;
   display: inline-block;
   margin-left: 10px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
   vertical-align: middle;
-  border-top-color: #555555;
 }
 .list-style-id .dropdown-menu {
   left: -9px;
+  width: 225px;
+}
+.list-style-id .dropdown-menu li a {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .rating-bar {
   background: #e5e5e5;
