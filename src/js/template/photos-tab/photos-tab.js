@@ -11,14 +11,14 @@ define(function() {
         '<li class="active"><a data-id="all" href="#">All</a></li>' +
         '<li><a data-id="interior" href="#">Interior</a></li>' +
         '<li><a data-id="exterior" href="#">Exterior</a></li>' +
-        '<li><a href="#">Color Options</a></li>' +
+//        '<li><a href="#">Color Options</a></li>' +
         '</ul>' +
         '</div>' +
         '<ul class="nav nav-pills hidden-xs">' +
         '<li class="active"><a data-id="all" href="#">All</a></li>' +
         '<li><a data-id="interior" href="#">Interior</a></li>' +
         '<li><a data-id="exterior" href="#">Exterior</a></li>' +
-        '<li><a href="#">Color Options</a></li>' +
+//        '<li><a href="#">Color Options</a></li>' +
         '</ul>' +
         '</div>' +
         '</div>' +
