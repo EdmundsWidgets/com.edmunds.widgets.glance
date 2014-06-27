@@ -1,8 +1,9 @@
 define([
     'atGlanceSlider',
     'template/photos-tab/photos-tab',
-    'model/photos-tab/photos-tab'
-], function(atGlanceSlider, photosTabTemplate, PhotosTabModel) {
+    'model/photos-tab/photos-tab',
+    'view/base/loading'
+], function(atGlanceSlider, photosTabTemplate, PhotosTabModel, LoadingView) {
     return Backbone.View.extend({
         events: {
             'click .nav-left': 'moveLeft',
@@ -17,7 +18,12 @@ define([
         template: photosTabTemplate,
         model: new PhotosTabModel(),
         initialize: function() {
-            this.model.fetch();
+            this.loadingView = new LoadingView();
+            this.listenTo(this.model, 'request', this.loading);
+            this.listenTo(this.model, 'sync', this.render);
+        },
+        loading: function() {
+            this.$el.html(this.loadingView.render().el);
         },
         render: function() {
             this.$el.empty();

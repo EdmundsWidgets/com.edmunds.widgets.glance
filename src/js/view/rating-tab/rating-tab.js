@@ -3,8 +3,9 @@ define([
     'model/rating-tab/rating-bar',
     'view/rating-tab/rating-bar',
     'view/rating-tab/content',
-    'view/rating-tab/details'
-], function(dispatcher, RatingBarModel, RatingBarView, ContentView, DetailsView) {
+    'view/rating-tab/details',
+    'view/base/loading'
+], function(dispatcher, RatingBarModel, RatingBarView, ContentView, DetailsView, LoadingView) {
     return Backbone.View.extend({
         className: 'main-content',
         events: {
@@ -14,8 +15,13 @@ define([
         model: new RatingBarModel(),
         initialize: function(options) {
             this.options = options || {};
+            this.loadingView = new LoadingView();
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
-            this.listenTo(this.model, 'change', this.init);
+            this.listenTo(this.model, 'request', this.loading);
+            this.listenTo(this.model, 'sync', this.init);
+        },
+        loading: function() {
+            this.$el.html(this.loadingView.render().el);
         },
         init: function() {
             //note: Is it a good practice to create new instance every time when model is changed?
