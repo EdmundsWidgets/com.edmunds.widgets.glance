@@ -6668,14 +6668,24 @@ footer .logo a {
     clear: both;
   }
 }
+.photos-tab .content .slider-wrapper .slider-viewport {
+  height: 298px;
+  width: 447px;
+}
 @media (min-width: 710px) {
   .photos-tab .content .slider-wrapper .slider-viewport {
     float: left;
+    height: 333px;
     width: 500px;
   }
 }
 .photos-tab .content .slider-wrapper .slider-viewport img {
   width: 100%;
+}
+@media (min-width: 480px) {
+  .photos-tab .content .slider-wrapper .slider-viewport img {
+    height: 100%;
+  }
 }
 .photos-tab .content .slider-wrapper .slider-controls {
   position: relative;

@@ -72,11 +72,17 @@
         .clearfix;
       }
       .slider-viewport{
+        height: 298px;
+        width: 447px;
         @media (min-width: @screen-md-min) {
           float: left;
+          height: 333px;
           width: 500px;
         }
         img{
+          @media (min-width: @screen-sm-min) {
+            height: 100%;
+          }
           width: 100%;
         }
       }
