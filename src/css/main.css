@@ -6680,12 +6680,8 @@ footer .logo a {
   }
 }
 .photos-tab .content .slider-wrapper .slider-viewport img {
+  height: 100%;
   width: 100%;
-}
-@media (min-width: 480px) {
-  .photos-tab .content .slider-wrapper .slider-viewport img {
-    height: 100%;
-  }
 }
 .photos-tab .content .slider-wrapper .slider-controls {
   position: relative;
@@ -6813,6 +6809,7 @@ footer .logo a {
   margin-top: 0;
 }
 .photos-tab .content .slider-wrapper .slider-controls ul li img {
+  height: 100%;
   width: 100%;
   cursor: pointer;
 }
