@@ -5958,7 +5958,7 @@ button.close {
 .edm-navigation .nav-split-button .btn:hover {
   z-index: 0;
 }
-.edm-navigation .nav-split-button.open .dropdown-toggle {
+.edm-navigation .nav-split-button .btn-group.open .dropdown-toggle {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -5972,12 +5972,27 @@ button.close {
   width: 31px;
 }
 .edm-navigation .nav-split-button .dropdown-toggle .arrow-down {
-  border-top-color: #555555;
+  border-top-color: #555;
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   margin-left: -10px;
+}
+.edm-navigation .nav-split-button.active {
+  z-index: 2;
+}
+.edm-navigation .nav-split-button.active .btn {
+  color: #fff;
+}
+.edm-navigation .nav-split-button.active .arrow-down {
+  border-top-color: #fff;
+}
+.edm-navigation .nav-split-button.active .action {
+  background: url(../img/reviews-source-left-active.png) no-repeat;
+}
+.edm-navigation .nav-split-button.active .dropdown-toggle {
+  background: url(../img/reviews-source-right-active.png) no-repeat;
 }
 .letter-grade {
   -webkit-border-radius: 3px;
