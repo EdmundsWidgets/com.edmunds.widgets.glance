@@ -5958,7 +5958,7 @@ button.close {
 .edm-navigation .nav-split-button .btn:hover {
   z-index: 0;
 }
-.edm-navigation .nav-split-button .btn-group.open .dropdown-toggle {
+.edm-navigation .nav-split-button.btn-group.open .dropdown-toggle {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
