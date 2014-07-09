@@ -20,7 +20,7 @@ define([
         },
         initialize: function(options) {
             this.options = options || {};
-            this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
+//            this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
             this.render();
         },
         render: function() {
@@ -30,11 +30,15 @@ define([
                 submodel: this.options.submodel,
                 year: this.options.year
             }));
-//
-//            this.stylesView = new StylesView({
-//                apiKey: this.options.apiKey,
-//                submodel: this.options.submodel
-//            });
+
+            //Initialization Styles View
+            this.stylesView = new StylesView({
+                apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.model,
+                submodel: this.options.submodel,
+                year: this.options.year
+            });
 //            this.ratingTabView = new RatingTabView({
 //                apiKey: this.options.apiKey
 //            });
