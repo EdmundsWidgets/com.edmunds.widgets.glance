@@ -1,7 +1,7 @@
 /**
  * Created by Pavel_Karpovich on 06/11/2014.
  */
-define(function() {
+define(function () {
     return Slider = function () {
         "use strict";
         var controlsContainer,
@@ -55,79 +55,158 @@ define(function() {
             constructor: Slider,
             moveLeft: function () {
                 if (counter > 0 && currentActive.classList.contains('first-element')) {
-                    counter--;
                     counterSlider--;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('first-element');
-                    sliderList[counter].classList.add('first-element');
-                    sliderList[counter + 3].classList.remove('last-element');
-                    sliderList[counter + 2].classList.add('last-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
-                } else if (counter > 0 && !currentActive.classList.contains('first-element')) {
+                } else if (counter > 0 && currentActive.classList.contains('last-element') || counter > 0 && counter < 2) {
                     counter--;
+                    switchActive();
+                } else if (counter > 0 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter--;
+                    counterSlider--;
+                    slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
                 }
             },
             moveRight: function () {
-                if (counter < sliderList.length - 4 && currentActive.classList.contains('last-element')) {
-                    counter++;
+                if (counter < sliderList.length - 1 && currentActive.classList.contains('last-element')) {
                     counterSlider++;
                     slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('last-element');
-                    sliderList[counter].classList.add('last-element');
-                    sliderList[counter - 3].classList.remove('first-element');
-                    sliderList[counter - 2].classList.add('first-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
-                } else if (counter < sliderList.length - 4 && !currentActive.classList.contains('last-element')) {
+                } else if (counter < sliderList.length - 1 && currentActive.classList.contains('first-element') || counter < sliderList.length - 1 && counter > sliderList.length - 3) {
                     counter++;
+                    switchActive();
+                } else if (counter < sliderList.length - 1 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter++;
+                    counterSlider++;
+                    slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
                 }
             },
-            moveUp: function() {
+            moveUp: function () {
                 if (counter > 0 && currentActive.classList.contains('first-element')) {
-                    counter--;
                     counterSlider--;
                     slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('first-element');
-                    sliderList[counter].classList.add('first-element');
-                    sliderList[counter + 3].classList.remove('last-element');
-                    sliderList[counter + 2].classList.add('last-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
-                } else if (counter > 0 && !currentActive.classList.contains('first-element')) {
+                } else if (counter > 0 && currentActive.classList.contains('last-element') || counter > 0 && counter < 2) {
                     counter--;
+                    switchActive();
+                } else if (counter > 0 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter--;
+                    counterSlider--;
+                    slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                     switchActive();
                 }
             },
-            moveDown: function() {
-                if (counter < sliderList.length - 4 && currentActive.classList.contains('last-element')) {
-                    counter++;
+            moveDown: function () {
+                if (counter < sliderList.length - 1 && currentActive.classList.contains('last-element')) {
                     counterSlider++;
                     slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
                     currentActive.classList.remove('last-element');
-                    sliderList[counter].classList.add('last-element');
-                    sliderList[counter - 3].classList.remove('first-element');
-                    sliderList[counter - 2].classList.add('first-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
-                } else if (counter < sliderList.length - 4 && !currentActive.classList.contains('last-element')) {
+                } else if (counter < sliderList.length - 1 && currentActive.classList.contains('first-element') || counter < sliderList.length - 1 && counter > sliderList.length - 3) {
                     counter++;
+                    switchActive();
+                } else if (counter < sliderList.length - 1 && !currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element')) {
+                    counter++;
+                    counterSlider++;
+                    slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
                     switchActive();
                 }
             },
-            onClickChange: function(e) {
+            onClickChange: function (e) {
                 var target = e.currentTarget;
-                if (currentActive.classList.contains('last-element') && target.classList.contains('first-element')) {
+                if (currentActive.classList.contains('last-element') && target.classList.contains('first-element') && counter === 2) {
                     counter -= 2;
-                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element')) {
+                } else if (currentActive.classList.contains('last-element') && target.classList.contains('first-element')) {
+                    counter -= 2;
+                    counterSlider--;
+                    if (containerWidth === 447) {
+                        slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    } else {
+                        slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    }
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element') && counter !== 0) {
                     counter += 2;
-                } else if (target.classList.contains('last-element') && target.previousSibling.classList.contains('active') || currentActive.classList.contains('first-element') && !target.classList.contains('active')) {
-                    counter++;
-                } else if (target.classList.contains('first-element') && target.nextSibling.classList.contains('active') || currentActive.classList.contains('last-element') && !target.classList.contains('active')) {
+                } else if (currentActive.classList.contains('first-element') && target.classList.contains('last-element') && counter === 0) {
+                    counter += 2;
+                    counterSlider++;
+                    if (containerWidth === 447) {
+                        slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    } else {
+                        slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    }
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                } else if (currentActive.classList.contains('last-element') && !target.classList.contains('active') || !currentActive.classList.contains('last-element') && target.classList.contains('first-element') && counter === 1) {
                     counter--;
+                } else if (currentActive.classList.contains('first-element') && !target.classList.contains('active') && !target.classList.contains('last-element') || !currentActive.classList.contains('first-element') && target.classList.contains('last-element') && counter === sliderList.length - 2) {
+                    counter++;
+                } else if (!currentActive.classList.contains('first-element') && !currentActive.classList.contains('last-element') && target.classList.contains('last-element')) {
+                    counter++;
+                    counterSlider++;
+                    if (containerWidth === 447) {
+                        slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    } else {
+                        slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    }
+                    sliderList[counter].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
+                    sliderList[counter - 2].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                } else if (!currentActive.classList.contains('last-element') && !currentActive.classList.contains('first-element') && target.classList.contains('first-element')) {
+                    counter--;
+                    counterSlider--;
+                    if (containerWidth === 447) {
+                        slider.style.left = -stepWidth * counterSlider - 5 * counterSlider + 'px';
+                    } else {
+                        slider.style.top = -stepHeight * counterSlider - 5 * counterSlider + 'px';
+                    }
+                    sliderList[counter].classList.remove('first-element');
+                    sliderList[counter - 1].classList.add('first-element');
+                    sliderList[counter + 2].classList.remove('last-element');
+                    sliderList[counter + 1].classList.add('last-element');
                 }
-                console.log(counter);
                 switchActive();
             },
-            resetSlider: function() {
+            resetSlider: function () {
                 controlsContainer = document.querySelector('.slider-controls');
                 slider = controlsContainer.querySelector('ul');
                 sliderList = slider.querySelectorAll('li');

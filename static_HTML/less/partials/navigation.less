@@ -88,4 +88,60 @@
       }
     }
   }
+  .nav-split-button{
+    .btn{
+      .border-radius(0);
+      color: @base-font-color;
+      display: block;
+      font-size: 11px;
+      height: 26px;
+      line-height: 26px;
+      outline: none;
+      &:active{
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      &:hover{
+        z-index: 0;
+      }
+    }
+    &.btn-group.open{
+      .dropdown-toggle{
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    .action{
+      background: url(../img/reviews-source-left.png) no-repeat;
+      padding: 0 10px 0 10px;
+      margin-left: -9px;
+    }
+    .dropdown-toggle{
+      background: url(../img/reviews-source-right.png) no-repeat;
+      width: 31px;
+      .arrow-down{
+        border-top-color: #555;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+      }
+    }
+    &.active{
+      z-index: 2;
+      .btn{
+        color: #fff;
+      }
+      .arrow-down{
+        border-top-color: #fff;
+      }
+      .action{
+        background: url(../img/reviews-source-left-active.png) no-repeat;
+      }
+      .dropdown-toggle{
+        background: url(../img/reviews-source-right-active.png) no-repeat;
+      }
+    }
+  }
 }

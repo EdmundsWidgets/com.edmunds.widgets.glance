@@ -42,7 +42,6 @@ define([
                 el: this.ratingTabView.el,
                 apiKey: options.apiKey
             });
-            this.edmundsSaysTabView.load();
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
             this.render();
         },
@@ -62,7 +61,7 @@ define([
             e.preventDefault();
             this.$('.edm-navigation').find('li').removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
-            this.edmundsSaysTabView.render();
+            this.edmundsSaysTabView.model.fetch();
         },
         consumerReviewsTab: function(e) {
             e.preventDefault();
@@ -76,14 +75,14 @@ define([
             this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=tco-tab]').parent().addClass('active');
             this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
-            this.tcoTabView.render();
+            this.tcoTabView.model.fetch();
         },
         photosTab: function(e) {
             e.preventDefault();
             this.$('.edm-navigation').find('li').removeClass('active');
             this.$('.edm-navigation').find('[data-id=photos-tab]').parent().addClass('active');
             this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
-            this.photosTabView.render();
+            this.photosTabView.model.fetch();
         },
         resetTabs: function() {
             this.$('.edm-navigation').find('li').removeClass('active');

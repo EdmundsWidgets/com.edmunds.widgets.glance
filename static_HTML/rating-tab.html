@@ -26,17 +26,22 @@
             <div class="container-fluid">
                 <div class="row">
                     <ul class="nav nav-pills edm-navigation">
-                        <li class="active"><a href="#">Ratings</a></li>
+                        <li><a href="#">Ratings</a></li>
                         <li><a href="#">Edmunds says</a></li>
-                        <li class="dropdown visible-xs">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reviews<span
-                                    class="arrow-down"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">TCO</a></li>
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Videos</a></li>
-                            </ul>
+                        <li class="active visible-xs btn-group nav-split-button">
+                            <!-- Split button -->
+                                <button type="button" class="btn action">Action</button>
+                                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="arrow-down"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                </ul>
                         </li>
                         <li class="hidden-xs"><a href="#">Consumer Reviews</a></li>
                         <li class="hidden-xs"><a href="#">Photos</a></li>

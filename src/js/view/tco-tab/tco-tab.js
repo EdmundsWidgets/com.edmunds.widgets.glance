@@ -1,8 +1,8 @@
 define([
-    'dispatcher',
     'template/tco-tab/tco-tab',
-    'model/tco-tab/tco-tab'
-], function(dispatcher, tcoTabTemplate, TcoTabModel) {
+    'model/tco-tab/tco-tab',
+    'view/base/loading'
+], function(tcoTabTemplate, TcoTabModel, LoadingView) {
     return Backbone.View.extend({
         events: {
             'click .update-zip': 'onZipChange',
@@ -11,8 +11,12 @@ define([
         template: tcoTabTemplate,
         model: new TcoTabModel(),
         initialize: function() {
-            this.model.fetch();
-            this.listenTo(this.model, 'change', this.render);
+            this.loadingView = new LoadingView();
+            this.listenTo(this.model, 'request', this.loading);
+            this.listenTo(this.model, 'sync', this.render);
+        },
+        loading: function() {
+            this.$el.html(this.loadingView.render().el);
         },
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));

@@ -4,7 +4,11 @@
     background: transparent;
     border: 1px solid transparent;
     color: @base-font-color-dark;
-    padding: 2px 8px;
+    overflow: hidden;
+    padding: 2px 20px 2px 8px;
+    text-align: left;
+    text-overflow: ellipsis;
+    width: 225px;
     &:first-child{
       margin-left: -9px;
     }
@@ -16,13 +20,21 @@
       border-color: #999;
     }
     .arrow-down{
+      border-top-color: lighten(@base-font-color, 6.5%);
       display: inline-block;
       margin-left: 10px;
+      position: absolute;
+      top: 8px;
+      right: 8px;
       vertical-align: middle;
-      border-top-color: lighten(@base-font-color, 6.5%);
     }
   }
   .dropdown-menu{
     left: -9px;
+    width: 225px;
+    li a{
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }
