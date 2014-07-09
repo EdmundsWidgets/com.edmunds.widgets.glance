@@ -7,16 +7,24 @@ requirejs.config({
     }
 });
 
-require(['jquery', 'underscore', 'backbone'], function() {
+require(['jquery', 'underscore', 'backbone'], function () {
     require([
         'app',
         'bootstrap'
-    ], function(App) {
+    ], function (App) {
         var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
-            submodel = 'sedan';
+            make = 'acura',
+            model = 'ilx',
+            year = 2013,
+            submodel = 'sedan',
+            zipCode = 60408;
         var app = new App({
-            apiKey:     apiKey,
-            submodel:   submodel
+            apiKey: apiKey,
+            make: make,
+            model: model,
+            year: year,
+            submodel: submodel,
+            zipCode: zipCode
         });
         document.body.appendChild(app.el);
     });
