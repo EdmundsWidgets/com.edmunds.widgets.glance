@@ -19,74 +19,81 @@ define([
             'click a[data-id="photos-tab"]': 'photosTab'
         },
         initialize: function(options) {
-            this.stylesView = new StylesView({
-                apiKey: options.apiKey,
-                submodel: options.submodel
-            });
-            this.ratingTabView = new RatingTabView({
-                apiKey: options.apiKey
-            });
-            this.edmundsSaysTabView = new EdmundsSaysTabView({
-                el: this.ratingTabView.el,
-                apiKey: options.apiKey
-            });
-            this.consumerReviewsTabView = new ConsumerReviewsTabView({
-                el: this.ratingTabView.el,
-                apiKey: options.apiKey
-            });
-            this.tcoTabView = new TcoTabView({
-                el: this.ratingTabView.el,
-                apiKey: options.apiKey
-            });
-            this.photosTabView = new PhotosTabView({
-                el: this.ratingTabView.el,
-                apiKey: options.apiKey
-            });
+            this.options = options || {};
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
             this.render();
         },
         render: function() {
-            this.$el.html(this.template);
-            this.stylesView.setElement(this.$('.list-style-id'));
-            this.$('header').after(this.ratingTabView.el);
+            this.$el.html(this.template({
+                make: this.options.make,
+                model: this.options.model,
+                submodel: this.options.submodel,
+                year: this.options.year
+            }));
+//
+//            this.stylesView = new StylesView({
+//                apiKey: this.options.apiKey,
+//                submodel: this.options.submodel
+//            });
+//            this.ratingTabView = new RatingTabView({
+//                apiKey: this.options.apiKey
+//            });
+//            this.edmundsSaysTabView = new EdmundsSaysTabView({
+//                el: this.ratingTabView.el,
+//                apiKey: this.options.apiKey
+//            });
+//            this.consumerReviewsTabView = new ConsumerReviewsTabView({
+//                el: this.ratingTabView.el,
+//                apiKey: this.options.apiKey
+//            });
+//            this.tcoTabView = new TcoTabView({
+//                el: this.ratingTabView.el,
+//                apiKey: this.options.apiKey
+//            });
+//            this.photosTabView = new PhotosTabView({
+//                el: this.ratingTabView.el,
+//                apiKey: this.options.apiKey
+//            });
+//            this.stylesView.setElement(this.$('.list-style-id'));
+//            this.$('header').after(this.ratingTabView.el);
             return this;
-        },
-        ratingTab: function(e) {
-            e.preventDefault();
-            this.$('.edm-navigation').find('li').removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.ratingTabView.render();
-        },
-        edmundsSaysTab: function(e) {
-            e.preventDefault();
-            this.$('.edm-navigation').find('li').removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.edmundsSaysTabView.model.fetch();
-        },
-        consumerReviewsTab: function(e) {
-            e.preventDefault();
-            this.$('.edm-navigation').find('li').removeClass('active');
-            this.$('.edm-navigation').find('[data-id=consumer-reviews-tab]').parent().addClass('active');
-            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
-            this.consumerReviewsTabView.render();
-        },
-        tcoTab: function(e) {
-            e.preventDefault();
-            this.$('.edm-navigation').find('li').removeClass('active');
-            this.$('.edm-navigation').find('[data-id=tco-tab]').parent().addClass('active');
-            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
-            this.tcoTabView.model.fetch();
-        },
-        photosTab: function(e) {
-            e.preventDefault();
-            this.$('.edm-navigation').find('li').removeClass('active');
-            this.$('.edm-navigation').find('[data-id=photos-tab]').parent().addClass('active');
-            this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
-            this.photosTabView.model.fetch();
-        },
-        resetTabs: function() {
-            this.$('.edm-navigation').find('li').removeClass('active');
-            this.$('.edm-navigation').find('[data-id=rating-tab]').parent().addClass('active');
         }
+//        ratingTab: function(e) {
+//            e.preventDefault();
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            $(e.currentTarget).parent('li').addClass('active');
+//            this.ratingTabView.render();
+//        },
+//        edmundsSaysTab: function(e) {
+//            e.preventDefault();
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            $(e.currentTarget).parent('li').addClass('active');
+//            this.edmundsSaysTabView.model.fetch();
+//        },
+//        consumerReviewsTab: function(e) {
+//            e.preventDefault();
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            this.$('.edm-navigation').find('[data-id=consumer-reviews-tab]').parent().addClass('active');
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
+//            this.consumerReviewsTabView.render();
+//        },
+//        tcoTab: function(e) {
+//            e.preventDefault();
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            this.$('.edm-navigation').find('[data-id=tco-tab]').parent().addClass('active');
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
+//            this.tcoTabView.model.fetch();
+//        },
+//        photosTab: function(e) {
+//            e.preventDefault();
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            this.$('.edm-navigation').find('[data-id=photos-tab]').parent().addClass('active');
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
+//            this.photosTabView.model.fetch();
+//        },
+//        resetTabs: function() {
+//            this.$('.edm-navigation').find('li').removeClass('active');
+//            this.$('.edm-navigation').find('[data-id=rating-tab]').parent().addClass('active');
+//        }
     });
 });
