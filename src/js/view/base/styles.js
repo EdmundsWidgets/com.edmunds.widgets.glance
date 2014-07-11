@@ -38,7 +38,7 @@ define([
             e.preventDefault();
             var target = $(e.currentTarget),
                 styleId = target.data('id');
-            this.$('button').html(target.text() + '<span class="arrow-down"></span>');
+            this.$('.btn').html(target.text() + '<span class="arrow-down"></span>');
             dispatcher.trigger('onVehicleChange', styleId);
         }
     });

@@ -32,13 +32,8 @@ define([
             }));
 
             //Initialization Styles View
-            this.stylesView = new StylesView({
-                apiKey: this.options.apiKey,
-                make: this.options.make,
-                modelName: this.options.model,
-                submodel: this.options.submodel,
-                year: this.options.year
-            });
+            this.stylesViewInitialization();
+
 //            this.ratingTabView = new RatingTabView({
 //                apiKey: this.options.apiKey
 //            });
@@ -58,10 +53,22 @@ define([
 //                el: this.ratingTabView.el,
 //                apiKey: this.options.apiKey
 //            });
-//            this.stylesView.setElement(this.$('.list-style-id'));
 //            this.$('header').after(this.ratingTabView.el);
             return this;
+        },
+
+        stylesViewInitialization: function() {
+            this.stylesView = new StylesView({
+                el: this.$('.list-style-id'),
+                apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.model,
+                submodel: this.options.submodel,
+                year: this.options.year
+            });
         }
+
+
 //        ratingTab: function(e) {
 //            e.preventDefault();
 //            this.$('.edm-navigation').find('li').removeClass('active');
