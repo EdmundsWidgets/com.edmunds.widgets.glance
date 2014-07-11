@@ -41,10 +41,8 @@ define(function() {
         '<div class="main-content"></div>' +
         '</div>' +
         '<footer class="container-fluid">' +
-        '<div class="row">' +
-        '<a class="legacy col-xs-5" href="#">Legal Notice</a>' +
-        '<div class="logo col-xs-7"><a href="http://www.edmunds.com" class="pull-right"></a>A service of</div>' +
-        '</div>' +
+        '<a class="legacy" href="http://www.edmunds.com/about/visitor-agreement.html" target="_blank">Legal Notice</a>' +
+        '<div class="logo"><a class="pull-right" href="http://www.edmunds.com" target="_blank"></a>A service of</div>' +
         '</footer>' +
     '');
 });
