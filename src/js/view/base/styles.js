@@ -7,10 +7,14 @@ define([
         collection: new StylesCollection(),
         template: stylesTemplate,
         events: {
-            'click a': 'getStyleId'
+            'click .dropdown-menu a': 'getStyleId'
         },
         initialize: function(options) {
             this.options = options || {};
+
+            // Cache elements
+            this.$button = this.$('.btn');
+
             this.listenTo(this.collection, 'reset', this.render);
             this.load(options.make, options.modelName, options.year);
         },
@@ -38,7 +42,7 @@ define([
             e.preventDefault();
             var target = $(e.currentTarget),
                 styleId = target.data('id');
-            this.$('.btn').html(target.text() + '<span class="arrow-down"></span>');
+            this.$button.html(target.text() + '<span class="arrow-down"></span>');
             dispatcher.trigger('onVehicleChange', styleId);
         }
     });

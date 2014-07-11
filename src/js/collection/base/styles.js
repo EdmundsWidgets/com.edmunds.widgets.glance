@@ -5,6 +5,7 @@ define(function() {
         },
         parse: function(response) {
             return response.styles;
-        }
+        },
+        comparator: 'name'
     });
 });
