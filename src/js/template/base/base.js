@@ -1,4 +1,4 @@
-define(function() {
+define(function () {
     return _.template('' +
         '<div class="footer-to-the-bottom">' +
         '<header>' +
@@ -17,23 +17,38 @@ define(function() {
         '<div class="container-fluid">' +
         '<div class="row">' +
         '<ul class="nav nav-pills edm-navigation">' +
-        '<li class="active"><a data-id="rating-tab" href="#">Ratings</a></li>' +
-        '<li><a data-id="edmunds-says-tab" href="#">Edmunds says</a></li>' +
+        '<% if (tabsList.length < 4) { %>' +
+        '<% _.each(tabsList, function(el, i) { %>' +
+        '<li <% if (i === 0) { %>class="active"<% } %>>' +
+        '<a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a>' +
+        '</li>' +
+        '<% }); %>' +
+        '<% } else { %>' +
+        '<% _.each(tabsList, function(el, i) { %>' +
+        '<% if (i < 2) { %>' +
+        '<li <% if (i === 0) { %>class="active"<% } %>>' +
+        '<a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a>' +
+        '</li>' +
+        '<% } %>' +
+        '<% if (i === 2) { %>' +
         '<li class="visible-xs btn-group nav-split-button">' +
-        '<button type="button" data-action-id="consumer-reviews-tab" class="btn action">Reviews</button>' +
+        '<button type="button" data-action-id="<%= el %>" class="btn action"><% if (el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></button>' +
         '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
         '<span class="arrow-down"></span>' +
         '<span class="sr-only">Toggle Dropdown</span>' +
         '</button>' +
         '<ul class="dropdown-menu" role="menu">' +
-        '<li><a data-id="consumer-reviews-tab" href="#">Consumer reviews</a></li>' +
-        '<li><a data-id="tco-tab" href="#">TCO</a></li>' +
-        '<li><a data-id="photos-tab" href="#">Photos</a></li>' +
+        '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+        '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+        '<% }); %>' +
         '</ul>' +
         '</li>' +
-        '<li class="hidden-xs"><a data-id="consumer-reviews-tab" href="#">Consumer Reviews</a></li>' +
-        '<li class="hidden-xs"><a data-id="tco-tab" href="#">TCO</a></li>' +
-        '<li class="hidden-xs"><a data-id="photos-tab" href="#">Photos</a></li>' +
+        '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+        '<li class="hidden-xs"><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+        '<% }); %>' +
+        '<% } %>' +
+        '<% }); %>' +
+        '<% } %>' +
         '</ul>' +
         '</div>' +
         '</div>' +
@@ -44,5 +59,5 @@ define(function() {
         '<a class="legacy" href="http://www.edmunds.com/about/visitor-agreement.html" target="_blank">Legal Notice</a>' +
         '<div class="logo"><a class="pull-right" href="http://www.edmunds.com" target="_blank"></a>A service of</div>' +
         '</footer>' +
-    '');
+        '');
 });

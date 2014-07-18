@@ -17,14 +17,22 @@ require(['jquery', 'underscore', 'backbone'], function () {
             model = 'ilx',
             year = 2013,
             submodel = 'sedan',
-            zipCode = 60408;
+            zipCode = 60408,
+            tabsList = [
+                'rating-tab',
+                'edmunds-says-tab',
+                'consumer-reviews-tab',
+                'tco-tab',
+                'photos-tab'
+            ];
         var app = new App({
             apiKey: apiKey,
             make: make,
             model: model,
             year: year,
             submodel: submodel,
-            zipCode: zipCode
+            zipCode: zipCode,
+            tabsList: tabsList
         });
         document.body.appendChild(app.el);
     });

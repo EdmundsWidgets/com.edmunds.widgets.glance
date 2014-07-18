@@ -18,6 +18,13 @@ define([
             'click a[data-id="tco-tab"]': 'tcoTab',
             'click a[data-id="photos-tab"]': 'photosTab'
         },
+        tabsToDisplay: {
+            'rating-tab': 'Rating',
+            'edmunds-says-tab': 'Edmunds says',
+            'consumer-reviews-tab': 'Consumer Reviews',
+            'tco-tab': 'TCO',
+            'photos-tab': 'Photos'
+        },
         initialize: function(options) {
             this.options = options || {};
 //            this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
@@ -28,7 +35,9 @@ define([
                 make: this.options.make,
                 model: this.options.model,
                 submodel: this.options.submodel,
-                year: this.options.year
+                year: this.options.year,
+                tabsList: this.options.tabsList,
+                tabsToDisplay: this.tabsToDisplay
             }));
 
             //Initialization Styles View
