@@ -11,10 +11,6 @@ define([
         },
         initialize: function(options) {
             this.options = options || {};
-
-            // Cache elements
-            this.$button = this.$('.btn');
-
             this.listenTo(this.collection, 'reset', this.render);
             this.load(options.make, options.modelName, options.year);
         },
@@ -24,13 +20,16 @@ define([
                 collection: this.collection.toJSON(),
                 currentItem: firstItem
             }));
+
+            // Cache elements
+            this.$button = this.$('.btn');
+
             dispatcher.trigger('onVehicleChange', firstItem.id);
             return this;
         },
         load: function(make, model, year) {
             this.collection.fetch({
                 url: this.collection.url(make, model, year),
-                dataType: 'json',
                 data: {
                     api_key: this.options.apiKey,
                     submodel: this.options.submodel
@@ -42,7 +41,7 @@ define([
             e.preventDefault();
             var target = $(e.currentTarget),
                 styleId = target.data('id');
-            this.$button.html(target.text() + '<span class="arrow-down"></span>');
+            this.$button.html('<span>' + target.text() + '<span class="arrow-down"></span></span>');
             dispatcher.trigger('onVehicleChange', styleId);
         }
     });
