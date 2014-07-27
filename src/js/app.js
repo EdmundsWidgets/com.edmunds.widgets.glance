@@ -27,6 +27,20 @@ define([
         },
         initialize: function(options) {
             this.options = options || {};
+
+            //Initialization Styles View
+            this.stylesView = new StylesView({
+                apiKey: options.apiKey,
+                make: options.make,
+                modelName: options.model,
+                submodel: options.submodel,
+                year: options.year
+            });
+            //Initialization Styles View
+            this.ratingTabView = new RatingTabView({
+                apiKey: this.options.apiKey
+            });
+
             this.render();
         },
         render: function() {
@@ -39,15 +53,8 @@ define([
                 tabsToDisplay: this.tabsToDisplay
             }));
 
-            //Initialization Styles View
-            this.stylesView = new StylesView({
-                el: this.$('.list-style-id'),
-                apiKey: this.options.apiKey,
-                make: this.options.make,
-                modelName: this.options.model,
-                submodel: this.options.submodel,
-                year: this.options.year
-            });
+            this.stylesView.setElement(this.$('.list-style-id'));
+
 
 //            this.ratingTabView = new RatingTabView({
 //                apiKey: this.options.apiKey

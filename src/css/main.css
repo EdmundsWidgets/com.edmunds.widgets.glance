@@ -6126,6 +6126,9 @@ button.close {
   color: #888888;
   float: right;
 }
+.list-style-id {
+  margin: 5px 0;
+}
 .list-style-id .btn {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -6137,7 +6140,6 @@ button.close {
   padding: 2px 25px 2px 8px;
   text-align: left;
   text-overflow: ellipsis;
-  max-width: 235px;
 }
 .list-style-id .btn:first-child {
   margin-left: -9px;
@@ -6161,6 +6163,12 @@ button.close {
   top: 8px;
   right: 8px;
   vertical-align: middle;
+}
+.list-style-id .btn > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 .list-style-id .dropdown-menu {
   left: -9px;
@@ -6552,7 +6560,7 @@ header {
 header h1 {
   color: #333333;
   font-size: 12px;
-  margin: 5px 15px 0 0;
+  margin: 10px 0 0 0;
   text-transform: uppercase;
 }
 .content {
