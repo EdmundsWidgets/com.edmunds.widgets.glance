@@ -36,7 +36,7 @@ define([
                 submodel: options.submodel,
                 year: options.year
             });
-            //Initialization Styles View
+            //Initialization Rating Tab View
             this.ratingTabView = new RatingTabView({
                 apiKey: this.options.apiKey
             });
@@ -53,7 +53,11 @@ define([
                 tabsToDisplay: this.tabsToDisplay
             }));
 
+            // Cache elements
+            this.$mainContainer = this.$('.main-content');
+
             this.stylesView.setElement(this.$('.list-style-id'));
+            this.ratingTabView.setElement(this.$mainContainer);
 
 
 //            this.ratingTabView = new RatingTabView({

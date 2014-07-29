@@ -2,8 +2,7 @@ define([
     'collection/rating-tab/rating'
 ], function (RatingCollection) {
     return Backbone.Model.extend({
-        url: function (/*styleId*/) {
-            var styleId = 200434856; //note: Uncomment parameter and delete this row
+        url: function (styleId) {
             return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
         },
         parse: function (response) {

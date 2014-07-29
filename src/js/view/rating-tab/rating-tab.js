@@ -7,7 +7,7 @@ define([
     'view/base/loading'
 ], function(dispatcher, RatingBarModel, RatingBarView, ContentView, DetailsView, LoadingView) {
     return Backbone.View.extend({
-        className: 'main-content',
+//        className: 'main-content',
         events: {
             'click .rating-selector': 'renderDetails',
             'click .close-button': 'renderContent'
@@ -15,7 +15,9 @@ define([
         model: new RatingBarModel(),
         initialize: function(options) {
             this.options = options || {};
+
             this.loadingView = new LoadingView();
+
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
