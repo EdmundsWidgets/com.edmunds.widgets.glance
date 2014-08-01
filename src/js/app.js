@@ -28,7 +28,7 @@ define([
         initialize: function(options) {
             this.options = options || {};
 
-            //Initialization Styles View
+            // Initialization Styles View
             this.stylesView = new StylesView({
                 apiKey: options.apiKey,
                 make: options.make,
@@ -36,7 +36,7 @@ define([
                 submodel: options.submodel,
                 year: options.year
             });
-            //Initialization Rating Tab View
+            // Initialization Rating Tab View
             this.ratingTabView = new RatingTabView({
                 apiKey: this.options.apiKey
             });

@@ -7,7 +7,6 @@ define([
     'view/base/loading'
 ], function(dispatcher, RatingBarModel, RatingBarView, ContentView, DetailsView, LoadingView) {
     return Backbone.View.extend({
-//        className: 'main-content',
         events: {
             'click .rating-selector': 'renderDetails',
             'click .close-button': 'renderContent'
