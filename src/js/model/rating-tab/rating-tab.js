@@ -5,15 +5,16 @@ define([
         url: function (styleId) {
             return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
         },
+        initialize: function() {
+            this.ratingCollection = new RatingCollection();
+        },
         parse: function (response) {
-            response.ratings = new RatingCollection(response.ratings, {
-                parse: true
+            this.ratingCollection.reset(response.ratings, {
+                summary: response.summary,
+                make: response.make.name.toLowerCase(),
+                subModel: response.style.submodel.niceName.toLowerCase(),
+                year: response.year.year
             });
-            response.ratings.summary = response.summary;
-            response.ratings.make = response.make.name.toLowerCase();
-            response.ratings.model = response.model.name.toLowerCase();
-            response.ratings.subModel = response.style.submodel.niceName.toLowerCase();
-            response.ratings.year = response.year.year;
             response.grade = this.convertGrade(response.grade);
             return response;
         },

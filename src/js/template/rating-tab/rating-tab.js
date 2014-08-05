@@ -1,5 +1,6 @@
 define(function() {
     return _.template('' +
+        '<div class="rating-bar container-fluid">' +
         '<div class="row">' +
         '<div class="rating-container col-md-8">' +
         '<div class="test-drive-date pull-right">' +
@@ -32,5 +33,7 @@ define(function() {
         '</div>' +
         '</div>' +
         '</div>' +
+        '</div>' +
+        '<section class="content container-fluid"></section>' +
     '');
 });
