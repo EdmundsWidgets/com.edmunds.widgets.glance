@@ -10,11 +10,13 @@ define([
         },
         parse: function (response) {
             this.ratingCollection.reset(response.ratings, {
-                summary: response.summary,
-                make: response.make.name.toLowerCase(),
-                subModel: response.style.submodel.niceName.toLowerCase(),
-                year: response.year.year
+                parse: true
             });
+            this.ratingCollection.summary = response.summary;
+            this.ratingCollection.make = response.make.name.toLowerCase();
+            this.ratingCollection.modelName = response.model.name.toLowerCase();
+            this.ratingCollection.subModel = response.style.submodel.niceName.toLowerCase();
+            this.ratingCollection.year = response.year.year;
             response.grade = this.convertGrade(response.grade);
             return response;
         },

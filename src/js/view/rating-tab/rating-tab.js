@@ -19,24 +19,19 @@ define([
 
             this.loadingView = new LoadingView();
 
-            this.contentView = new ContentView({
-                collection: this.model.ratingCollection
-            });
-
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);
-            this.listenTo(this.model, 'sync', this.init);
+            this.listenTo(this.model, 'sync', this.render);
         },
         loading: function() {
             this.$el.html(this.loadingView.render().el);
         },
-        init: function() {
-            this.render();
-        },
         render: function() {
             this.$el.html(this.template(this.model.toJSON()));
 
-            this.contentView.setElement(this.$('.content')).render();
+            this.contentView = new ContentView({
+                collection: this.model.ratingCollection
+            });
 
             return this;
         },
@@ -51,13 +46,12 @@ define([
         renderDetails: function(e) {
             var id = $(e.currentTarget).data('id');
             this.detailsView = new DetailsView({
-                model: this.model.get('ratings').get(id),
-                make: this.model.get('ratings').make,
-                carModel: this.model.get('ratings').model,
-                year: this.model.get('ratings').year,
-                subModel: this.model.get('ratings').subModel
+                model: this.model.ratingCollection.get(id),
+                make: this.model.ratingCollection.make,
+                modelName: this.model.ratingCollection.modelName,
+                year: this.model.ratingCollection.year,
+                subModel: this.model.ratingCollection.subModel
             });
-            this.$('.content').html(this.detailsView.render().el);
         },
         renderContent: function() {
             this.contentView.render();

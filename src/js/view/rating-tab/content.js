@@ -1,16 +1,13 @@
 define([
-    'template/rating-tab/content',
-    'collection/rating-tab/rating'
-], function(contentTemplate, ContentCollection) {
+    'template/rating-tab/content'
+], function(contentTemplate) {
     return Backbone.View.extend({
+        el: '.content',
         template: contentTemplate,
         initialize: function() {
-//            this.listenTo(this.collection, 'reset', function(models, options){
-//                this.options = options || {};
-//                this.render(options);
-//            });
+            this.render();
         },
-        render: function(options) {
+        render: function() {
             this.$el.html(this.template({
                 collection: this.collection.toJSON(),
                 summary: this.collection.summary

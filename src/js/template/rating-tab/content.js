@@ -5,7 +5,7 @@ define(function() {
         '<div class="col-xs-12">' +
         '<div class="rating-summary">' +
         '<h4>Rating summary</h4>' +
-//        '<p><%= summary %></p>' +
+        '<p><%= summary %></p>' +
         '</div>' +
         '</div>' +
         '</div>' +
