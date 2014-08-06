@@ -1,17 +1,10 @@
-//define([
-//    'example' // src/example.js
-//], function(utils) {
-//
-//    describe('utils', function() {
-//
-//        it('returnA', function() {
-//            expect(utils.returnA()).toBe('A');
-//        });
-//
-//        it('sum', function() {
-//            expect(utils.sum(1, 2)).toBe(3);
-//        });
-//
-//    });
-//
-//});
+define([
+    'src/js/model/rating-tab/rating-tab'
+], function(RatingTabModel) {
+    describe('A model', function(){
+        it('should have certain defaults', function(){
+            var ratingTab = new RatingTabModel();
+            expect(ratingTab.get('name')).toBe('test');
+        })
+    });
+});
