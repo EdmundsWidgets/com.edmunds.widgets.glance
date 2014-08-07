@@ -1,10 +1,9 @@
-define([
-    'model/rating-tab/rating-tab'
-], function(RatingTabModel) {
+define(function() {
     describe('A model', function(){
-        it('should have certain defaults', function(){
-            var ratingTab = new RatingTabModel();
-            expect(ratingTab.get('name')).toBe('test');
+        it('should be incrementing in value', function(){
+            var counter = 0;
+            counter++;
+            expect(counter).toEqual(1);
         });
     });
 });
