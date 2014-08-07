@@ -1,3 +1,6 @@
+// Karma configuration
+// Generated on Wed Aug 06 2014 18:17:41 GMT+0300 (FET)
+
 module.exports = function(config) {
   config.set({
 
@@ -12,39 +15,28 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/test-main.js',
-      { pattern: 'src/js/*.js', included: false },
-      { pattern: 'test/unit/**/*.spec.js', included: false }
+        { pattern: 'bower_components/**/*.js', included: false },
+        { pattern: 'src/js/**/*.js', included: false },
+        { pattern: 'test/unit/**/*.spec.js', included: false },
+        'test/test-main.js'
     ],
 
+    // list of files to exclude
     exclude: [
-        'src/js/main.js'
+      'src/js/main.js'
     ],
 
-    plugins : [
-        'karma-chrome-launcher',
-        'karma-jasmine',
-        'karma-requirejs',
-        'karma-coverage'
-    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'js/**/*.js': 'coverage'
-    },
-
-
-    coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress'],
 
 
     // web server port
@@ -71,6 +63,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   });
 };
