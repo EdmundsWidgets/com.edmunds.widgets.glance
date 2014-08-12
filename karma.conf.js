@@ -1,42 +1,36 @@
 // Karma configuration
-// Generated on Wed Aug 06 2014 18:17:41 GMT+0300 (FET)
+// Generated on Sun Oct 20 2013 07:28:56 GMT+0200 (CEST)
 
 module.exports = function(config) {
   config.set({
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
+    // base path, that will be used to resolve files and exclude
     basePath: '',
 
 
     // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine', 'requirejs'],
 
 
     // list of files / patterns to load in the browser
     files: [
-        { pattern: 'bower_components/**/*.js', included: false },
-        { pattern: 'src/js/**/*.js', included: false },
-        { pattern: 'test/unit/**/*.spec.js', included: false },
-        'test/test-main.js'
+        {pattern: 'bower_components/**/*.js', included: false},
+        {pattern: 'src/js/**/*.js', included: false},
+        {pattern: 'test/unit/**/*.spec.js', included: false},
+
+        'test/test-main.js',
     ],
+
 
     // list of files to exclude
     exclude: [
-      'src/js/main.js'
+        'src/js/main.js'
     ],
 
 
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
-
-
     // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -55,14 +49,28 @@ module.exports = function(config) {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
 
+    preprocessors: {
+        'src/js/**/*.js': ['coverage']
+    },
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+
+    // Start these browsers, currently available:
+    // - Chrome
+    // - ChromeCanary
+    // - Firefox
+    // - Opera
+    // - Safari (only Mac)
+    // - PhantomJS
+    // - IE (only Windows)
     browsers: ['Chrome'],
 
 
+    // If browser does not capture in given timeout [ms], kill it
+    captureTimeout: 60000,
+
+
     // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
+    // if true, it capture browsers, run tests and exit
     singleRun: false
   });
 };

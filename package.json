@@ -4,18 +4,15 @@
   "description": "Edmunds at a Glance Widget",
   "private": true,
   "scripts": {
-    "install": "bower install",
-    "test": "grunt test"
+    "install": "bower install"
   },
   "devDependencies": {
-    "grunt": "^0.4.2",
-    "grunt-contrib-jshint": "^0.8.0",
-    "grunt-contrib-watch": "^0.5.3",
+    "less": "^1.7.4",
     "karma": "^0.12.21",
     "karma-chrome-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
+    "requirejs": "^2.1.14",
     "karma-requirejs": "^0.2.2",
-    "less": "^1.7.4",
-    "requirejs": "^2.1.14"
+    "karma-coverage": "^0.2.6"
   }
 }

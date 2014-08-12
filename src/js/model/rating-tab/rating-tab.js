@@ -1,6 +1,7 @@
 define([
+    'backbone',
     'collection/rating-tab/rating'
-], function (RatingCollection) {
+], function (Backbone, RatingCollection) {
     return Backbone.Model.extend({
         url: function (styleId) {
             return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
