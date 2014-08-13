@@ -1,4 +1,6 @@
-define(function() {
+define([
+    'backbone'
+], function(Backbone) {
     return Backbone.Model.extend({
         parse: function(response) {
             response.grade = this.convertGrade(response.grade);

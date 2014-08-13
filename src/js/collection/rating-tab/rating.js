@@ -1,6 +1,7 @@
 define([
+    'backbone',
     'model/rating-tab/rating'
-], function(RatingModel) {
+], function(Backbone, RatingModel) {
     return Backbone.Collection.extend({
         model: RatingModel,
         comparator: function(model) {
