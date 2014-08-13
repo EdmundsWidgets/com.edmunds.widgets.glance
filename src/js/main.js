@@ -4,11 +4,17 @@ requirejs.config({
         backbone: '../../bower_components/backbone/backbone',
         underscore: '../../bower_components/underscore/underscore',
         bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery']
+        }
     }
 });
 
 require([
-    'app'
+    'app',
+    'bootstrap'
 ], function (App) {
     var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
         make = 'acura',
