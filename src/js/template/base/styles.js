@@ -1,4 +1,6 @@
-define(function(){
+define([
+    'underscore'
+], function(_){
     return _.template('' +
         '<button class="btn dropdown-toggle" data-toggle="dropdown"><span><%= currentItem.name %><span class="arrow-down"></span></span></button>' +
         '<ul class="dropdown-menu" role="menu">' +

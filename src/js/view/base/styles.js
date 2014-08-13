@@ -1,10 +1,10 @@
 define([
-    'backbone',
     'jquery',
+    'backbone',
     'dispatcher',
     'collection/base/styles',
     'template/base/styles'
-], function(Backbone, $, dispatcher, StylesCollection, stylesTemplate) {
+], function($, Backbone, dispatcher, StylesCollection, stylesTemplate) {
     return Backbone.View.extend({
         collection: new StylesCollection(),
         template: stylesTemplate,

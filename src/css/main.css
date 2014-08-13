@@ -6323,15 +6323,6 @@ button.close {
   padding-bottom: 10px;
   padding-top: 10px;
 }
-.rating-bar .vehicle-info-container .vehicle-info {
-  height: 34px;
-  line-height: 34px;
-}
-.rating-bar .vehicle-info-container .vehicle-info span {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
-}
 .rating-bar p {
   margin: 0;
 }
@@ -7196,7 +7187,7 @@ footer .logo a {
   margin: -50px 0 0 -50px;
   height: 100px;
   width: 100px;
-  top: 30%;
+  top: 50%;
   left: 50%;
   position: absolute;
   border-radius: 999px;

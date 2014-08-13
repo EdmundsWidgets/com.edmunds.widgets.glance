@@ -1,9 +1,10 @@
 define([
+    'backbone',
     'template/base/loading'
-], function(loadingTemaplte) {
+], function(Backbone, loadingTemplate) {
     return Backbone.View.extend({
         className: 'spinner',
-        template: loadingTemaplte,
+        template: loadingTemplate,
         render: function() {
             this.$el.html(this.template);
             return this;

@@ -1,13 +1,14 @@
 define([
+    'backbone',
     'dispatcher',
     'template/base/base',
     'view/base/styles',
-    'view/rating-tab/rating-tab',
-    'view/edmunds-says-tab/edmunds-says-tab',
-    'view/consumer-reviews-tab/consumer-reviews-tab',
-    'view/tco-tab/tco-tab',
-    'view/photos-tab/photos-tab'
-], function(dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
+    'view/rating-tab/rating-tab'
+//    'view/edmunds-says-tab/edmunds-says-tab',
+//    'view/consumer-reviews-tab/consumer-reviews-tab',
+//    'view/tco-tab/tco-tab',
+//    'view/photos-tab/photos-tab'
+], function(Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         template: baseTemplate,
@@ -56,6 +57,7 @@ define([
             // Cache elements
             this.$mainContainer = this.$('.main-content');
 
+            // Set elements to subviews
             this.stylesView.setElement(this.$('.list-style-id'));
             this.ratingTabView.setElement(this.$mainContainer);
 

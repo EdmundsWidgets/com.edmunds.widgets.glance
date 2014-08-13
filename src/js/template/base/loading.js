@@ -1,4 +1,6 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
         '<div class="loading">Loading</div>' +
         '<span class="side sp_left">' +

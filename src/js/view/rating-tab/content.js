@@ -1,6 +1,7 @@
 define([
+    'backbone',
     'template/rating-tab/content'
-], function(contentTemplate) {
+], function(Backbone, contentTemplate) {
     return Backbone.View.extend({
         el: '.content',
         template: contentTemplate,

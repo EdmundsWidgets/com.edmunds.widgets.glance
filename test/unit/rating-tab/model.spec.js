@@ -1,9 +1,11 @@
 define([
-    'collection/rating-tab/rating'
-], function() {
-    describe('Tests for Rating Tab Collection', function() {
-        var stylesCollection = new StylesCollection(),
+    'model/rating-tab/rating-tab'
+], function(RatingTabModel) {
+    describe('Tests for Rating Tab model', function() {
+        var ratingTabModel = new RatingTabModel(),
             configuration = {
+                url: 'https://api.edmunds.com/api/vehicle/v2/grade/101418219',
+                styleId: '101418219',
                 make: 'acura',
                 model: 'ilx',
                 year: 2013,
@@ -135,26 +137,26 @@ define([
                 }
             };
         it('test prepared and all data is defined', function() {
-            expect(stylesCollection).toBeDefined();
+            expect(ratingTabModel).toBeDefined();
             expect(configuration).toBeDefined();
         });
 
         describe('When the test prepared', function() {
-            var stylesCollection;
+            var ratingTabModel;
 
             beforeEach(function() {
-                stylesCollection = new StylesCollection();
+                ratingTabModel = new RatingTabModel();
 
                 spyOn($, 'ajax').andCallFake(function(options) {
                     options.success(configuration.response);
                 });
-                spyOn(stylesCollection, 'parse').andCallThrough();
+                spyOn(ratingTabModel, 'parse').andCallThrough();
 
-                stylesCollection.fetch();
+                ratingTabModel.fetch();
             });
 
             afterEach(function() {
-                stylesCollection = null;
+                ratingTabModel = null;
             });
 
             it('should call to a server and get a response', function() {
@@ -163,9 +165,9 @@ define([
                 expect(ajaxCallParams.dataType).toEqual('json');
                 expect(ajaxCallParams.type).toEqual('GET');
                 expect(ajaxCallParams.success).toBeDefined();
-                expect(stylesCollection.url(configuration.make, configuration.model, configuration.year)).toEqual(configuration.url);
-                expect(stylesCollection.parse).toHaveBeenCalled();
-                expect(stylesCollection.length).not.toEqual(0);
+                expect(ratingTabModel.url(configuration.make, configuration.model, configuration.year)).toEqual(configuration.url);
+                expect(ratingTabModel.parse).toHaveBeenCalled();
+                expect(ratingTabModel.length).not.toEqual(0);
             });
         });
     });

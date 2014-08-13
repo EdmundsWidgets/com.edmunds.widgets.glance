@@ -1,11 +1,13 @@
 define([
+    'jquery',
+    'backbone',
     'dispatcher',
     'template/rating-tab/rating-tab',
     'model/rating-tab/rating-tab',
     'view/rating-tab/content',
     'view/rating-tab/details',
     'view/base/loading'
-], function(dispatcher, ratingTabTemplate, RatingTabModel, ContentView, DetailsView, LoadingView) {
+], function($, Backbone, dispatcher, ratingTabTemplate, RatingTabModel, ContentView, DetailsView, LoadingView) {
     return Backbone.View.extend({
         className: 'rating-tab',
         events: {
