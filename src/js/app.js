@@ -12,7 +12,6 @@ define([
 ], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
-        template: baseTemplate,
         events: {
             'click a[data-id="rating-tab"]': 'ratingTab',
             'click a[data-id="edmunds-says-tab"]': 'edmundsSaysTab',
@@ -46,7 +45,7 @@ define([
             this.render();
         },
         render: function() {
-            this.$el.html(this.template({
+            this.$el.html(baseTemplate({
                 make: this.options.make,
                 model: this.options.model,
                 submodel: this.options.submodel,

@@ -7,7 +7,6 @@ define([
 ], function($, Backbone, dispatcher, StylesCollection, stylesTemplate) {
     return Backbone.View.extend({
         collection: new StylesCollection(),
-        template: stylesTemplate,
         events: {
             'click .dropdown-menu a': 'getStyleId'
         },
@@ -18,7 +17,7 @@ define([
         },
         render: function() {
             var firstItem = this.collection.at(0).toJSON();
-            this.$el.html(this.template({
+            this.$el.html(this.stylesTemplate({
                 collection: this.collection.toJSON(),
                 currentItem: firstItem
             }));
