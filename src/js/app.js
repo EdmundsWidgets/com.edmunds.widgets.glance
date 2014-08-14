@@ -1,4 +1,5 @@
 define([
+    'jquery',
     'backbone',
     'dispatcher',
     'template/base/base',
@@ -8,7 +9,7 @@ define([
 //    'view/consumer-reviews-tab/consumer-reviews-tab',
 //    'view/tco-tab/tco-tab',
 //    'view/photos-tab/photos-tab'
-], function(Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
+], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         template: baseTemplate,
@@ -82,6 +83,7 @@ define([
 //                apiKey: this.options.apiKey
 //            });
 //            this.$('header').after(this.ratingTabView.el);
+
             return this;
         }
 //        ratingTab: function(e) {
