@@ -1,4 +1,6 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
         '<div class="edmunds-says">' +
         '<div class="rating-bar container-fluid">' +
@@ -24,7 +26,7 @@ define(function() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<div class="rating-summary">' +
-        '<h4>What\'s new for 2013?</h4>' +
+        '<h4>What\'s new for <%= year %>?</h4>' +
         '<p><%= model.whatsNew %></p>' +
         '</div>' +
         '</div>' +
@@ -35,7 +37,7 @@ define(function() {
         '</div>' +
         '</div>' +
         '<div class="col-xs-12">' +
-        '<a href="#" class="btn btn-primary btn-primary-dark">Read full review <span class="hidden-xs">on Edmunds.com</span></a>' +
+        '<a target="_blank" href="http://www.edmunds.com/<%= make %>/<%= modelName %>/<%= year %>/?tab-id=reviews-tab&sub=<%= submodel %>" class="btn btn-primary btn-primary-dark">Read full review <span class="hidden-xs">on Edmunds.com</span></a>' +
         '</div>' +
         '</div>' +
         '</section>' +

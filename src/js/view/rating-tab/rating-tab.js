@@ -11,7 +11,7 @@ define([
 ], function($, Backbone, dispatcher, ratingTabTemplate, RatingTabModel, ContentView, DetailsView, missingContentTemplate, loadingTemplate) {
     return Backbone.View.extend({
         className: 'rating-tab',
-        active: true,
+        active: false,
         ready: false,
         missingContent: false,
         events: {
@@ -20,7 +20,7 @@ define([
         },
         model: new RatingTabModel(),
         initialize: function(options) {
-            this.options = options || {};
+            this.options = options;
 
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);

@@ -5,7 +5,7 @@ define([
     return Backbone.View.extend({
         el: '.content',
         initialize: function(options) {
-            this.options = options || {};
+            this.options = options;
 
             // Cache elements
             this.$widget = $('.edm-widget');
@@ -13,10 +13,12 @@ define([
             this.$ratingBar = $('.rating-bar');
             this.$footer = $('footer');
 
+            this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+
             this.render();
         },
         render: function() {
-            var contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+            console.log(this.options.subModel)
             this.$el.html(detailsTemplate({
                 rating: this.model.toJSON(),
                 subrating: this.model.get('subRatings').toJSON(),
@@ -24,7 +26,7 @@ define([
                 modelName: this.options.modelName,
                 year: this.options.year,
                 subModel: this.options.subModel
-            })).height(contentHeight);
+            })).height(this.contentHeight);
             return this;
         }
     });

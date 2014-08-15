@@ -4,8 +4,8 @@ define([
     'dispatcher',
     'template/base/base',
     'view/base/styles',
-    'view/rating-tab/rating-tab'
-//    'view/edmunds-says-tab/edmunds-says-tab',
+    'view/rating-tab/rating-tab',
+    'view/edmunds-says-tab/edmunds-says-tab',
 //    'view/consumer-reviews-tab/consumer-reviews-tab',
 //    'view/tco-tab/tco-tab',
 //    'view/photos-tab/photos-tab'
@@ -27,7 +27,7 @@ define([
             'photos-tab': 'Photos'
         },
         initialize: function(options) {
-            this.options = options || {};
+            this.options = options;
 
             // Initialization Styles View
             this.stylesView = new StylesView({
@@ -41,6 +41,16 @@ define([
             this.ratingTabView = new RatingTabView({
                 apiKey: this.options.apiKey
             });
+            // Initialization Edmunds says Tab View
+            this.edmundsSaysTabView = new EdmundsSaysTabView({
+                apiKey: options.apiKey,
+                make: options.make,
+                modelName: options.model,
+                submodel: options.submodel,
+                year: options.year
+            });
+
+            this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
 
             this.render();
         },
@@ -56,19 +66,18 @@ define([
 
             // Cache elements
             this.$mainContainer = this.$('.main-content');
+            this.$navigation = this.$('.edm-navigation');
 
             // Set elements to subviews
             this.stylesView.setElement(this.$('.list-style-id'));
             this.ratingTabView.setElement(this.$mainContainer);
+            this.edmundsSaysTabView.setElement(this.$mainContainer);
 
 
 //            this.ratingTabView = new RatingTabView({
 //                apiKey: this.options.apiKey
 //            });
-//            this.edmundsSaysTabView = new EdmundsSaysTabView({
-//                el: this.ratingTabView.el,
-//                apiKey: this.options.apiKey
-//            });
+
 //            this.consumerReviewsTabView = new ConsumerReviewsTabView({
 //                el: this.ratingTabView.el,
 //                apiKey: this.options.apiKey
@@ -84,6 +93,30 @@ define([
 //            this.$('header').after(this.ratingTabView.el);
 
             return this;
+        },
+        ratingTab: function(e) {
+            e.preventDefault();
+            this.$navigation.find('li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.resetActiveLinks();
+            this.ratingTabView.active = true;
+            this.ratingTabView.render();
+        },
+        edmundsSaysTab: function(e) {
+            e.preventDefault();
+            this.$navigation.find('li').removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.resetActiveLinks();
+            this.edmundsSaysTabView.active = true;
+            this.edmundsSaysTabView.render();
+        },
+        resetTabs: function() {
+            this.$navigation.find('li').removeClass('active');
+            this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']').click().parent().addClass('active');
+        },
+        resetActiveLinks: function() {
+            this.ratingTabView.active = false;
+            this.edmundsSaysTabView.active = false;
         }
 //        ratingTab: function(e) {
 //            e.preventDefault();

@@ -12,14 +12,16 @@ define([
             this.$ratingBar = $('.rating-bar');
             this.$footer = $('footer');
 
+            this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+
             this.render();
         },
         render: function() {
-            var contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+
             this.$el.html(contentTemplate({
                 collection: this.collection.toJSON(),
                 summary: this.collection.summary
-            })).height(contentHeight);
+            })).height(this.contentHeight);
             return this;
         }
     });
