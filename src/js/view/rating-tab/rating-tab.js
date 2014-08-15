@@ -11,7 +11,7 @@ define([
 ], function($, Backbone, dispatcher, ratingTabTemplate, RatingTabModel, ContentView, DetailsView, missingContentTemplate, loadingTemplate) {
     return Backbone.View.extend({
         className: 'rating-tab',
-        active: false,
+        active: true,
         ready: false,
         missingContent: false,
         events: {

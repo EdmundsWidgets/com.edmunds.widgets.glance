@@ -17,7 +17,7 @@ define([
         },
         render: function() {
             var firstItem = this.collection.at(0).toJSON();
-            this.$el.html(this.stylesTemplate({
+            this.$el.html(stylesTemplate({
                 collection: this.collection.toJSON(),
                 currentItem: firstItem
             }));
