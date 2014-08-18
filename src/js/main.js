@@ -23,9 +23,9 @@ require([
         submodel = 'sedan',
         zipCode = 60408,
         tabsList = [
-            'rating-tab'
-//            'edmunds-says-tab'
-//            'consumer-reviews-tab',
+            'rating-tab',
+            'edmunds-says-tab',
+            'consumer-reviews-tab'
 //            'tco-tab',
 //            'photos-tab'
         ];

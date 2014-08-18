@@ -1,9 +1,11 @@
 define([
+    'jquery',
+    'backbone',
     'dispatcher',
     'model/consumer-reviews-tab/consumer-reviews-tab',
     'view/consumer-reviews-tab/reviews-list',
     'view/consumer-reviews-tab/full-review'
-], function(dispatcher, ConsumerReviewsModel, ReviewsListView, FullReviewView) {
+], function($, Backbone, dispatcher, ConsumerReviewsModel, ReviewsListView, FullReviewView) {
     return Backbone.View.extend({
         events: {
             'click .consumer-review': 'renderFullReview',
@@ -12,12 +14,12 @@ define([
         },
         model: new ConsumerReviewsModel(),
         initialize: function(options) {
-            this.options = options || {};
+            this.options = options;
+
             this.listenTo(this.model, 'change', this.init);
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
         },
         render: function() {
-            this.$el.empty();
             this.$el.html(this.reviewsListView.render().el);
             return this;
         },

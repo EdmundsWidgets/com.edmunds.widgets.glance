@@ -22,7 +22,7 @@ define([
         '<% if (tabsList.length < 4) { %>' +
         '<% _.each(tabsList, function(el, i) { %>' +
         '<li <% if (i === 0) { %>class="active"<% } %>>' +
-        '<a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a>' +
+        '<a data-id="<%= el %>" href="#"><% if (windowWidth < 270 && el === "consumer-reviews-tab") { %>Reviews <% } else { %> <%= tabsToDisplay[el] %><% } %></a>' +
         '</li>' +
         '<% }); %>' +
         '<% } else { %>' +

@@ -6,7 +6,7 @@ define([
     'view/base/styles',
     'view/rating-tab/rating-tab',
     'view/edmunds-says-tab/edmunds-says-tab',
-//    'view/consumer-reviews-tab/consumer-reviews-tab',
+    'view/consumer-reviews-tab/consumer-reviews-tab',
 //    'view/tco-tab/tco-tab',
 //    'view/photos-tab/photos-tab'
 ], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
@@ -49,6 +49,10 @@ define([
                 submodel: options.submodel,
                 year: options.year
             });
+            // Initialization Consumer Reviews Tab View
+            this.consumerReviewsTabView = new ConsumerReviewsTabView({
+                apiKey: this.options.apiKey
+            });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
 
@@ -61,7 +65,8 @@ define([
                 submodel: this.options.submodel,
                 year: this.options.year,
                 tabsList: this.options.tabsList,
-                tabsToDisplay: this.tabsToDisplay
+                tabsToDisplay: this.tabsToDisplay,
+                windowWidth: $(window).width()
             }));
 
             // Cache elements
@@ -74,16 +79,14 @@ define([
             this.stylesView.setElement(this.$('.list-style-id'));
             this.ratingTabView.setElement(this.$mainContainer);
             this.edmundsSaysTabView.setElement(this.$mainContainer);
+            this.consumerReviewsTabView.setElement(this.$mainContainer);
 
 
 //            this.ratingTabView = new RatingTabView({
 //                apiKey: this.options.apiKey
 //            });
 
-//            this.consumerReviewsTabView = new ConsumerReviewsTabView({
-//                el: this.ratingTabView.el,
-//                apiKey: this.options.apiKey
-//            });
+
 //            this.tcoTabView = new TcoTabView({
 //                el: this.ratingTabView.el,
 //                apiKey: this.options.apiKey
