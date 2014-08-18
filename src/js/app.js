@@ -67,8 +67,10 @@ define([
             // Cache elements
             this.$mainContainer = this.$('.main-content');
             this.$navigation = this.$('.edm-navigation');
+            this.$navigationTabs = this.$navigation.find('li');
+            this.$navigationFirstTab = this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']');
 
-            // Set elements to subviews
+            // Set elements for subviews
             this.stylesView.setElement(this.$('.list-style-id'));
             this.ratingTabView.setElement(this.$mainContainer);
             this.edmundsSaysTabView.setElement(this.$mainContainer);
@@ -96,23 +98,23 @@ define([
         },
         ratingTab: function(e) {
             e.preventDefault();
-            this.$navigation.find('li').removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
+            this.$navigationTabs.removeClass('active');
+            $(e.currentTarget).parent().addClass('active');
             this.resetActiveLinks();
             this.ratingTabView.active = true;
             this.ratingTabView.render();
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
-            this.$navigation.find('li').removeClass('active');
+            this.$navigationTabs.removeClass('active');
             $(e.currentTarget).parent('li').addClass('active');
             this.resetActiveLinks();
             this.edmundsSaysTabView.active = true;
             this.edmundsSaysTabView.render();
         },
         resetTabs: function() {
-            this.$navigation.find('li').removeClass('active');
-            this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']').click().parent().addClass('active');
+            this.$navigationTabs.removeClass('active');
+            this.$navigationFirstTab.click();
         },
         resetActiveLinks: function() {
             this.ratingTabView.active = false;

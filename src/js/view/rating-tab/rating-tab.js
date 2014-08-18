@@ -28,18 +28,29 @@ define([
             this.listenTo(this.model, 'error', this.error);
         },
         render: function() {
+            // Cache elements
+            this.$currentTab = $('a[data-id="rating-tab"]').parent();
+            this.$nextTab = this.$currentTab.next().children();
+
             if (this.active && this.ready && !this.missingContent) {
+                this.$currentTab.removeClass('disabled');
                 this.$el.html(ratingTabTemplate(this.model.toJSON()));
 
                 this.contentView = new ContentView({
                     collection: this.model.ratingCollection
                 });
-            } else if (this.active && this.ready && this.missingContent) {
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.addClass('disabled');
+                this.$nextTab.click();
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.removeClass().addClass('disabled');
                 this.$el.html(missingContentTemplate);
             }
             return this;
         },
         loading: function() {
+            this.ready = false;
+            this.missingContent = false;
             this.$el.html(loadingTemplate);
         },
         init: function() {
