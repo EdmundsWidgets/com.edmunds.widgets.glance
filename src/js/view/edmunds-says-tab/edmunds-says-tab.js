@@ -6,7 +6,6 @@ define([
     'template/base/loading'
 ], function(Backbone, EdmundsSaysTabModel, edmundsSaysTabTemplate, missingContentTemplate, LoadingTemplate) {
     return Backbone.View.extend({
-        el: '.main-content',
         active: false,
         ready: false,
         missingContent: false,

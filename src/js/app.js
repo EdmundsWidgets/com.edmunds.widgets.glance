@@ -6,7 +6,7 @@ define([
     'view/base/styles',
     'view/rating-tab/rating-tab',
     'view/edmunds-says-tab/edmunds-says-tab',
-    'view/consumer-reviews-tab/consumer-reviews-tab',
+    'view/consumer-reviews-tab/consumer-reviews-tab'
 //    'view/tco-tab/tco-tab',
 //    'view/photos-tab/photos-tab'
 ], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
@@ -115,6 +115,15 @@ define([
             this.edmundsSaysTabView.active = true;
             this.edmundsSaysTabView.render();
         },
+        consumerReviewsTab: function(e) {
+            e.preventDefault();
+            this.$navigationTabs.removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.resetActiveLinks();
+            this.consumerReviewsTabView.active = true;
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
+            this.consumerReviewsTabView.render();
+        },
         resetTabs: function() {
             this.$navigationTabs.removeClass('active');
             this.$navigationFirstTab.click();
@@ -122,6 +131,7 @@ define([
         resetActiveLinks: function() {
             this.ratingTabView.active = false;
             this.edmundsSaysTabView.active = false;
+            this.consumerReviewsTabView.active = false;
         }
 //        ratingTab: function(e) {
 //            e.preventDefault();

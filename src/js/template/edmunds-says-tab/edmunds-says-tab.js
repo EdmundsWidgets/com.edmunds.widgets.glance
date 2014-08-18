@@ -2,7 +2,7 @@ define([
     'underscore'
 ], function(_) {
     return _.template('' +
-        '<div class="edmunds-says">' +
+        '<div class="edmunds-says-tab">' +
         '<div class="rating-bar container-fluid">' +
         '<p><%= model.edmundsSays %></p>' +
         '</div>' +

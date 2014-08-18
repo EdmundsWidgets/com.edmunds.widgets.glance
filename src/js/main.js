@@ -17,8 +17,11 @@ require([
     'bootstrap'
 ], function (App) {
     var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
-        make = 'acura',
-        model = 'ilx',
+//        make = 'acura',
+//        model = 'ilx',
+//        year = 2013,
+        make = 'honda',
+        model = 'accord',
         year = 2013,
         submodel = 'sedan',
         zipCode = 60408,

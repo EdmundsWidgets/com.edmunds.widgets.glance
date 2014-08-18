@@ -1,4 +1,7 @@
-define(function() {
+define([
+    'underscore',
+    'backbone'
+], function(_, Backbone) {
     return Backbone.Collection.extend({
         parse: function(response) {
             response = this.convertDates(response);

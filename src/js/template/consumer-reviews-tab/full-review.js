@@ -1,5 +1,8 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
+        '<div class="reviews-tab">' +
         '<div class="rating-bar container-fluid">' +
         '<div class="list-reviews"></div>' +
         '<div class="list-reviews-nav">' +
@@ -44,5 +47,6 @@ define(function() {
         '</div>' +
         '</div>' +
         '</section>' +
+        '</div>' +
     '');
 });

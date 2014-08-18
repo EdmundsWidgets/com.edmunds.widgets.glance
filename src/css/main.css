@@ -6787,11 +6787,6 @@ header h1 {
 .content .rating-summary h4 {
   margin-bottom: 4px;
 }
-.rating-tab .rating-summary {
-  height: 125px;
-  margin-right: -10px;
-  overflow-y: auto;
-}
 footer {
   border-top: 1px dotted #c1c1c1;
   height: 40px;
@@ -6812,28 +6807,28 @@ footer .logo a {
   height: 19px;
   margin: 11px 0 0 5px;
 }
-.edmunds-says .rating-bar {
+.edmunds-says-tab .rating-bar {
   background: #00a8fe;
   padding-bottom: 10px;
   padding-top: 10px;
 }
-.edmunds-says .pros h4 {
+.edmunds-says-tab .pros h4 {
   background: url(../img/icon-pros.png) no-repeat;
   margin-bottom: 10px;
   padding-left: 20px;
 }
-.edmunds-says .cons h4 {
+.edmunds-says-tab .cons h4 {
   background: url(../img/icon-cons.png) no-repeat;
   margin-bottom: 10px;
   padding-left: 20px;
 }
-.edmunds-says ul {
+.edmunds-says-tab ul {
   list-style: none;
   padding: 0;
   font-size: 12px;
   color: #444;
 }
-.edmunds-says .rating-summary h4 {
+.edmunds-says-tab .rating-summary h4 {
   margin-bottom: 5px;
 }
 .photos-tab .rating-bar .rating-container {

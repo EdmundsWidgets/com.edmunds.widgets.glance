@@ -2,6 +2,7 @@ define([
     'underscore'
 ], function(_) {
     return _.template('' +
+        '<div class="rating-tab">' +
         '<div class="rating-bar container-fluid">' +
         '<div class="row">' +
         '<div class="rating-container col-md-8">' +
@@ -37,5 +38,6 @@ define([
         '</div>' +
         '</div>' +
         '<section class="content container-fluid"></section>' +
+        '</div>' +
     '');
 });

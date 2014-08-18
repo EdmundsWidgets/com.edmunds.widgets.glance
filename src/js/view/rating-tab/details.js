@@ -18,7 +18,6 @@ define([
             this.render();
         },
         render: function() {
-            console.log(this.options.subModel)
             this.$el.html(detailsTemplate({
                 rating: this.model.toJSON(),
                 subrating: this.model.get('subRatings').toJSON(),
