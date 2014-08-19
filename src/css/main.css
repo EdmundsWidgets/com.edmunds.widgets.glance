@@ -7083,6 +7083,11 @@ footer .logo a {
   width: 100%;
   cursor: pointer;
 }
+.tco-tab .vehicle-info-container {
+  background: #e5e5e5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 .tco-tab .vehicle-info p {
   color: #888888;
   font-size: 11px;
@@ -7096,6 +7101,7 @@ footer .logo a {
   font-size: 22px;
   font-weight: bold;
   float: right;
+  line-height: 14px;
 }
 .tco-tab .vehicle-info .true-cash-price {
   color: #333333;

@@ -1,6 +1,7 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
-//        '<section class="content container-fluid">' +
         '<div class="row">' +
         '<div class="vehicle-info-container col-xs-12">' +
         '<div class="vehicle-info">' +
@@ -133,6 +134,5 @@ define(function() {
         '</tr>' +
         '</tbody>' +
         '</table>' +
-//        '</section>' +
     '');
 });

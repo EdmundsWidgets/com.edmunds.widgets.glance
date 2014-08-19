@@ -1,4 +1,7 @@
-define(function() {
+define([
+    'underscore',
+    'backbone'
+], function(_, Backbone) {
     return Backbone.Model.extend({
         url: function(style, zipCode, stateCode) {
             return 'https://api.edmunds.com/api/tco/v1/details/allnewtcobystyleidzipandstate/' + style + '/' + zipCode + '/' + stateCode;

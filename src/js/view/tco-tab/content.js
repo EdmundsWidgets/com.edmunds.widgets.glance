@@ -1,30 +1,71 @@
 define([
+    'jquery',
+    'backbone',
     'dispatcher',
     'template/tco-tab/content',
-    'model/tco-tab/content'
-], function(dispatcher, contentTemplate, TcoModel) {
+    'model/tco-tab/content',
+    'template/base/missing-content',
+    'template/base/loading'
+], function($, Backbone, dispatcher, contentTemplate, TcoModel, missingContentTemplate, loadingTemplate) {
     return Backbone.View.extend({
+        active: false,
+        ready: false,
+        missingContent: false,
         events: {
             'click .tco-years a': 'onYearChange'
         },
-        template: contentTemplate,
         model: new TcoModel(),
         initialize: function(options) {
             this.options = options;
-            this.listenTo(this.model, 'change', this.render);
-            this.load(options.styleId)
+
+            // Stores styleID when it changes
+            this.listenTo(dispatcher, 'onVehicleChange', function(styleId) {
+                this.styleId = styleId;
+            });
+            this.listenTo(dispatcher, 'onZipCodeUpdate', this.load);
+            this.listenTo(this.model, 'request', this.loading);
+            this.listenTo(this.model, 'sync', this.init);
+            this.listenTo(this.model, 'error', this.error);
         },
         render: function() {
-            this.$el.html(this.template({
-                model: this.model.toJSON()
-            }));
-            this.$cells = this.$('.table').find('.years');
-            this.$select = this.$('.rating-selector');
+            // Cache elements
+            this.$widget = $('.edm-widget');
+            this.$header = $('header');
+            this.$ratingBar = $('.rating-bar');
+            this.$footer = $('footer');
+
+            this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 2;
+
+            if (this.ready && !this.missingContent) {
+                this.$el.html(contentTemplate({
+                    model: this.model.toJSON()
+                })).height(this.contentHeight);
+                this.$cells = this.$('.table').find('.years');
+                this.$select = this.$('.rating-selector');
+            } else if (this.ready && this.missingContent) {
+                this.$currentTab.removeClass().addClass('disabled');
+                this.$el.html(missingContentTemplate);
+            }
             return this;
         },
-        load: function(style) {
+        loading: function() {
+            this.ready = false;
+            this.missingContent = false;
+            this.$el.html(loadingTemplate);
+        },
+        init: function() {
+            this.ready = true;
+            this.missingContent = false;
+            this.render();
+        },
+        error: function() {
+            this.ready = true;
+            this.missingContent = true;
+            this.render();
+        },
+        load: function(zipCode, stateCode) {
             this.model.fetch({
-                url: this.model.url(style, this.options.zipCode, this.options.stateCode),
+                url: this.model.url(this.styleId, zipCode, stateCode),
                 data: {
                     api_key: this.options.apiKey,
                     fmt: 'json'

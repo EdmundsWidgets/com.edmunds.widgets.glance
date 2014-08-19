@@ -23,6 +23,11 @@ define([
         initialize: function(options) {
             this.options = options;
 
+            // Initialize tco content view
+            this.tcoContentView = new TcoContentView({
+                apiKey: this.options.apiKey
+            });
+
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
             this.listenTo(this.model, 'error', this.error);
@@ -40,7 +45,8 @@ define([
                     region: this.model.toJSON().region,
                     stateCode: this.model.toJSON().stateCode
                 }));
-                dispatcher.trigger('onZipCodeUpdate', this.model.toJSON().stateCode);
+                this.tcoContentView.setElement('.content');
+                dispatcher.trigger('onZipCodeUpdate', this.zipCode, this.model.toJSON().stateCode);
             } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
                 this.$currentTab.addClass('disabled');
                 this.$nextTab.click();
@@ -66,6 +72,7 @@ define([
             this.render();
         },
         load: function(zipCode) {
+            this.zipCode = zipCode;
             this.model.fetch({
                 data: {
                     zip: zipCode,
