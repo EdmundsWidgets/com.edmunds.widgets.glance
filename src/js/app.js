@@ -17,7 +17,8 @@ define([
             'click a[data-id="edmunds-says-tab"]': 'edmundsSaysTab',
             'click a[data-id="consumer-reviews-tab"]': 'consumerReviewsTab',
             'click a[data-id="tco-tab"]': 'tcoTab',
-            'click a[data-id="photos-tab"]': 'photosTab'
+            'click a[data-id="photos-tab"]': 'photosTab',
+            'click button.action': 'onClickSplitButton'
         },
         tabsToDisplay: {
             'rating-tab': 'Rating',
@@ -87,6 +88,7 @@ define([
             this.$navigation = this.$('.edm-navigation');
             this.$navigationTabs = this.$navigation.find('li');
             this.$navigationFirstTab = this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']');
+            this.$dropdownMenu = this.$('.dropdown-menu');
 
             // Set elements for subviews
             this.stylesView.setElement(this.$('.list-style-id'));
@@ -119,7 +121,10 @@ define([
             $(e.currentTarget).parent('li').addClass('active');
             this.resetActiveLinks();
             this.consumerReviewsTabView.active = true;
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
+            if (this.$dropdownMenu.find('[data-id=consumer-reviews-tab]').length > 0) {
+                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=consumer-reviews-tab]').parent().addClass('hidden');
+                this.$navigation.find('.action').removeData('action-id').data('action-id', 'consumer-reviews-tab').text('Reviews').parent().addClass('active');
+            }
             this.consumerReviewsTabView.render();
         },
         tcoTab: function(e) {
@@ -128,7 +133,10 @@ define([
             $(e.currentTarget).parent('li').addClass('active');
             this.resetActiveLinks();
             this.tcoTabView.active = true;
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
+            if (this.$dropdownMenu.find('[data-id=tco-tab]').length > 0) {
+                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=tco-tab]').parent().addClass('hidden');
+                this.$navigation.find('.action').removeData('action-id').data('action-id', 'tco-tab').text('TCO').parent().addClass('active');
+            }
             this.tcoTabView.render();
         },
         photosTab: function(e) {
@@ -137,8 +145,39 @@ define([
             $(e.currentTarget).parent('li').addClass('active');
             this.resetActiveLinks();
             this.photosTabView.active = true;
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
+            if (this.$dropdownMenu.find('[data-id=photos-tab]').length > 0) {
+                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=photos-tab]').parent().addClass('hidden');
+                this.$navigation.find('.action').removeData('action-id').data('action-id', 'photos-tab').text('Photos').parent().addClass('active');
+            }
             this.photosTabView.render();
+        },
+        onClickSplitButton: function(e) {
+            e.preventDefault();
+            var target = $(e.currentTarget);
+            switch(target.data('action-id')) {
+                case 'consumer-reviews-tab':
+                    this.consumerReviewsTabView.active = true;
+                    this.$navigation.find('li').removeClass('active');
+                    target.parent().addClass('active');
+                    this.resetActiveLinks();
+                    this.consumerReviewsTabView.active = true;
+                    this.consumerReviewsTabView.render();
+                    break;
+                case 'tco-tab':
+                    this.$navigation.find('li').removeClass('active');
+                    target.parent().addClass('active');
+                    this.resetActiveLinks();
+                    this.tcoTabView.active = true;
+                    this.tcoTabView.render();
+                    break;
+                case 'photos-tab':
+                    this.$navigation.find('li').removeClass('active');
+                    target.parent().addClass('active');
+                    this.resetActiveLinks();
+                    this.photosTabView.active = true;
+                    this.photosTabView.render();
+                    break;
+            }
         },
         resetTabs: function() {
             this.$navigationTabs.removeClass('active');
@@ -151,42 +190,5 @@ define([
             this.tcoTabView.active = false;
             this.photosTabView.active = false;
         }
-//        ratingTab: function(e) {
-//            e.preventDefault();
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            $(e.currentTarget).parent('li').addClass('active');
-//            this.ratingTabView.render();
-//        },
-//        edmundsSaysTab: function(e) {
-//            e.preventDefault();
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            $(e.currentTarget).parent('li').addClass('active');
-//            this.edmundsSaysTabView.model.fetch();
-//        },
-//        consumerReviewsTab: function(e) {
-//            e.preventDefault();
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            this.$('.edm-navigation').find('[data-id=consumer-reviews-tab]').parent().addClass('active');
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
-//            this.consumerReviewsTabView.render();
-//        },
-//        tcoTab: function(e) {
-//            e.preventDefault();
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            this.$('.edm-navigation').find('[data-id=tco-tab]').parent().addClass('active');
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
-//            this.tcoTabView.model.fetch();
-//        },
-//        photosTab: function(e) {
-//            e.preventDefault();
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            this.$('.edm-navigation').find('[data-id=photos-tab]').parent().addClass('active');
-//            this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
-//            this.photosTabView.model.fetch();
-//        },
-//        resetTabs: function() {
-//            this.$('.edm-navigation').find('li').removeClass('active');
-//            this.$('.edm-navigation').find('[data-id=rating-tab]').parent().addClass('active');
-//        }
     });
 });
