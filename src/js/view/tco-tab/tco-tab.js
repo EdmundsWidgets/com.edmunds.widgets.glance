@@ -1,53 +1,110 @@
 define([
+    'jquery',
+    'backbone',
+    'dispatcher',
+    'template/base/missing-content',
+    'template/base/loading',
     'template/tco-tab/tco-tab',
     'model/tco-tab/tco-tab',
-    'view/base/loading'
-], function(tcoTabTemplate, TcoTabModel, LoadingView) {
+    'view/tco-tab/content'
+], function($, Backbone, dispatcher, missingContentTemplate, loadingTemplate, tcoTabTemplate, TcoTabModel, TcoContentView) {
     return Backbone.View.extend({
+        active: false,
+        ready: false,
+        missingContent: false,
         events: {
-            'click .update-zip': 'onZipChange',
-            'click .dropdown-menu a': 'onYearChange'
+            'keypress #zip-code-control': 'zipCodeInputFilter',
+            'keydown #zip-code-control': 'zipCodeInputFilter',
+            'paste #zip-code-control': 'zipCodeInputFilter',
+            'input #zip-code-control': 'test',
+            'click #update-zip': 'updateZipCode'
         },
-        template: tcoTabTemplate,
         model: new TcoTabModel(),
-        initialize: function() {
-            this.loadingView = new LoadingView();
+        initialize: function(options) {
+            this.options = options;
+
             this.listenTo(this.model, 'request', this.loading);
-            this.listenTo(this.model, 'sync', this.render);
-        },
-        loading: function() {
-            this.$el.html(this.loadingView.render().el);
+            this.listenTo(this.model, 'sync', this.init);
+            this.listenTo(this.model, 'error', this.error);
+            this.load(this.options.zipCode);
         },
         render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
-            this.$cells = this.$('.table').find('.years');
-            this.$select = this.$('.rating-selector');
+            // Cache elements
+            this.$currentTab = $('a[data-id="tco-tab"]').parent();
+            this.$nextTab = this.$currentTab.next().children();
+
+            if (this.active && this.ready && !this.missingContent) {
+                this.$currentTab.removeClass('disabled');
+                this.$el.html(tcoTabTemplate({
+                    zipCode: this.options.zipCode,
+                    region: this.model.toJSON().region,
+                    stateCode: this.model.toJSON().stateCode
+                }));
+                dispatcher.trigger('onZipCodeUpdate', this.model.toJSON().stateCode);
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.addClass('disabled');
+                this.$nextTab.click();
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.removeClass().addClass('disabled');
+                this.$el.html(missingContentTemplate);
+            }
             return this;
         },
-        onZipChange: function(e) {
-            e.preventDefault();
-            var data = this.$('input').val(),
-                isValid = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(data);
-            if (isValid) {
-                this.model.fetch({
-                    url: this.model.url(data)
-                });
+        loading: function() {
+            this.ready = false;
+            this.missingContent = false;
+            this.$el.html(loadingTemplate);
+        },
+        init: function() {
+            this.ready = true;
+            this.missingContent = false;
+            this.render();
+        },
+        error: function() {
+            this.ready = true;
+            this.missingContent = true;
+            this.render();
+        },
+        load: function(zipCode) {
+            this.model.fetch({
+                data: {
+                    zip: zipCode,
+                    api_key: this.options.apiKey,
+                    fmt: 'json'
+                }
+            });
+        },
+        updateZipCode: function() {
+            var zipCode = this.$('#zip-code-control').val();
+            this.load(zipCode);
+        },
+        test: function(e) {
+            var zipCodeLength = $(e.currentTarget).val().length;
+
+            if (zipCodeLength > 4) {
+                this.$('#update-zip').removeAttr('disabled');
             } else {
-                alert('Please enter valid zip code');
+                this.$('#update-zip').attr('disabled', 'disabled');
             }
         },
-        onYearChange: function(e) {
-            e.preventDefault();
-            if ($(e.currentTarget).data('id') === 'year-1-3' || $(e.currentTarget).data('id') === 'year-4-total') {
-                this.$select.find('.category').text($(e.currentTarget).text());
-                this.$select.find('.text-grade').empty();
-                this.$cells.addClass('hidden-sm');
-                this.$cells.filter('.' + $(e.currentTarget).data('id')).removeClass('hidden-sm');
-            } else {
-                this.$select.find('.category').text($(e.currentTarget).text());
-                this.$select.find('.text-grade').text(this.$('tfoot').find('.' + $(e.currentTarget).data('id')).text());
-                this.$cells.addClass('hidden-xs');
-                this.$cells.filter('.' + $(e.currentTarget).data('id')).removeClass('hidden-xs');
+        zipCodeInputFilter: function (e) {
+            var code = e.charCode || e.keyCode,
+                convertKeyCode = String.fromCharCode(code),
+                regExp = /[0-9]/,
+                zipCodeLength = $(e.currentTarget).val().length;
+
+            if (code < 32 || e.charCode == 0 || e.ctrlKey || e.altKey) {
+                return;
+            }
+
+            if (zipCodeLength > 4) {
+                e.preventDefault();
+                return false;
+            }
+
+            if (!regExp.test(convertKeyCode)) {
+                e.preventDefault();
+                return false;
             }
         }
     });

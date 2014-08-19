@@ -6,8 +6,8 @@ define([
     'view/base/styles',
     'view/rating-tab/rating-tab',
     'view/edmunds-says-tab/edmunds-says-tab',
-    'view/consumer-reviews-tab/consumer-reviews-tab'
-//    'view/tco-tab/tco-tab',
+    'view/consumer-reviews-tab/consumer-reviews-tab',
+    'view/tco-tab/tco-tab'
 //    'view/photos-tab/photos-tab'
 ], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
@@ -53,6 +53,11 @@ define([
             this.consumerReviewsTabView = new ConsumerReviewsTabView({
                 apiKey: this.options.apiKey
             });
+            // Initialization TCO Tab View
+            this.tcoTabView = new TcoTabView({
+                apiKey: this.options.apiKey,
+                zipCode: options.zipCode
+            });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
 
@@ -80,6 +85,7 @@ define([
             this.ratingTabView.setElement(this.$mainContainer);
             this.edmundsSaysTabView.setElement(this.$mainContainer);
             this.consumerReviewsTabView.setElement(this.$mainContainer);
+            this.tcoTabView.setElement(this.$mainContainer);
 
 
 //            this.ratingTabView = new RatingTabView({
@@ -124,6 +130,15 @@ define([
 //            this.$('.edm-navigation').find('.dropdown-toggle').html('Reviews<span class="arrow-down"></span>').parent().addClass('active');
             this.consumerReviewsTabView.render();
         },
+        tcoTab: function(e) {
+            e.preventDefault();
+            this.$navigationTabs.removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.resetActiveLinks();
+            this.tcoTabView.active = true;
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
+            this.tcoTabView.render();
+        },
         resetTabs: function() {
             this.$navigationTabs.removeClass('active');
             this.$navigationFirstTab.click();
@@ -132,6 +147,7 @@ define([
             this.ratingTabView.active = false;
             this.edmundsSaysTabView.active = false;
             this.consumerReviewsTabView.active = false;
+            this.tcoTabView.active = false;
         }
 //        ratingTab: function(e) {
 //            e.preventDefault();

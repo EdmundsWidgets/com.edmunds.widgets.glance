@@ -17,19 +17,19 @@ require([
     'bootstrap'
 ], function (App) {
     var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
-//        make = 'acura',
-//        model = 'ilx',
-//        year = 2013,
-        make = 'honda',
-        model = 'accord',
+        make = 'acura',
+        model = 'ilx',
         year = 2013,
+//        make = 'honda',
+//        model = 'accord',
+//        year = 2013,
         submodel = 'sedan',
-        zipCode = 60408,
+        zipCode = 12345,
         tabsList = [
             'rating-tab',
             'edmunds-says-tab',
-            'consumer-reviews-tab'
-//            'tco-tab',
+            'consumer-reviews-tab',
+            'tco-tab'
 //            'photos-tab'
         ];
     var app = new App({
