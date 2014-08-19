@@ -1,4 +1,6 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
         '<div class="photos-tab">' +
         '<div class="rating-bar container-fluid">' +
@@ -8,17 +10,15 @@ define(function() {
         '<div class="btn-group visible-xs clearfix">' +
         '<button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">All <span class="caret"></span></button>' +
         '<ul class="dropdown-menu" role="menu">' +
-        '<li class="active"><a data-id="all" href="#">All</a></li>' +
+        '<li class="hidden"><a data-id="all" href="#">All</a></li>' +
         '<li><a data-id="interior" href="#">Interior</a></li>' +
         '<li><a data-id="exterior" href="#">Exterior</a></li>' +
-//        '<li><a href="#">Color Options</a></li>' +
         '</ul>' +
         '</div>' +
         '<ul class="nav nav-pills hidden-xs">' +
-        '<li class="active"><a data-id="all" href="#">All</a></li>' +
+        '<li><a data-id="all" href="#">All</a></li>' +
         '<li><a data-id="interior" href="#">Interior</a></li>' +
         '<li><a data-id="exterior" href="#">Exterior</a></li>' +
-//        '<li><a href="#">Color Options</a></li>' +
         '</ul>' +
         '</div>' +
         '</div>' +

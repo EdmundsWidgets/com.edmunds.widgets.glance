@@ -1,7 +1,18 @@
-define(function() {
+define([
+    'jquery',
+    'underscore',
+    'backbone'
+], function($, _, Backbone) {
     return Backbone.Model.extend({
-        url: 'http://api.edmunds.com/api/media/v2/photos/honda/accord/2013/sedan?api_key=axr2rtmnj63qsth3ume3tv5f',
+        url: function(make, model, year, submodel) {
+            return 'http://api.edmunds.com/api/media/v2/photos/' + make +'/' + model + '/' + year + '/' + submodel;
+        },
         parse: function(response) {
+
+            response = _.reject(response, function(el) {
+                return el.id.indexOf('/evox/') > -1;
+            });
+
             var interior = _.where(response, {
                 subType: 'interior'
             }),
@@ -15,6 +26,7 @@ define(function() {
             response.exterior = _.map(exterior, function(el) {
                 return baseUrl + el.id.replace('dam/photo', '') + '_500.jpg';
             });
+//            response.colorOptions = _.sortBy(response.colorOptions, 'color');
             response.all = _.union(response.exterior, response.interior);
             this.preLoader(response.interior);
             this.preLoader(response.exterior);

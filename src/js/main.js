@@ -29,8 +29,8 @@ require([
             'rating-tab',
             'edmunds-says-tab',
             'consumer-reviews-tab',
-            'tco-tab'
-//            'photos-tab'
+            'tco-tab',
+            'photos-tab'
         ];
     var app = new App({
         apiKey: apiKey,

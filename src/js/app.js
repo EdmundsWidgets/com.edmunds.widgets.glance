@@ -7,8 +7,8 @@ define([
     'view/rating-tab/rating-tab',
     'view/edmunds-says-tab/edmunds-says-tab',
     'view/consumer-reviews-tab/consumer-reviews-tab',
-    'view/tco-tab/tco-tab'
-//    'view/photos-tab/photos-tab'
+    'view/tco-tab/tco-tab',
+    'view/photos-tab/photos-tab'
 ], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
@@ -58,6 +58,14 @@ define([
                 apiKey: this.options.apiKey,
                 zipCode: options.zipCode
             });
+            // Initialization Photos Tab View
+            this.photosTabView = new PhotosTabView({
+                apiKey: this.options.apiKey,
+                make: options.make,
+                modelName: options.model,
+                year: options.year,
+                submodel: options.submodel
+            });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
 
@@ -86,23 +94,7 @@ define([
             this.edmundsSaysTabView.setElement(this.$mainContainer);
             this.consumerReviewsTabView.setElement(this.$mainContainer);
             this.tcoTabView.setElement(this.$mainContainer);
-
-
-//            this.ratingTabView = new RatingTabView({
-//                apiKey: this.options.apiKey
-//            });
-
-
-//            this.tcoTabView = new TcoTabView({
-//                el: this.ratingTabView.el,
-//                apiKey: this.options.apiKey
-//            });
-//            this.photosTabView = new PhotosTabView({
-//                el: this.ratingTabView.el,
-//                apiKey: this.options.apiKey
-//            });
-//            this.$('header').after(this.ratingTabView.el);
-
+            this.photosTabView.setElement(this.$mainContainer);
             return this;
         },
         ratingTab: function(e) {
@@ -139,6 +131,15 @@ define([
 //            this.$('.edm-navigation').find('.dropdown-toggle').html('TCO<span class="arrow-down"></span>').parent().addClass('active');
             this.tcoTabView.render();
         },
+        photosTab: function(e) {
+            e.preventDefault();
+            this.$navigationTabs.removeClass('active');
+            $(e.currentTarget).parent('li').addClass('active');
+            this.resetActiveLinks();
+            this.photosTabView.active = true;
+//            this.$('.edm-navigation').find('.dropdown-toggle').html('Photos<span class="arrow-down"></span>').parent().addClass('active');
+            this.photosTabView.render();
+        },
         resetTabs: function() {
             this.$navigationTabs.removeClass('active');
             this.$navigationFirstTab.click();
@@ -148,6 +149,7 @@ define([
             this.edmundsSaysTabView.active = false;
             this.consumerReviewsTabView.active = false;
             this.tcoTabView.active = false;
+            this.photosTabView.active = false;
         }
 //        ratingTab: function(e) {
 //            e.preventDefault();
