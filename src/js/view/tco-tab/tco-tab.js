@@ -16,7 +16,7 @@ define([
             'keypress #zip-code-control': 'zipCodeInputFilter',
             'keydown #zip-code-control': 'zipCodeInputFilter',
             'paste #zip-code-control': 'zipCodeInputFilter',
-            'input #zip-code-control': 'test',
+            'input #zip-code-control': 'enableUpdateButton',
             'click #update-zip': 'updateZipCode'
         },
         model: new TcoTabModel(),
@@ -85,7 +85,7 @@ define([
             var zipCode = this.$('#zip-code-control').val();
             this.load(zipCode);
         },
-        test: function(e) {
+        enableUpdateButton: function(e) {
             var zipCodeLength = $(e.currentTarget).val().length;
 
             if (zipCodeLength > 4) {
