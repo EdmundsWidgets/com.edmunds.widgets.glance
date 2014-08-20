@@ -76,7 +76,7 @@ define([
         },
         renderAll: function(e) {
             e.preventDefault();
-            this.$el.html(this.template({
+            this.$el.html(photosTabTemplate({
                 items: this.model.toJSON().all
             }));
             this.$('.dropdown-menu').find('li').removeClass('hidden');
@@ -87,7 +87,7 @@ define([
         },
         renderInterior: function(e) {
             e.preventDefault();
-            this.$el.html(this.template({
+            this.$el.html(photosTabTemplate({
                 items: this.model.toJSON().interior
             }));
             this.$('.dropdown-menu').find('li').removeClass('hidden');
@@ -98,7 +98,7 @@ define([
         },
         renderExterior: function(e) {
             e.preventDefault();
-            this.$el.html(this.template({
+            this.$el.html(photosTabTemplate({
                 items: this.model.toJSON().exterior
             }));
             this.$('.dropdown-menu').find('li').removeClass('hidden');
