@@ -22,6 +22,9 @@ define([
             this.options = options;
 
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
+            this.listenTo(dispatcher, 'prevTabIsDisabled', function() {
+                $('a[data-id="consumer-reviews-tab"]').parent().off('click', this.showTooltip);
+            });
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
             this.listenTo(this.model, 'error', this.error);
@@ -51,9 +54,11 @@ define([
                 this.$content.height(this.contentHeight);
 
             } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.on('click', this.showTooltip);
                 this.$currentTab.addClass('disabled');
                 this.$nextTab.click();
             } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.on('click', this.showTooltip);
                 this.$currentTab.removeClass().addClass('disabled');
                 this.$el.html(missingContentTemplate);
             }
@@ -75,6 +80,7 @@ define([
             this.render();
         },
         load: function (styleId) {
+            $('a[data-id="consumer-reviews-tab"]').parent().off('click', this.showTooltip);
             this.model.fetch({
                 url: this.model.url(styleId),
                 data: {
@@ -113,6 +119,9 @@ define([
                 reviewsCount: this.model.get('reviewsCount'),
                 currentReview: this.currentReview + 1
             });
+        },
+        showTooltip: function() {
+            dispatcher.trigger('onNoContent');
         }
     });
 });

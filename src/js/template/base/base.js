@@ -55,6 +55,16 @@ define([
         '</div>' +
         '</div>' +
         '</header>' +
+        '<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">' +
+        '<div class="modal-dialog modal-sm">' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>' +
+        '<h4 class="modal-title" id="mySmallModalLabel">There is no content for this tab</h4>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '<div class="main-content"></div>' +
         '</div>' +
         '<footer class="container-fluid">' +

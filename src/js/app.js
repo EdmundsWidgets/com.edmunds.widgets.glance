@@ -69,6 +69,7 @@ define([
             });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
+            this.listenTo(dispatcher, 'onNoContent', this.showTooltip);
 
             this.render();
         },
@@ -89,6 +90,7 @@ define([
             this.$navigationTabs = this.$navigation.find('li');
             this.$navigationFirstTab = this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']');
             this.$dropdownMenu = this.$('.dropdown-menu');
+            this.$modalPanel = this.$('.modal');
 
             // Set elements for subviews
             this.stylesView.setElement(this.$('.list-style-id'));
@@ -189,6 +191,9 @@ define([
             this.consumerReviewsTabView.active = false;
             this.tcoTabView.active = false;
             this.photosTabView.active = false;
+        },
+        showTooltip: function() {
+            this.$modalPanel.modal('show');
         }
     });
 });
