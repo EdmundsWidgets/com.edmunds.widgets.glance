@@ -105,8 +105,10 @@ define([
             }
 
             if (zipCodeLength > 4) {
-                e.preventDefault();
-                return false;
+                if (window.getSelection().toString().length < 1) {
+                    e.preventDefault();
+                    return false;
+                }
             }
 
             if (!regExp.test(convertKeyCode)) {
