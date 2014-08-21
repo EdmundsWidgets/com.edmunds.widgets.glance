@@ -103,11 +103,16 @@ define([
         },
         ratingTab: function(e) {
             e.preventDefault();
-            this.$navigationTabs.removeClass('active');
-            $(e.currentTarget).parent().addClass('active');
-            this.resetActiveLinks();
-            this.ratingTabView.active = true;
-            this.ratingTabView.render();
+            var target = $(e.currentTarget).parent();
+            if (target.hasClass('disabled')) {
+                this.showTooltip();
+            } else {
+                this.$navigationTabs.removeClass('active');
+                target.addClass('active');
+                this.resetActiveLinks();
+                this.ratingTabView.active = true;
+                this.ratingTabView.render();
+            }
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
@@ -119,15 +124,20 @@ define([
         },
         consumerReviewsTab: function(e) {
             e.preventDefault();
-            this.$navigationTabs.removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.resetActiveLinks();
-            this.consumerReviewsTabView.active = true;
-            if (this.$dropdownMenu.find('[data-id=consumer-reviews-tab]').length > 0) {
-                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=consumer-reviews-tab]').parent().addClass('hidden');
-                this.$navigation.find('.action').removeData('action-id').data('action-id', 'consumer-reviews-tab').text('Reviews').parent().addClass('active');
+            var target = $(e.currentTarget).parent();
+            if (target.hasClass('disabled')) {
+                this.showTooltip();
+            } else {
+                this.$navigationTabs.removeClass('active');
+                target.parent('li').addClass('active');
+                this.resetActiveLinks();
+                this.consumerReviewsTabView.active = true;
+                if (this.$dropdownMenu.find('[data-id=consumer-reviews-tab]').length > 0) {
+                    this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=consumer-reviews-tab]').parent().addClass('hidden');
+                    this.$navigation.find('.action').removeData('action-id').data('action-id', 'consumer-reviews-tab').text('Reviews').parent().addClass('active');
+                }
+                this.consumerReviewsTabView.render();
             }
-            this.consumerReviewsTabView.render();
         },
         tcoTab: function(e) {
             e.preventDefault();
