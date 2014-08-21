@@ -1,10 +1,11 @@
 define([
     'backbone',
+    'dispatcher',
     'model/edmunds-says-tab/edmunds-says-tab',
     'template/edmunds-says-tab/edmunds-says-tab',
     'template/base/missing-content',
     'template/base/loading'
-], function(Backbone, EdmundsSaysTabModel, edmundsSaysTabTemplate, missingContentTemplate, LoadingTemplate) {
+], function(Backbone, dispatcher, EdmundsSaysTabModel, edmundsSaysTabTemplate, missingContentTemplate, LoadingTemplate) {
     return Backbone.View.extend({
         active: false,
         ready: false,
@@ -13,11 +14,10 @@ define([
         initialize: function(options) {
             this.options = options;
 
+            this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
             this.listenTo(this.model, 'error', this.error);
-
-            this.load();
         },
         render: function() {
             if (this.active && this.ready && !this.missingContent) {
@@ -29,7 +29,7 @@ define([
                     make: this.options.make,
                     modelName: this.options.modelName,
                     year: this.options.year,
-                    submodel: this.options.submodel
+                    submodel: this.submodel
                 }));
 
                 // Cache elements
@@ -60,7 +60,8 @@ define([
             this.missingContent = true;
             this.render();
         },
-        load: function() {
+        load: function(styleId, submodel) {
+            this.submodel = submodel;
             this.model.fetch({
                 data: {
                     model: this.options.modelName,

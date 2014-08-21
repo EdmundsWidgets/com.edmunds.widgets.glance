@@ -25,10 +25,10 @@ define([
         initialize: function(options) {
             this.options = options;
 
+            this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
             this.listenTo(this.model, 'error', this.error);
-            this.load(options.make, options.modelName, options.year, options.submodel);
         },
         render: function() {
             // Cache elements
@@ -65,10 +65,10 @@ define([
             this.missingContent = true;
             this.render();
         },
-        load: function(make, model, year, submodel) {
+        load: function(styleId, submodel) {
             this.ready = false;
             this.model.fetch({
-                url: this.model.url(make, model, year, submodel),
+                url: this.model.url(this.options.make, this.options.modelName, this.options.year, submodel),
                 data: {
                     api_key: this.options.apiKey
                 }

@@ -7,7 +7,7 @@ define([
         '<div class="container-fluid">' +
         '<div class="row">' +
         '<div class="col-sm-6">' +
-        '<h1><%= year %> <%= make %> <%= model %> <%= submodel %></h1>' +
+        '<h1><%= year %> <%= make %> <%= model %> <span class="submodel"></span></h1>' +
         '</div>' +
         '<div class="col-sm-6">' +
         '<div class="list-style-id btn-group">' +

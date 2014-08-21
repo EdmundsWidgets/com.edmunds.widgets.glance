@@ -35,7 +35,6 @@ define([
                 apiKey: options.apiKey,
                 make: options.make,
                 modelName: options.model,
-                submodel: options.submodel,
                 year: options.year
             });
             // Initialization Rating Tab View
@@ -47,7 +46,6 @@ define([
                 apiKey: options.apiKey,
                 make: options.make,
                 modelName: options.model,
-                submodel: options.submodel,
                 year: options.year
             });
             // Initialization Consumer Reviews Tab View
@@ -64,8 +62,7 @@ define([
                 apiKey: this.options.apiKey,
                 make: options.make,
                 modelName: options.model,
-                year: options.year,
-                submodel: options.submodel
+                year: options.year
             });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
@@ -77,7 +74,6 @@ define([
             this.$el.html(baseTemplate({
                 make: this.options.make,
                 model: this.options.model,
-                submodel: this.options.submodel,
                 year: this.options.year,
                 tabsList: this.options.tabsList,
                 tabsToDisplay: this.tabsToDisplay,
@@ -91,6 +87,7 @@ define([
             this.$navigationFirstTab = this.$navigation.find('a[data-id=' + this.options.tabsList[0] + ']');
             this.$dropdownMenu = this.$('.dropdown-menu');
             this.$modalPanel = this.$('.modal');
+            this.$submodel = this.$('.submodel');
 
             // Set elements for subviews
             this.stylesView.setElement(this.$('.list-style-id'));
@@ -191,7 +188,8 @@ define([
                     break;
             }
         },
-        resetTabs: function() {
+        resetTabs: function(styleId) {
+            this.$submodel.text(this.stylesView.collection.get(styleId).toJSON().submodel.niceName);
             this.$navigationTabs.removeClass('active');
             this.$navigationFirstTab.click();
         },

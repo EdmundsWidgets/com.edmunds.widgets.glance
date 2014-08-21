@@ -25,15 +25,14 @@ define([
             // Cache elements
             this.$button = this.$('.btn');
 
-            dispatcher.trigger('onVehicleChange', firstItem.id);
+            dispatcher.trigger('onVehicleChange', firstItem.id, firstItem.submodel.niceName);
             return this;
         },
         load: function(make, model, year) {
             this.collection.fetch({
                 url: this.collection.url(make, model, year),
                 data: {
-                    api_key: this.options.apiKey,
-                    submodel: this.options.submodel
+                    api_key: this.options.apiKey
                 },
                 reset: true
             });
@@ -41,9 +40,10 @@ define([
         getStyleId: function(e) {
             e.preventDefault();
             var target = $(e.currentTarget),
-                styleId = target.data('id');
+                styleId = target.data('id'),
+                submodel = this.collection.get(styleId).toJSON().submodel.niceName;
             this.$button.html('<span>' + target.text() + '<span class="arrow-down"></span></span>');
-            dispatcher.trigger('onVehicleChange', styleId);
+            dispatcher.trigger('onVehicleChange', styleId, submodel);
         }
     });
 });
