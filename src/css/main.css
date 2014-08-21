@@ -6701,6 +6701,13 @@ button.close {
     transform: scale(1, 1);
   }
 }
+.no-content-modal {
+  overflow: hidden;
+  margin-top: 165px;
+}
+.no-content-modal .modal-header {
+  border-bottom: none;
+}
 html,
 body {
   height: 100%;
