@@ -190,7 +190,7 @@ define([
         },
         resetTabs: function(styleId) {
             this.$submodel.text(this.stylesView.collection.get(styleId).toJSON().submodel.niceName);
-            this.$navigationTabs.removeClass('active');
+            this.$navigationTabs.removeClass('active disabled');
             this.$navigationFirstTab.click();
         },
         resetActiveLinks: function() {

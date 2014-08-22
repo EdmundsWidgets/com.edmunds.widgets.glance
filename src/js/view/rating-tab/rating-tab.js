@@ -64,6 +64,8 @@ define([
             this.ready = true;
             this.missingContent = true;
             this.render();
+            this.$currentTab.on('click', this.showTooltip);
+            this.$currentTab.addClass('disabled');
         },
         load: function(styleId) {
             $('a[data-id="rating-tab"]').parent().off('click', this.showTooltip);

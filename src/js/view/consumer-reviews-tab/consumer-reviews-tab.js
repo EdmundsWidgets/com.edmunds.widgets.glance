@@ -78,6 +78,8 @@ define([
             this.ready = true;
             this.missingContent = true;
             this.render();
+            this.$currentTab.addClass('disabled');
+            this.$currentTab.on('click', this.showTooltip);
         },
         load: function (styleId) {
             $('a[data-id="consumer-reviews-tab"]').parent().off('click', this.showTooltip);
