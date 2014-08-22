@@ -113,11 +113,16 @@ define([
         },
         edmundsSaysTab: function(e) {
             e.preventDefault();
-            this.$navigationTabs.removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.resetActiveLinks();
-            this.edmundsSaysTabView.active = true;
-            this.edmundsSaysTabView.render();
+            var target = $(e.currentTarget).parent();
+            if (target.hasClass('disabled')) {
+                this.showTooltip();
+            } else {
+                this.$navigationTabs.removeClass('active');
+                target.addClass('active');
+                this.resetActiveLinks();
+                this.edmundsSaysTabView.active = true;
+                this.edmundsSaysTabView.render();
+            }
         },
         consumerReviewsTab: function(e) {
             e.preventDefault();
@@ -126,7 +131,7 @@ define([
                 this.showTooltip();
             } else {
                 this.$navigationTabs.removeClass('active');
-                target.parent('li').addClass('active');
+                target.addClass('active');
                 this.resetActiveLinks();
                 this.consumerReviewsTabView.active = true;
                 if (this.$dropdownMenu.find('[data-id=consumer-reviews-tab]').length > 0) {
@@ -138,27 +143,37 @@ define([
         },
         tcoTab: function(e) {
             e.preventDefault();
-            this.$navigationTabs.removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.resetActiveLinks();
-            this.tcoTabView.active = true;
-            if (this.$dropdownMenu.find('[data-id=tco-tab]').length > 0) {
-                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=tco-tab]').parent().addClass('hidden');
-                this.$navigation.find('.action').removeData('action-id').data('action-id', 'tco-tab').text('TCO').parent().addClass('active');
+            var target = $(e.currentTarget).parent();
+            if (target.hasClass('disabled')) {
+                this.showTooltip();
+            } else {
+                this.$navigationTabs.removeClass('active');
+                target.addClass('active');
+                this.resetActiveLinks();
+                this.tcoTabView.active = true;
+                if (this.$dropdownMenu.find('[data-id=tco-tab]').length > 0) {
+                    this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=tco-tab]').parent().addClass('hidden');
+                    this.$navigation.find('.action').removeData('action-id').data('action-id', 'tco-tab').text('TCO').parent().addClass('active');
+                }
+                this.tcoTabView.render();
             }
-            this.tcoTabView.render();
         },
         photosTab: function(e) {
             e.preventDefault();
-            this.$navigationTabs.removeClass('active');
-            $(e.currentTarget).parent('li').addClass('active');
-            this.resetActiveLinks();
-            this.photosTabView.active = true;
-            if (this.$dropdownMenu.find('[data-id=photos-tab]').length > 0) {
-                this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=photos-tab]').parent().addClass('hidden');
-                this.$navigation.find('.action').removeData('action-id').data('action-id', 'photos-tab').text('Photos').parent().addClass('active');
+            var target = $(e.currentTarget).parent();
+            if (target.hasClass('disabled')) {
+                this.showTooltip();
+            } else {
+                this.$navigationTabs.removeClass('active');
+                target.addClass('active');
+                this.resetActiveLinks();
+                this.photosTabView.active = true;
+                if (this.$dropdownMenu.find('[data-id=photos-tab]').length > 0) {
+                    this.$dropdownMenu.find('li').removeClass('hidden').find('[data-id=photos-tab]').parent().addClass('hidden');
+                    this.$navigation.find('.action').removeData('action-id').data('action-id', 'photos-tab').text('Photos').parent().addClass('active');
+                }
+                this.photosTabView.render();
             }
-            this.photosTabView.render();
         },
         onClickSplitButton: function(e) {
             e.preventDefault();
