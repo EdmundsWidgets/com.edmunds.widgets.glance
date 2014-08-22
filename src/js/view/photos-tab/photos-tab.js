@@ -64,6 +64,12 @@ define([
             this.ready = true;
             this.missingContent = true;
             this.render();
+            this.$currentTab.addClass('disabled');
+            if (this.$nextTab.length > 0) {
+                $('button.action').removeData('action-id').data('action-id', this.$nextTab.first().data('id')).text(this.$nextTab.first().text());
+                $('.dropdown-menu > li').removeClass('hidden').children('[data-id=' + this.$nextTab.first().data('id') + ']').parent().addClass('hidden');
+            }
+            this.$currentTab.on('click', this.showTooltip);
         },
         load: function(styleId, submodel) {
             this.ready = false;
