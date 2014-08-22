@@ -39,7 +39,10 @@ define([
             });
             // Initialization Rating Tab View
             this.ratingTabView = new RatingTabView({
-                apiKey: this.options.apiKey
+                apiKey: this.options.apiKey,
+                make: options.make,
+                modelName: options.model,
+                year: options.year
             });
             // Initialization Edmunds says Tab View
             this.edmundsSaysTabView = new EdmundsSaysTabView({

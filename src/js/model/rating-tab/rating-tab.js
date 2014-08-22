@@ -3,8 +3,8 @@ define([
     'collection/rating-tab/rating'
 ], function (Backbone, RatingCollection) {
     return Backbone.Model.extend({
-        url: function (styleId) {
-            return 'https://api.edmunds.com/api/vehicle/v2/grade/' + styleId;
+        url: function (make, model, year) {
+            return 'https://api.edmunds.com/api/vehicle/v2/grade/' + make + '/' + model + '/' + year;
         },
         initialize: function() {
             this.ratingCollection = new RatingCollection();

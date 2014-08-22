@@ -67,12 +67,13 @@ define([
             this.$currentTab.on('click', this.showTooltip);
             this.$currentTab.addClass('disabled');
         },
-        load: function(styleId) {
+        load: function(styleId, submodel) {
             $('a[data-id="rating-tab"]').parent().off('click', this.showTooltip);
             this.model.fetch({
-                url: this.model.url(styleId),
+                url: this.model.url(this.options.make, this.options.modelName, this.options.year),
                 data: {
-                    api_key: this.options.apiKey
+                    api_key: this.options.apiKey,
+                    submodel: submodel
                 }
             });
         },
