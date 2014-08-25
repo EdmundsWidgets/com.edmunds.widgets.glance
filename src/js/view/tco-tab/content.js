@@ -43,8 +43,7 @@ define([
                 this.$cells = this.$('.table').find('.years');
                 this.$select = this.$('.rating-selector');
             } else if (this.ready && this.missingContent) {
-                this.$currentTab.removeClass().addClass('disabled');
-                this.$el.html(missingContentTemplate);
+                this.$el.html(missingContentTemplate).height(this.contentHeight).css('overflow', 'hidden');
             }
             return this;
         },

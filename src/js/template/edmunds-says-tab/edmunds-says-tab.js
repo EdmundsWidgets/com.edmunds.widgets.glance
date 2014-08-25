@@ -3,7 +3,7 @@ define([
 ], function(_) {
     return _.template('' +
         '<div class="edmunds-says-tab">' +
-        '<div class="rating-bar container-fluid">' +
+        '<div <% if (!model.edmundsSays) { %>style="display: none;"<% } %> class="rating-bar container-fluid">' +
         '<p><%= model.edmundsSays %></p>' +
         '</div>' +
         '<section class="content container-fluid">' +

@@ -6491,7 +6491,6 @@ button.close {
 /*========== SPINNER (refactor according to LESS way) ==========*/
 .missing-content {
   height: 630px;
-  width: 250px;
 }
 .missing-content p {
   text-align: center;
@@ -6506,7 +6505,6 @@ button.close {
 .spinner-1 {
   background: url(../img/edmunds_api.png) no-repeat 50% 30%;
   height: 630px;
-  width: 250px;
 }
 .dots {
   height: 10px;
