@@ -1,5 +1,5 @@
 define([
-    'module',
+    'config',
     'jquery',
     'backbone',
     'dispatcher',
@@ -10,7 +10,7 @@ define([
     'view/consumer-reviews-tab/consumer-reviews-tab',
     'view/tco-tab/tco-tab',
     'view/photos-tab/photos-tab'
-], function(module, $, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
+], function(config, $, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         events: {
@@ -29,7 +29,7 @@ define([
             'photos-tab': 'Photos'
         },
         initialize: function() {
-            this.options = module.config();
+            this.options = config;
 
             // Initialization Styles View
             this.stylesView = new StylesView({
