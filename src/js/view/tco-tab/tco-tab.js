@@ -88,8 +88,8 @@ define([
             });
         },
         updateZipCode: function() {
-            var zipCode = this.$('#zip-code-control').val();
-            this.load(zipCode);
+            this.options.zipCode = this.$('#zip-code-control').val();
+            this.load(this.options.zipCode);
         },
         enableUpdateButton: function(e) {
             var zipCodeLength = $(e.currentTarget).val().length;
