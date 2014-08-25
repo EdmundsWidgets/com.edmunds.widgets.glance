@@ -92,10 +92,34 @@ define([
             this.load(this.options.zipCode);
         },
         enableUpdateButton: function(e) {
-            var zipCodeLength = $(e.currentTarget).val().length;
+            var zipCode = $(e.currentTarget).val(),
+                zipCodeLength = $(e.currentTarget).val().length;
 
             if (zipCodeLength > 4) {
-                this.$('#update-zip').removeAttr('disabled');
+                $.ajax({
+                    url: 'http://api.edmunds.com/v1/api/region/zip/validation/' + zipCode,
+                    data: {
+                        api_key: this.options.apiKey
+                    },
+                    dataType: 'jsonp',
+                    context: this,
+                    success: function (response) {
+                        if (response[zipCode] === 'true') {
+                            $(e.currentTarget).tooltip('hide');
+                            this.$('#update-zip').removeAttr('disabled');
+                        } else {
+                            $(e.currentTarget).tooltip({
+                                container: 'body',
+                                title: 'Invalid zip code',
+                                trigger: 'manual'
+                            }).tooltip('show');
+                            this.$('#update-zip').attr('disabled', 'disabled');
+                        }
+                    },
+                    error: function () {
+                        this.$('#update-zip').attr('disabled', 'disabled');
+                    }
+                });
             } else {
                 this.$('#update-zip').attr('disabled', 'disabled');
             }
