@@ -1,4 +1,5 @@
 define([
+    'module',
     'jquery',
     'backbone',
     'dispatcher',
@@ -9,7 +10,7 @@ define([
     'view/consumer-reviews-tab/consumer-reviews-tab',
     'view/tco-tab/tco-tab',
     'view/photos-tab/photos-tab'
-], function($, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
+], function(module, $, Backbone, dispatcher, baseTemplate, StylesView, RatingTabView, EdmundsSaysTabView, ConsumerReviewsTabView, TcoTabView, PhotosTabView) {
     return Backbone.View.extend({
         className: 'edm-widget',
         events: {
@@ -27,29 +28,29 @@ define([
             'tco-tab': 'TCO',
             'photos-tab': 'Photos'
         },
-        initialize: function(options) {
-            this.options = options;
+        initialize: function() {
+            this.options = module.config();
 
             // Initialization Styles View
             this.stylesView = new StylesView({
-                apiKey: options.apiKey,
-                make: options.make,
-                modelName: options.model,
-                year: options.year
+                apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.model,
+                year: this.options.year
             });
             // Initialization Rating Tab View
             this.ratingTabView = new RatingTabView({
                 apiKey: this.options.apiKey,
-                make: options.make,
-                modelName: options.model,
-                year: options.year
+                make: this.options.make,
+                modelName: this.options.model,
+                year: this.options.year
             });
             // Initialization Edmunds says Tab View
             this.edmundsSaysTabView = new EdmundsSaysTabView({
-                apiKey: options.apiKey,
-                make: options.make,
-                modelName: options.model,
-                year: options.year
+                apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.model,
+                year: this.options.year
             });
             // Initialization Consumer Reviews Tab View
             this.consumerReviewsTabView = new ConsumerReviewsTabView({
@@ -58,14 +59,14 @@ define([
             // Initialization TCO Tab View
             this.tcoTabView = new TcoTabView({
                 apiKey: this.options.apiKey,
-                zipCode: options.zipCode
+                zipCode: this.options.zipCode
             });
             // Initialization Photos Tab View
             this.photosTabView = new PhotosTabView({
                 apiKey: this.options.apiKey,
-                make: options.make,
-                modelName: options.model,
-                year: options.year
+                make: this.options.make,
+                modelName: this.options.model,
+                year: this.options.year
             });
 
             this.listenTo(dispatcher, 'onVehicleChange', this.resetTabs);
