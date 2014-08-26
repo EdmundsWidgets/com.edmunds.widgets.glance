@@ -19,38 +19,104 @@ define([
         '<div class="container-fluid">' +
         '<div class="row">' +
         '<ul class="nav nav-pills edm-navigation">' +
-        '<% if (tabsList.length < 4) { %>' +
-        '<% _.each(tabsList, function(el, i) { %>' +
-        '<li <% if (i === 0) { %>class="active"<% } %>>' +
-        '<a data-id="<%= el %>" href="#"><% if (windowWidth < 270 && el === "consumer-reviews-tab") { %>Reviews <% } else { %> <%= tabsToDisplay[el] %><% } %></a>' +
-        '</li>' +
-        '<% }); %>' +
-        '<% } else { %>' +
-        '<% _.each(tabsList, function(el, i) { %>' +
-        '<% if (i < 2) { %>' +
-        '<li <% if (i === 0) { %>class="active"<% } %>>' +
-        '<a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a>' +
-        '</li>' +
-        '<% } %>' +
-        '<% if (i === 2) { %>' +
-        '<li class="visible-xs btn-group nav-split-button">' +
-        '<button type="button" data-action-id="<%= el %>" class="btn action"><% if (el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></button>' +
-        '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
-        '<span class="arrow-down"></span>' +
-        '<span class="sr-only">Toggle Dropdown</span>' +
-        '</button>' +
-        '<ul class="dropdown-menu" role="menu">' +
-        '<% _.each(tabsList.slice(2), function(el, i) { %>' +
-        '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
-        '<% }); %>' +
-        '</ul>' +
-        '</li>' +
-        '<% _.each(tabsList.slice(2), function(el, i) { %>' +
-        '<li class="hidden-xs"><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
-        '<% }); %>' +
-        '<% } %>' +
-        '<% }); %>' +
-        '<% } %>' +
+            '<% if (tabsList.length < 4) { %>' +
+                '<% _.each(tabsList, function(el, i) { %>' +
+                    '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                        '<a data-id="<%= el %>" href="#"><% if (windowWidth < 270 && el === "consumer-reviews-tab") { %>Reviews <% } else { %> <%= tabsToDisplay[el] %><% } %></a>' +
+                    '</li>' +
+                '<% }); %>' +
+            '<% } else if (tabsList.length < 5) { %>' +
+                '<% if (windowWidth < 290) { %>' +
+                    '<% _.each(tabsList, function(el, i) { %>' +
+                        '<% if (i < 2) { %>' +
+                            '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                                '<a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a>' +
+                            '</li>' +
+                        '<% } %>' +
+                        '<% if (i === 2) { %>' +
+                            '<li class="visible-xs btn-group nav-split-button">' +
+                                '<button type="button" data-action-id="<%= el %>" class="btn action"><% if (el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></button>' +
+                                '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
+                                    '<span class="arrow-down"></span>' +
+                                    '<span class="sr-only">Toggle Dropdown</span>' +
+                                '</button>' +
+                                '<ul class="dropdown-menu" role="menu">' +
+                                    '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+                                        '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                                    '<% }); %>' +
+                                '</ul>' +
+                            '</li>' +
+                            '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+                                '<li class="hidden-xs"><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                            '<% }); %>' +
+                        '<% } %>' +
+                    '<% }); %>' +
+                '<% } else { %>' +
+                    '<% _.each(tabsList, function(el, i) { %>' +
+                        '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                            '<a data-id="<%= el %>" href="#"><% if (windowWidth < 320 && el === "consumer-reviews-tab") { %>Reviews <% } else { %> <%= tabsToDisplay[el] %><% } %></a>' +
+                        '</li>' +
+                    '<% }); %>' +
+                '<% } %>' +
+            '<% } else { %>' +
+                '<% if (windowWidth < 285) { %>' +
+                    '<% _.each(tabsList, function(el, i) { %>' +
+                        '<% if (i < 2) { %>' +
+                            '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                                '<a data-id="<%= el %>" href="#"><% if (windowWidth < 370 && el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></a>' +
+                            '</li>' +
+                        '<% } %>' +
+                        '<% if (i === 2) { %>' +
+                            '<li class="visible-xs btn-group nav-split-button">' +
+                                '<button type="button" data-action-id="<%= el %>" class="btn action"><% if (el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></button>' +
+                                '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
+                                    '<span class="arrow-down"></span>' +
+                                    '<span class="sr-only">Toggle Dropdown</span>' +
+                                '</button>' +
+                                '<ul class="dropdown-menu" role="menu">' +
+                                    '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+                                        '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                                    '<% }); %>' +
+                                '</ul>' +
+                            '</li>' +
+                            '<% _.each(tabsList.slice(2), function(el, i) { %>' +
+                                '<li class="hidden-xs"><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                            '<% }); %>' +
+                        '<% } %>' +
+                    '<% }); %>' +
+                '<% } else if (windowWidth < 320) { %>' +
+                    '<% _.each(tabsList, function(el, i) { %>' +
+                        '<% if (i < 3) { %>' +
+                            '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                                '<a data-id="<%= el %>" href="#"><% if (windowWidth < 370 && el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></a>' +
+                            '</li>' +
+                        '<% } %>' +
+                        '<% if (i === 3) { %>' +
+                            '<li class="visible-xs btn-group nav-split-button">' +
+                                '<button type="button" data-action-id="<%= el %>" class="btn action"><% if (el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></button>' +
+                                '<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">' +
+                                    '<span class="arrow-down"></span>' +
+                                    '<span class="sr-only">Toggle Dropdown</span>' +
+                                '</button>' +
+                                '<ul class="dropdown-menu" role="menu">' +
+                                    '<% _.each(tabsList.slice(3), function(el, i) { %>' +
+                                        '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                                    '<% }); %>' +
+                                '</ul>' +
+                            '</li>' +
+                            '<% _.each(tabsList.slice(3), function(el, i) { %>' +
+                                '<li class="hidden-xs"><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
+                            '<% }); %>' +
+                        '<% } %>' +
+                    '<% }); %>' +
+                '<% } else { %>' +
+                    '<% _.each(tabsList, function(el, i) { %>' +
+                        '<li <% if (i === 0) { %>class="active"<% } %>>' +
+                            '<a data-id="<%= el %>" href="#"><% if (windowWidth < 370 && el === "consumer-reviews-tab") { %>Reviews <% } else { %><%= tabsToDisplay[el] %><% } %></a>' +
+                        '</li>' +
+                    '<% }); %>' +
+                '<% } %>' +
+            '<% } %>' +
         '</ul>' +
         '</div>' +
         '</div>' +
@@ -71,5 +137,5 @@ define([
         '<a class="legacy" href="http://www.edmunds.com/about/visitor-agreement.html" target="_blank">Legal Notice</a>' +
         '<div class="logo"><a class="pull-right" href="http://www.edmunds.com" target="_blank"></a>A service of</div>' +
         '</footer>' +
-        '');
+    '');
 });
