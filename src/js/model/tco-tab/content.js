@@ -6,13 +6,20 @@ define([
         url: function(style, zipCode, stateCode) {
             return 'https://api.edmunds.com/api/tco/v1/details/allnewtcobystyleidzipandstate/' + style + '/' + zipCode + '/' + stateCode;
         },
+        error: false,
         parse: function(response) {
+            for (var key in response) {
+                if (response.hasOwnProperty(key) && response[key].hasOwnProperty('values') && response[key].values.length == 0) {
+                    this.error = true;
+                    return;
+                }
+            }
             response.totalOneYear = this.currencyFormatting(this.getTotalForYear(response, 0));
             response.totalTwoYears = this.currencyFormatting(this.getTotalForYear(response, 1));
             response.totalThreeYears = this.currencyFormatting(this.getTotalForYear(response, 2));
             response.totalFourYears = this.currencyFormatting(this.getTotalForYear(response, 3));
             response.totalFiveYears = this.currencyFormatting(this.getTotalForYear(response, 4));
-            for (var key in response) {
+            for (key in response) {
                 if (response.hasOwnProperty(key) && response[key].hasOwnProperty('values')) {
                     response[key].values = this.currencyFormatting(response[key].values);
                 }
@@ -23,6 +30,7 @@ define([
                 response.taxcredit = '$0';
             }
             response.tcoTotal = this.currencyFormatting(this.tcoTotal(response));
+            this.error = false;
             return response;
         },
         getTotalForYear: function(data, year) {

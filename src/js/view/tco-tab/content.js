@@ -54,7 +54,7 @@ define([
         },
         init: function() {
             this.ready = true;
-            this.missingContent = false;
+            this.missingContent = this.model.error === true;
             this.render();
         },
         error: function() {
