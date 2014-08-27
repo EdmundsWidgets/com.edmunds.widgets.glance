@@ -59,7 +59,7 @@ define([
                     '<% }); %>' +
                 '<% } %>' +
             '<% } else { %>' +
-                '<% if (windowWidth < 285) { %>' +
+                '<% if (windowWidth < 290) { %>' +
                     '<% _.each(tabsList, function(el, i) { %>' +
                         '<% if (i < 2) { %>' +
                             '<li <% if (i === 0) { %>class="active"<% } %>>' +
