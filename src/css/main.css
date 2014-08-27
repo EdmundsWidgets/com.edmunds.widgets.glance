@@ -6705,6 +6705,7 @@ button.close {
 }
 .no-content-modal .modal-header {
   border-bottom: none;
+  text-align: center;
 }
 html,
 body {
