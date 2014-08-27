@@ -4,9 +4,9 @@ define([
     'dispatcher',
     'template/tco-tab/content',
     'model/tco-tab/content',
-    'template/base/missing-content',
+    'template/base/missing-tco',
     'template/base/loading'
-], function($, Backbone, dispatcher, contentTemplate, TcoModel, missingContentTemplate, loadingTemplate) {
+], function($, Backbone, dispatcher, contentTemplate, TcoModel, missingTcoTemplate, loadingTemplate) {
     return Backbone.View.extend({
         active: false,
         ready: false,
@@ -43,7 +43,12 @@ define([
                 this.$cells = this.$('.table').find('.years');
                 this.$select = this.$('.rating-selector');
             } else if (this.ready && this.missingContent) {
-                this.$el.html(missingContentTemplate).height(this.contentHeight).css('overflow', 'hidden');
+                this.$el.html(missingTcoTemplate({
+                    make: this.options.make,
+                    modelName: this.options.modelName,
+                    year: this.options.year,
+                    styleId: this.styleId
+                })).height(this.contentHeight).css('overflow', 'hidden');
             }
             return this;
         },

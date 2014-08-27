@@ -59,6 +59,9 @@ define([
             // Initialization TCO Tab View
             this.tcoTabView = new TcoTabView({
                 apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.model,
+                year: this.options.year,
                 zipCode: this.options.zipCode
             });
             // Initialization Photos Tab View

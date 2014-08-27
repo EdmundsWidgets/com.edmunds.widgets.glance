@@ -25,7 +25,10 @@ define([
 
             // Initialize tco content view
             this.tcoContentView = new TcoContentView({
-                apiKey: this.options.apiKey
+                apiKey: this.options.apiKey,
+                make: this.options.make,
+                modelName: this.options.modelName,
+                year: this.options.year
             });
 
             this.listenTo(this.model, 'request', this.loading);
