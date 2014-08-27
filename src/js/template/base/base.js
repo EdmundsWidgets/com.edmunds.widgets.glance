@@ -98,7 +98,7 @@ define([
                                     '<span class="arrow-down"></span>' +
                                     '<span class="sr-only">Toggle Dropdown</span>' +
                                 '</button>' +
-                                '<ul class="dropdown-menu" role="menu">' +
+                                '<ul class="dropdown-menu" role="menu" style="left: -140%;">' +
                                     '<% _.each(tabsList.slice(3), function(el, i) { %>' +
                                         '<li <% if (i === 0) { %>class="hidden"<% } %>><a data-id="<%= el %>" href="#"><%= tabsToDisplay[el] %></a></li>' +
                                     '<% }); %>' +
