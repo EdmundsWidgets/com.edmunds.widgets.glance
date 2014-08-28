@@ -88,6 +88,8 @@ define([
             this.$('.dropdown-menu').find('li').removeClass('hidden');
             this.$('.dropdown-menu').find('[data-id=all]').parent().addClass('hidden');
             this.$('.photos-navigation').find('.dropdown-toggle').html('All <span class="caret"></span>').parent().addClass('active');
+            this.$('.nav-pills').find('li').removeClass('active');
+            this.$('.nav-pills').find('[data-id=all]').parent().addClass('active');
             this.slider.resetSlider();
             return this;
         },
@@ -99,6 +101,8 @@ define([
             this.$('.dropdown-menu').find('li').removeClass('hidden');
             this.$('.dropdown-menu').find('[data-id=interior]').parent().addClass('hidden');
             this.$('.photos-navigation').find('.dropdown-toggle').html('Interior <span class="caret"></span>').parent().addClass('active');
+            this.$('.nav-pills').find('li').removeClass('active');
+            this.$('.nav-pills').find('[data-id=interior]').parent().addClass('active');
             this.slider.resetSlider();
             return this;
         },
@@ -110,6 +114,8 @@ define([
             this.$('.dropdown-menu').find('li').removeClass('hidden');
             this.$('.dropdown-menu').find('[data-id=exterior]').parent().addClass('hidden');
             this.$('.photos-navigation').find('.dropdown-toggle').html('Exterior <span class="caret"></span>').parent().addClass('active');
+            this.$('.nav-pills').find('li').removeClass('active');
+            this.$('.nav-pills').find('[data-id=exterior]').parent().addClass('active');
             this.slider.resetSlider();
             return this;
         },

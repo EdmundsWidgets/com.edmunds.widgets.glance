@@ -6859,6 +6859,9 @@ footer .logo a {
 .photos-tab .rating-bar .nav-pills > li + li {
   margin-left: 10px;
 }
+.photos-tab .rating-bar .nav-pills .active a {
+  background-color: #3276b1;
+}
 .photos-tab .rating-bar .btn-xs {
   padding: 1px 10px;
   border: none;
