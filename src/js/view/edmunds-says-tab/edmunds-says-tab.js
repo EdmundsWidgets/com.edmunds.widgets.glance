@@ -20,7 +20,11 @@ define([
             this.listenTo(this.model, 'error', this.error);
         },
         render: function() {
-            if (this.active && this.ready && !this.missingContent) {
+            // Cache elements
+            this.$currentTab = $('a[data-id="edmunds-says-tab"]').parent();
+            this.$nextTab = this.$currentTab.next().children();
+
+            if (this.active && this.ready && !_.isEmpty(this.model.toJSON()) && !this.missingContent) {
                 this.$el.html(edmundsSaysTabTemplate({
                     model: this.model.toJSON(),
                     cons: this.model.get('con'),
@@ -41,18 +45,25 @@ define([
 
                 this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
                 this.$content.height(this.contentHeight);
-
-            } else if (this.active && this.ready && this.missingContent) {
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.on('click', this.showTooltip);
+                this.$currentTab.addClass('disabled');
+                dispatcher.trigger('prevTabIsDisabled');
+                this.$nextTab.click();
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.on('click', this.showTooltip);
+                this.$currentTab.removeClass().addClass('disabled');
                 this.$el.html(missingContentTemplate);
             }
             return this;
         },
         loading: function() {
+            this.missingContent = false;
             this.$el.html(LoadingTemplate);
         },
         init: function() {
             this.ready = true;
-            this.missingContent = false;
+//            this.missingContent = false;
             this.render();
         },
         error: function() {
