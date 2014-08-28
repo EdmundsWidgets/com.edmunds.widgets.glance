@@ -1,14 +1,14 @@
 .list-style-id{
+  margin: 5px 0;
   .btn{
     .border-radius(4px);
     background: transparent;
     border: 1px solid transparent;
     color: @base-font-color-dark;
     overflow: hidden;
-    padding: 2px 20px 2px 8px;
+    padding: 2px 25px 2px 8px;
     text-align: left;
     text-overflow: ellipsis;
-    width: 225px;
     &:first-child{
       margin-left: -9px;
     }
@@ -28,10 +28,16 @@
       right: 8px;
       vertical-align: middle;
     }
+    & > span{
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 200px;
+    }
   }
   .dropdown-menu{
     left: -9px;
-    width: 225px;
+    max-width: 235px;
     li a{
       overflow: hidden;
       text-overflow: ellipsis;

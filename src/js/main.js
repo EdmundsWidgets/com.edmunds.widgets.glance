@@ -4,20 +4,18 @@ requirejs.config({
         backbone: '../../bower_components/backbone/backbone',
         underscore: '../../bower_components/underscore/underscore',
         bootstrap: '../../bower_components/bootstrap/dist/js/bootstrap'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery']
+        }
     }
 });
 
-require(['jquery', 'underscore', 'backbone'], function() {
-    require([
-        'app',
-        'bootstrap'
-    ], function(App) {
-        var apiKey = 'axr2rtmnj63qsth3ume3tv5f',
-            submodel = 'sedan';
-        var app = new App({
-            apiKey:     apiKey,
-            submodel:   submodel
-        });
-        document.body.appendChild(app.el);
-    });
+require([
+    'app',
+    'bootstrap'
+], function (App) {
+    var app = new App();
+    document.body.appendChild(app.el);
 });

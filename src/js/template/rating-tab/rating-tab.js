@@ -1,5 +1,9 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
+        '<div class="rating-tab">' +
+        '<div class="rating-bar container-fluid">' +
         '<div class="row">' +
         '<div class="rating-container col-md-8">' +
         '<div class="test-drive-date pull-right">' +
@@ -28,9 +32,12 @@ define(function() {
         '</div>' +
         '<div class="vehicle-info-container col-md-4">' +
         '<div class="vehicle-info">' +
-        '<p>Vehicle Tested: <%= make.name %> <%= model.name %> <%= year.year %> <%= style.submodel.body %> <%= style.name %></p>' +
+        '<p>Vehicle Tested: <%= make.name %> <%= model.name %> <%= year.year %> <%= style.submodel.niceName %> <%= style.name %></p>' +
         '</div>' +
         '</div>' +
+        '</div>' +
+        '</div>' +
+        '<section class="content container-fluid"></section>' +
         '</div>' +
     '');
 });

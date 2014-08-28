@@ -1,18 +1,27 @@
 define([
+    'backbone',
     'template/rating-tab/content'
-], function(contentTemplate) {
+], function(Backbone, contentTemplate) {
     return Backbone.View.extend({
-        tagName: 'section',
-        className: 'content container-fluid',
-        template: contentTemplate,
+        el: '.content',
         initialize: function() {
+
+            // Cache elements
+            this.$widget = $('.edm-widget');
+            this.$header = $('header');
+            this.$ratingBar = $('.rating-bar');
+            this.$footer = $('footer');
+
+            this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+
             this.render();
         },
         render: function() {
-            this.$el.html(this.template({
+
+            this.$el.html(contentTemplate({
                 collection: this.collection.toJSON(),
                 summary: this.collection.summary
-            }));
+            })).height(this.contentHeight);
             return this;
         }
     });

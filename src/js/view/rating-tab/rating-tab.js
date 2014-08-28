@@ -1,65 +1,97 @@
 define([
+    'jquery',
+    'backbone',
     'dispatcher',
-    'model/rating-tab/rating-bar',
-    'view/rating-tab/rating-bar',
+    'template/rating-tab/rating-tab',
+    'model/rating-tab/rating-tab',
     'view/rating-tab/content',
     'view/rating-tab/details',
-    'view/base/loading'
-], function(dispatcher, RatingBarModel, RatingBarView, ContentView, DetailsView, LoadingView) {
+    'template/base/missing-content',
+    'template/base/loading'
+], function($, Backbone, dispatcher, ratingTabTemplate, RatingTabModel, ContentView, DetailsView, missingContentTemplate, loadingTemplate) {
     return Backbone.View.extend({
-        className: 'main-content',
+        active: false,
+        ready: false,
+        missingContent: false,
         events: {
             'click .rating-selector': 'renderDetails',
             'click .close-button': 'renderContent'
         },
-        model: new RatingBarModel(),
+        model: new RatingTabModel(),
         initialize: function(options) {
-            this.options = options || {};
-            this.loadingView = new LoadingView();
+            this.options = options;
+
             this.listenTo(dispatcher, 'onVehicleChange', this.load);
             this.listenTo(this.model, 'request', this.loading);
             this.listenTo(this.model, 'sync', this.init);
-        },
-        loading: function() {
-            this.$el.html(this.loadingView.render().el);
-        },
-        init: function() {
-            //note: Is it a good practice to create new instance every time when model is changed?
-            this.contentView = new ContentView({
-                collection: this.model.get('ratings')
-            });
-            this.ratingBarView = new RatingBarView({
-                model: this.model
-            });
-            this.render();
+            this.listenTo(this.model, 'error', this.error);
         },
         render: function() {
-            this.$el.empty();
-            this.$el.append(this.ratingBarView.el);
-            this.$el.append(this.contentView.el);
+            // Cache elements
+            this.$currentTab = $('a[data-id="rating-tab"]').parent();
+            this.$nextTab = this.$currentTab.next().children();
+
+            if (this.active && this.ready && !this.missingContent) {
+                this.$currentTab.removeClass('disabled');
+                this.$el.html(ratingTabTemplate(this.model.toJSON()));
+
+                this.contentView = new ContentView({
+                    collection: this.model.ratingCollection
+                });
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.on('click', this.showTooltip);
+                this.$currentTab.addClass('disabled');
+                dispatcher.trigger('prevTabIsDisabled');
+                this.$nextTab.click();
+            } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.on('click', this.showTooltip);
+                this.$currentTab.removeClass().addClass('disabled');
+                this.$el.html(missingContentTemplate);
+            }
             return this;
         },
-        load: function(styleId) {
+        loading: function() {
+            this.ready = false;
+            this.missingContent = false;
+            this.$el.html(loadingTemplate);
+        },
+        init: function() {
+            this.ready = true;
+            this.missingContent = false;
+            this.render();
+        },
+        error: function() {
+            this.ready = true;
+            this.missingContent = true;
+            this.render();
+            this.$currentTab.on('click', this.showTooltip);
+            this.$currentTab.addClass('disabled');
+        },
+        load: function(styleId, submodel) {
+            $('a[data-id="rating-tab"]').parent().off('click', this.showTooltip);
             this.model.fetch({
-                url: this.model.url(styleId),
+                url: this.model.url(this.options.make, this.options.modelName, this.options.year),
                 data: {
-                    api_key: this.options.apiKey
+                    api_key: this.options.apiKey,
+                    submodel: submodel
                 }
             });
         },
         renderDetails: function(e) {
             var id = $(e.currentTarget).data('id');
             this.detailsView = new DetailsView({
-                model: this.model.get('ratings').get(id),
-                make: this.model.get('ratings').make,
-                carModel: this.model.get('ratings').model,
-                year: this.model.get('ratings').year,
-                subModel: this.model.get('ratings').subModel
+                model: this.model.ratingCollection.get(id),
+                make: this.model.ratingCollection.make,
+                modelName: this.model.ratingCollection.modelName,
+                year: this.model.ratingCollection.year,
+                subModel: this.model.ratingCollection.subModel
             });
-            this.$('.content').html(this.detailsView.render().el);
         },
         renderContent: function() {
             this.contentView.render();
+        },
+        showTooltip: function() {
+            dispatcher.trigger('onNoContent')
         }
     });
 });

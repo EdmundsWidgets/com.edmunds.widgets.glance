@@ -1,8 +1,13 @@
-define(function() {
+define([
+    'backbone'
+], function(Backbone) {
     return Backbone.Collection.extend({
-        url: 'https://api.edmunds.com/api/vehicle/v2/honda/accord/2013',
+        url: function (make, model, year) {
+            return 'https://api.edmunds.com/api/vehicle/v2/' + make + '/' + model + '/' + year + '/styles';
+        },
         parse: function(response) {
-            return response['styles'];
-        }
+            return response.styles;
+        },
+        comparator: 'name'
     });
 });

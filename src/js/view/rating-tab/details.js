@@ -1,20 +1,31 @@
 define([
+    'backbone',
     'template/rating-tab/details'
-], function(detailsTemplate) {
+], function(Backbone, detailsTemplate) {
     return Backbone.View.extend({
-        template: detailsTemplate,
+        el: '.content',
         initialize: function(options) {
-            this.options = options || {};
+            this.options = options;
+
+            // Cache elements
+            this.$widget = $('.edm-widget');
+            this.$header = $('header');
+            this.$ratingBar = $('.rating-bar');
+            this.$footer = $('footer');
+
+            this.contentHeight = this.$widget.outerHeight() - this.$header.outerHeight() - this.$ratingBar.outerHeight() - this.$footer.outerHeight() - 22;
+
+            this.render();
         },
         render: function() {
-            this.$el.html(this.template({
+            this.$el.html(detailsTemplate({
                 rating: this.model.toJSON(),
                 subrating: this.model.get('subRatings').toJSON(),
                 make: this.options.make,
-                carModel: this.options.carModel,
+                modelName: this.options.modelName,
                 year: this.options.year,
                 subModel: this.options.subModel
-            }));
+            })).height(this.contentHeight);
             return this;
         }
     });

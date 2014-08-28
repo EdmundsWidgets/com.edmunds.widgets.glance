@@ -6126,6 +6126,9 @@ button.close {
   color: #888888;
   float: right;
 }
+.list-style-id {
+  margin: 5px 0;
+}
 .list-style-id .btn {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -6134,10 +6137,9 @@ button.close {
   border: 1px solid transparent;
   color: #333333;
   overflow: hidden;
-  padding: 2px 20px 2px 8px;
+  padding: 2px 25px 2px 8px;
   text-align: left;
   text-overflow: ellipsis;
-  width: 225px;
 }
 .list-style-id .btn:first-child {
   margin-left: -9px;
@@ -6162,9 +6164,15 @@ button.close {
   right: 8px;
   vertical-align: middle;
 }
+.list-style-id .btn > span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
 .list-style-id .dropdown-menu {
   left: -9px;
-  width: 225px;
+  max-width: 235px;
 }
 .list-style-id .dropdown-menu li a {
   overflow: hidden;
@@ -6480,6 +6488,225 @@ button.close {
   background: #92d000;
   height: 10px;
 }
+/*========== SPINNER (refactor according to LESS way) ==========*/
+.missing-content {
+  height: 630px;
+}
+.missing-content p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #00a8ff;
+}
+.missing-content:first-child {
+  margin-left: 0;
+}
+/*======== SPINNER 1 ========*/
+.spinner-1 {
+  background: url(../img/edmunds_api.png) no-repeat 50% 30%;
+  height: 630px;
+}
+.dots {
+  height: 10px;
+  margin: 0 auto;
+  position: relative;
+  top: 40%;
+  width: 90px;
+}
+.dot-1,
+.dot-2,
+.dot-3,
+.dot-4,
+.dot-5 {
+  height: 10px;
+  width: 10px;
+  background: #00a8ff;
+  float: left;
+  margin-left: 10px;
+  -webkit-animation: scale 4s infinite;
+  /* Safari 4+ */
+  -moz-animation: scale 4s infinite;
+  /* Fx 5+ */
+  -o-animation: scale 4s infinite;
+  /* Opera 12+ */
+  animation: scale 4s infinite;
+  /* IE 10+ */
+}
+.dot-1 {
+  margin-left: 0;
+}
+.dot-2 {
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+.dot-3 {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -o-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.dot-4 {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.dot-5 {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  -o-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+@-webkit-keyframes scale {
+  0% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+  25% {
+    -moz-transform: scale(1.2, 1.2);
+    /* Для Firefox */
+    -ms-transform: scale(1.2, 1.2);
+    /* Для IE */
+    -webkit-transform: scale(1.2, 1.2);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1.2, 1.2);
+    /* Для Opera */
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+}
+@-moz-keyframes scale {
+  0% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+  25% {
+    -moz-transform: scale(1.2, 1.2);
+    /* Для Firefox */
+    -ms-transform: scale(1.2, 1.2);
+    /* Для IE */
+    -webkit-transform: scale(1.2, 1.2);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1.2, 1.2);
+    /* Для Opera */
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+}
+@-o-keyframes scale {
+  0% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+  25% {
+    -moz-transform: scale(1.2, 1.2);
+    /* Для Firefox */
+    -ms-transform: scale(1.2, 1.2);
+    /* Для IE */
+    -webkit-transform: scale(1.2, 1.2);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1.2, 1.2);
+    /* Для Opera */
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+}
+@keyframes scale {
+  0% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+  25% {
+    -moz-transform: scale(1.2, 1.2);
+    /* Для Firefox */
+    -ms-transform: scale(1.2, 1.2);
+    /* Для IE */
+    -webkit-transform: scale(1.2, 1.2);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1.2, 1.2);
+    /* Для Opera */
+    transform: scale(1.2, 1.2);
+  }
+  50% {
+    -moz-transform: scale(1, 1);
+    /* Для Firefox */
+    -ms-transform: scale(1, 1);
+    /* Для IE */
+    -webkit-transform: scale(1, 1);
+    /* Для Safari, Chrome, iOS */
+    -o-transform: scale(1, 1);
+    /* Для Opera */
+    transform: scale(1, 1);
+  }
+}
+.no-content-modal {
+  overflow: hidden;
+  margin-top: 165px;
+}
+.no-content-modal .modal-header {
+  border-bottom: none;
+  text-align: center;
+}
 html,
 body {
   height: 100%;
@@ -6552,7 +6779,7 @@ header {
 header h1 {
   color: #333333;
   font-size: 12px;
-  margin: 5px 15px 0 0;
+  margin: 10px 0 0 0;
   text-transform: uppercase;
 }
 .content {
@@ -6565,11 +6792,6 @@ header h1 {
 }
 .content .rating-summary h4 {
   margin-bottom: 4px;
-}
-.rating-tab .rating-summary {
-  height: 125px;
-  margin-right: -10px;
-  overflow-y: auto;
 }
 footer {
   border-top: 1px dotted #c1c1c1;
@@ -6591,28 +6813,28 @@ footer .logo a {
   height: 19px;
   margin: 11px 0 0 5px;
 }
-.edmunds-says .rating-bar {
+.edmunds-says-tab .rating-bar {
   background: #00a8fe;
   padding-bottom: 10px;
   padding-top: 10px;
 }
-.edmunds-says .pros h4 {
+.edmunds-says-tab .pros h4 {
   background: url(../img/icon-pros.png) no-repeat;
   margin-bottom: 10px;
   padding-left: 20px;
 }
-.edmunds-says .cons h4 {
+.edmunds-says-tab .cons h4 {
   background: url(../img/icon-cons.png) no-repeat;
   margin-bottom: 10px;
   padding-left: 20px;
 }
-.edmunds-says ul {
+.edmunds-says-tab ul {
   list-style: none;
   padding: 0;
   font-size: 12px;
   color: #444;
 }
-.edmunds-says .rating-summary h4 {
+.edmunds-says-tab .rating-summary h4 {
   margin-bottom: 5px;
 }
 .photos-tab .rating-bar .rating-container {
@@ -6652,7 +6874,7 @@ footer .logo a {
 }
 .photos-tab .content {
   height: 461px;
-  padding: 10px 0;
+  padding: 4px 0;
 }
 .photos-tab .content .list-photos {
   width: 228px;
@@ -6867,6 +7089,11 @@ footer .logo a {
   width: 100%;
   cursor: pointer;
 }
+.tco-tab .vehicle-info-container {
+  background: #e5e5e5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
 .tco-tab .vehicle-info p {
   color: #888888;
   font-size: 11px;
@@ -6880,6 +7107,7 @@ footer .logo a {
   font-size: 22px;
   font-weight: bold;
   float: right;
+  line-height: 14px;
 }
 .tco-tab .vehicle-info .true-cash-price {
   color: #333333;
@@ -7179,7 +7407,7 @@ footer .logo a {
   margin: -50px 0 0 -50px;
   height: 100px;
   width: 100px;
-  top: 50%;
+  top: 30%;
   left: 50%;
   position: absolute;
   border-radius: 999px;

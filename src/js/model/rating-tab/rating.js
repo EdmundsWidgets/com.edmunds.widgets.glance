@@ -1,11 +1,12 @@
 define([
+    'backbone',
     'collection/rating-tab/sub-rating'
-], function(SubratingCollection) {
+], function(Backbone, SubRatingCollection) {
     return Backbone.Model.extend({
         parse: function(response) {
             response.id = response.title.toLowerCase().replace(/\s+/g, '-');
 
-            response.subRatings = new SubratingCollection(response.subRatings, {
+            response.subRatings = new SubRatingCollection(response.subRatings, {
                 parse: true
             });
 

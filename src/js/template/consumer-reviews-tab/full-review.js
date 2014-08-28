@@ -1,5 +1,8 @@
-define(function() {
+define([
+    'underscore'
+], function(_) {
     return _.template('' +
+        '<div class="reviews-tab">' +
         '<div class="rating-bar container-fluid">' +
         '<div class="list-reviews"></div>' +
         '<div class="list-reviews-nav">' +
@@ -26,7 +29,7 @@ define(function() {
         '</div>' +
         '<div class="col-xs-12">' +
         '<h4><%= model.title %></h4>' +
-        '<p class="vehicle">Vehicle: Honda Accord 2013 Sedan EX 4dr Sedan (2.4L 4cyl CVT)</p>' +
+        '<p class="vehicle"><%= model.text %></p>' +
         '<p class="title">Favorite Features:</p>' +
         '<p><%= model.favoriteFeatures %></p>' +
         '<p class="title">Suggested Improvements:</p>' +
@@ -44,5 +47,6 @@ define(function() {
         '</div>' +
         '</div>' +
         '</section>' +
+        '</div>' +
     '');
 });

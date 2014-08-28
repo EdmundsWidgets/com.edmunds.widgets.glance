@@ -1,8 +1,18 @@
-define(function() {
+define([
+    'underscore',
+    'backbone'
+], function(_, Backbone) {
     return Backbone.Collection.extend({
         parse: function(response) {
             response = this.convertDates(response);
+            response = this.truncateText(response);
             return response;
+        },
+        truncateText: function(data) {
+            _.each(data, function(model) {
+                model.text = model.text.substr(0,147) + '...';
+            });
+            return data;
         },
         convertDates: function(data) {
             _.each(data, function(model) {

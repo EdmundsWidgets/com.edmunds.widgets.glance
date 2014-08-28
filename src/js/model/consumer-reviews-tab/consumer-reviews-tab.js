@@ -1,9 +1,9 @@
 define([
+    'backbone',
     'collection/consumer-reviews-tab/reviews-list'
-], function(ReviewsListCollection) {
+], function(Backbone, ReviewsListCollection) {
     return Backbone.Model.extend({
         url: function(styleId) {
-//            var styleId = 200434856; //note: Uncomment parameter and delete this row
             return 'https://api.edmunds.com/api/vehiclereviews/v2/styles/' + styleId;
         },
         parse: function(response) {
