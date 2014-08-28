@@ -138,7 +138,10 @@ define([
             }
 
             if (zipCodeLength > 4) {
-                if (window.getSelection().toString().length < 1) {
+                // Especially for Firefox that doesn't support window.getSelection() on input selection
+                var input = document.getElementById('zip-code-control');
+
+                if (input.value.substring(input.selectionStart, input.selectionEnd) < 1) {
                     e.preventDefault();
                     return false;
                 }
