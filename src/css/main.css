@@ -7161,7 +7161,11 @@ footer .logo a {
   display: block;
   line-height: 14px;
   padding: 5px 15px;
-  background: #0070bf;
+  background-color: #0070bf;
+  border-color: #006fa7;
+}
+.tco-tab .rating-container .btn-primary:hover {
+  background-color: #007ad0;
 }
 .tco-tab .table > tfoot > tr > td {
   border: none;
