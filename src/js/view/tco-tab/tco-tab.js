@@ -51,9 +51,12 @@ define([
                 this.tcoContentView.setElement('.content');
                 dispatcher.trigger('onZipCodeUpdate', this.zipCode, this.model.toJSON().stateCode);
             } else if (this.active && this.ready && this.missingContent && this.$nextTab.length > 0) {
+                this.$currentTab.on('click', this.showTooltip);
                 this.$currentTab.addClass('disabled');
+                dispatcher.trigger('prevTabIsDisabled');
                 this.$nextTab.click();
             } else if (this.active && this.ready && this.missingContent && this.$nextTab.length === 0) {
+                this.$currentTab.on('click', this.showTooltip);
                 this.$currentTab.removeClass().addClass('disabled');
                 this.$el.html(missingContentTemplate);
             }
@@ -81,6 +84,7 @@ define([
             this.$currentTab.on('click', this.showTooltip);
         },
         load: function(zipCode) {
+            $('a[data-id="rating-tab"]').parent().off('click', this.showTooltip);
             this.zipCode = zipCode;
             this.model.fetch({
                 data: {
@@ -151,6 +155,9 @@ define([
                 e.preventDefault();
                 return false;
             }
+        },
+        showTooltip: function() {
+            dispatcher.trigger('onNoContent', 'TCO Tab');
         }
     });
 });

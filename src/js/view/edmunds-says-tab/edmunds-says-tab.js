@@ -81,6 +81,9 @@ define([
                     api_key: this.options.apiKey
                 }
             });
+        },
+        showTooltip: function() {
+            dispatcher.trigger('onNoContent')
         }
     });
 });
