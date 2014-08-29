@@ -11,8 +11,10 @@ define([
                 response.pro = response.pro.replace('<p>', '').replace('</p>', '').split('; ');
                 if (response.introduction) {
                     response.introduction = response.introduction.replace(/\s<p>.*/g, '');
-                } else {
+                } else if (response.review) {
                     response.introduction = response.review;
+                } else {
+                    response.introduction = response.fvOverview;
                 }
                 response.introduction = response.introduction.replace(/\s<p>.*/g, '');
             } else {
