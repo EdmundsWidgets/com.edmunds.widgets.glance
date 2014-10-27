@@ -190,7 +190,6 @@ function map(array) {
  * @param {Object} config
  */
 EDM.createWidget = function(config) {
-    console.log(config);
     var iframe = new WidgetFrame(config.renderTo, {
             height: config.style.height,
             width: config.style.width

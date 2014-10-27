@@ -28,7 +28,7 @@ app.configure(function(){
     app.use('/libs', express.static(path.join(__dirname, 'bower_components')));
 });
 
-app.use('/glance', express.static(path.join(__dirname, 'src/glance')));
+app.use('/glance', express.static(path.join(__dirname, 'public/glance')));
 app.configure('development', function(){
     app.use(express.errorHandler());
 });
@@ -42,10 +42,6 @@ app.get('/api/keyvalidate', masheryApi.keyValidate);
 
 app.get('/dealer/sendlead', masheryApi.sendLead);
 
-// redirect to the new SDK
-app.get('/js/edm/sdk.js', function(req, res) {
-    res.sendfile(__dirname + '/public/js/edm/edmunds-sdk.min.js');
-});
 app.get('/loader-glance.js', function(req, res) {
     res.setHeader('Content-Type', 'text/javascript');
     res.render('loader-glance', {
