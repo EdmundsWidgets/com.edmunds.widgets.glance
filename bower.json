@@ -18,7 +18,7 @@
         "jquery-ui": "1.10.3",
         "requirejs": "2.1.10",
         "underscore": "1.5.2",
-        "edmunds-sdk":"0.0.2"
+        "edmunds-sdk":"0.0.5"
     },
   "devDependencies": {
     "less": "~1.7.0"
