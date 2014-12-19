@@ -25,12 +25,44 @@ module.exports = function(grunt) {
             glance: [
                 'uglify:glance'
             ]
+        },
+        express: {
+            options: {
+                port: 3001,
+                debug: true
+            },
+            server: {
+                options: {
+                    script: 'app.js'
+                }
+            }
+        },
+        ghost: {
+            test: {
+                files: [{
+                    src: ['tests/*-test.js']
+                }]
+            },
+            options: {
+                args: {
+                    baseUrl: 'http://localhost:' +
+                    '<%= express.options.port %>/' + 'glance/configure'
+                },
+                direct: false,
+                logLevel: 'error',
+                printCommand: false,
+                printFilePaths: true
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-ghost');
+    grunt.loadNpmTasks('grunt-express-server');
+
+    grunt.registerTask('test', ['express', 'ghost']);
 
 
     grunt.registerTask('default', 'watch');

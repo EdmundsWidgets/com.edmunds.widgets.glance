@@ -89,6 +89,8 @@ function WidgetFrame(renderTo, attributes, includes) {
     attributes = attributes || {};
     attributes.border = 0;
     attributes.frameBorder = 0;
+    attributes.name = 'glance-frame';
+    attributes.class = 'glance-wdg'
     attributes.scrolling = 'no';
     _iframe = createElement('iframe', attributes);
     _targetElement.appendChild(_iframe);

@@ -16,7 +16,7 @@ var express = require('express'),
 var app = express();
 
 app.configure(function(){
-    app.set('port', process.env.PORT || 3000);
+    app.set('port', process.env.PORT || 3001);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
     app.use(express.favicon());
@@ -28,7 +28,8 @@ app.configure(function(){
     app.use('/libs', express.static(path.join(__dirname, 'bower_components')));
 });
 
-app.use('/glance', express.static(path.join(__dirname, 'public/glance')));
+app.use('/glance', express.static(path.join(__dirname, 'edmunds-glance/glance')));
+//app.use('/glance', express.static(path.join(__dirname, 'src/glance')));
 app.configure('development', function(){
     app.use(express.errorHandler());
 });

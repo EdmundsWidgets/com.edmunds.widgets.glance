@@ -1,7 +1,7 @@
 ({
     appDir: 'src/glance',
     baseUrl: './js',
-    dir: 'public/glance',
+    dir: 'edmunds-glance/glance',
     modules: [
         {
             name: 'main'
@@ -31,4 +31,4 @@
             deps: ['jquery']
         }
     }
-});
+})
